@@ -1,0 +1,3700 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大智度論 · 卷六十二 · 第 1–3 品彙整</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f3ec; --text:#2c2416; --text2:#5a4e3a; --text-muted:#6B5B4B;
+  --accent:#8b5e3c; --accentL:#c4956a; --accent-red:#8B2500;
+  --gold:#b8860b; --goldL:#d4a84b; --gold-light:#C9A84C;
+  --border:#d4c4a8; --border-light:#EDE8E0; --card:#fffdf7;
+  --verseBg:#f0e8d8; --verseBd:#c4956a;
+  --sbW:76px; --sbBg:#1e1a14; --sbText:#d4c4a8;
+  --headGrad:linear-gradient(135deg,#2a2218 0%,#3d3225 50%,#2a2218 100%);
+  --r:8px; --primary:#2C1810; --primary-light:#5B3A29;
+  --shadow:rgba(91,58,41,0.08);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:"Noto Serif TC","Source Han Serif TC","Songti TC",Georgia,serif;
+  line-height:1.8;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none;
+  scrollbar-width:none;-ms-overflow-style:none;}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0;}
+img{-webkit-user-drag:none;pointer-events:none;}
+
+/* sticky 卷名回頂 */
+.sb-brand{position:sticky;top:0;width:100%;
+  font-family:"Noto Sans TC",sans-serif;font-size:11px;letter-spacing:2px;
+  color:var(--gold);writing-mode:horizontal-tb;text-orientation:mixed;
+  text-align:center;line-height:1.5;
+  background:linear-gradient(to bottom,var(--sbBg) 78%,rgba(30,26,20,0));
+  padding:14px 4px 12px;margin-bottom:6px;z-index:5;
+  text-decoration:none;cursor:pointer;
+  transition:color .25s,background .25s;display:block;
+  border-bottom:1px solid rgba(184,134,11,.25);}
+.sb-brand:hover{color:var(--goldL);}
+.sb-brand .sb-brand-line1{display:block;font-size:11px;letter-spacing:1.5px;opacity:.78;}
+.sb-brand .sb-brand-line2{display:block;font-size:13px;font-weight:700;
+  letter-spacing:2.2px;color:var(--goldL);margin-top:2px;}
+.sb-brand .sb-brand-arrow{display:block;font-size:10px;opacity:.55;margin-top:2px;}
+
+#sb{position:fixed;left:0;top:0;width:var(--sbW);height:100vh;
+  background:var(--sbBg);color:var(--sbText);z-index:100;
+  display:flex;flex-direction:column;align-items:center;
+  padding:0 0 16px;overflow-y:auto;scrollbar-width:none;}
+#sb::-webkit-scrollbar{display:none;}
+.sb-nav{display:flex;flex-direction:column;gap:6px;width:100%;align-items:center;padding:6px 0;}
+.sb-item{display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:3px 4px;border-radius:8px;cursor:pointer;
+  text-decoration:none;color:var(--sbText);
+  transition:background .25s,color .25s;}
+.sb-item:hover{background:rgba(212,196,168,.08);color:#fff;}
+.sb-item.active{background:rgba(184,134,11,.18);color:var(--goldL);
+  box-shadow:0 0 18px rgba(184,134,11,.35) inset;}
+.sb-circle{width:34px;height:34px;border-radius:50%;
+  background:rgba(212,196,168,.10);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Noto Sans TC",sans-serif;font-weight:600;font-size:14px;
+  color:var(--gold);border:1px solid rgba(184,134,11,.35);}
+.sb-item.active .sb-circle{background:var(--gold);color:#1e1a14;}
+.sb-label{font-size:11px;letter-spacing:1.5px;color:var(--sbText);
+  font-family:"Noto Sans TC",sans-serif;}
+
+#sbToggle{display:none;position:fixed;left:12px;top:12px;z-index:200;
+  width:40px;height:40px;border-radius:8px;border:none;
+  background:var(--sbBg);color:var(--gold);font-size:20px;cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,.25);}
+
+/* 進度膠囊 */
+.read-progress{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+  z-index:120;background:rgba(30,26,20,.92);color:var(--gold);
+  padding:8px 22px;border-radius:30px;
+  border:1px solid rgba(184,134,11,.5);
+  box-shadow:0 4px 18px rgba(0,0,0,.25);
+  font-family:"Noto Sans TC",sans-serif;
+  font-size:13px;letter-spacing:2px;
+  display:flex;align-items:center;gap:12px;
+  pointer-events:none;user-select:none;backdrop-filter:blur(6px);}
+.read-progress .rp-bar{width:140px;height:3px;background:rgba(212,196,168,.18);
+  border-radius:2px;overflow:hidden;position:relative;}
+.read-progress .rp-fill{position:absolute;top:0;left:0;bottom:0;
+  background:linear-gradient(90deg,var(--gold),var(--goldL));
+  width:0%;transition:width .3s;}
+.read-progress .rp-pct{font-weight:600;min-width:38px;text-align:right;}
+.read-progress .rp-label{font-size:11px;opacity:.75;letter-spacing:3px;}
+
+.main{margin-left:var(--sbW);padding:0 0 80px;}
+
+/* Hero */
+.site-hero{position:relative;background:linear-gradient(135deg,#1e1a14 0%,#3d3225 50%,#1e1a14 100%);
+  color:#f0e8d8;padding:78px 26px 64px;text-align:center;overflow:hidden;}
+.site-hero::before{content:"般若";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-size:380px;color:rgba(184,134,11,.04);font-weight:900;font-family:"Noto Serif TC",serif;
+  letter-spacing:0.3em;pointer-events:none;}
+.site-hero > *{position:relative;z-index:2;}
+.hero-title{font-size:56px;letter-spacing:.2em;margin:0 0 14px;color:var(--goldL);font-weight:900;}
+.hero-subtitle{font-size:20px;color:#e6d8b8;letter-spacing:.16em;margin:0 0 18px;}
+.hero-sub{font-size:18px;color:#d4c4a8;line-height:1.9;margin:8px 0;letter-spacing:.05em;}
+.hero-meta{font-size:18px;color:#d4c4a8;line-height:1.9;margin:6px 0;}
+.hero-range{font-size:17px;color:rgba(212,196,168,.78);
+  letter-spacing:.18em;margin-top:18px;border-top:1px solid rgba(184,134,11,.3);padding-top:18px;}
+
+/* Preface */
+.preface{max-width:880px;margin:42px auto 28px;padding:0 28px;}
+.preface-title{font-size:30px;color:var(--accent);text-align:center;
+  margin:0 0 18px;font-weight:700;letter-spacing:.2em;
+  border-bottom:2px solid var(--gold);padding-bottom:10px;display:inline-block;
+  width:auto;left:50%;position:relative;transform:translateX(-50%);}
+.preface-text p{font-size:19px;line-height:2.1;margin:0 0 14px;color:var(--text2);}
+.preface-text strong{color:var(--accent-red);font-weight:700;}
+
+/* TOC */
+.toc-section{max-width:1100px;margin:32px auto 24px;padding:0 28px;}
+.toc-title{font-size:34px;text-align:center;color:var(--accent);
+  font-weight:700;letter-spacing:.3em;margin:0 0 8px;}
+.toc-desc{font-size:17px;text-align:center;color:var(--text-muted);
+  letter-spacing:.18em;margin:0 0 22px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
+.toc-card{display:flex;flex-direction:column;align-items:center;
+  padding:18px 22px;background:var(--card);border:1px solid var(--border);
+  border-radius:12px;text-decoration:none;color:var(--text);
+  box-shadow:0 2px 8px rgba(91,58,41,.07);
+  transition:transform .25s,box-shadow .25s,border-color .25s;}
+.toc-card:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(91,58,41,.18);
+  border-color:var(--gold);}
+.toc-num{display:flex;align-items:center;justify-content:center;
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--goldL));
+  color:#fff;font-weight:700;font-size:17px;margin-bottom:10px;
+  font-family:"Noto Sans TC",sans-serif;letter-spacing:0;}
+.toc-name{font-size:19.5px;color:var(--accent);font-weight:700;
+  text-align:center;line-height:1.7;margin-bottom:6px;}
+.toc-sub{font-size:13.5px;color:var(--text-muted);text-align:center;
+  line-height:1.7;letter-spacing:.05em;}
+
+/* Chapter section */
+.chapter{margin:46px auto;max-width:1080px;padding:0 28px;scroll-margin-top:24px;}
+.ch-head{background:var(--headGrad);color:#fff;padding:36px 28px 30px;
+  text-align:center;border-radius:14px 14px 0 0;
+  border-bottom:3px solid var(--gold);position:relative;}
+.ch-head::after{content:"";position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);
+  width:60px;height:3px;background:var(--gold);}
+.ch-num{font-size:18px;color:var(--gold);letter-spacing:.3em;
+  font-family:"Noto Sans TC",sans-serif;margin-bottom:8px;}
+.ch-name{font-size:34px;color:#fff;font-weight:700;letter-spacing:.16em;
+  margin:6px 0;}
+.ch-sub,.ch-desc,.ch-subtitle{font-size:17px;color:#d4c4a8;
+  letter-spacing:.08em;margin-top:8px;line-height:1.7;}
+.ch-body{background:#fffdf7;padding:32px 28px 28px;
+  border:1px solid var(--border);border-top:none;border-radius:0 0 14px 14px;}
+
+/* Bridge */
+.bridge{background:linear-gradient(135deg,#fffdf5,#f5ecd8);
+  border:1px solid var(--border);border-left:5px solid var(--gold);
+  border-radius:10px;padding:18px 24px;margin:0 0 26px;
+  box-shadow:0 2px 10px rgba(91,58,41,.06);}
+.bridge-outro{border-left-color:var(--accentL);
+  background:linear-gradient(135deg,#fdf8e8,#f2e6c8);
+  margin-top:30px;margin-bottom:14px;}
+.bridge-label{display:inline-block;font-family:"Noto Sans TC",sans-serif;
+  font-size:12.5px;background:var(--gold);color:#fff;
+  padding:3px 12px;border-radius:12px;letter-spacing:2.2px;margin-bottom:10px;}
+.bridge-outro .bridge-label{background:var(--accent);}
+.bridge p{margin:0;color:var(--text2);line-height:2.1;font-size:18.5px;}
+.bridge p strong{color:var(--accent-red);font-weight:700;}
+
+/* iframe */
+.ch-frame{display:block;width:100%;border:0;background:#fffdf7;
+  border:1px solid var(--border);border-radius:12px;
+  box-shadow:0 4px 20px rgba(91,58,41,.1);
+  margin:0 0 8px;min-height:180px;}
+
+/* next link */
+.next-link{display:inline-block;margin-top:18px;
+  background:linear-gradient(135deg,var(--gold),var(--goldL));
+  color:#fff;text-decoration:none;padding:10px 24px;
+  border-radius:30px;font-size:17px;font-weight:600;
+  letter-spacing:.16em;font-family:"Noto Sans TC",sans-serif;
+  box-shadow:0 4px 14px rgba(184,134,11,.3);
+  transition:transform .25s,box-shadow .25s;}
+.next-link:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(184,134,11,.45);}
+
+/* Footer */
+.site-footer{margin:46px auto 80px;padding:24px 28px;text-align:center;
+  border-top:1px solid var(--border);max-width:880px;}
+.site-footer p{margin:6px 0;color:var(--text-muted);font-size:15px;
+  letter-spacing:.08em;line-height:1.9;}
+
+/* back to top */
+#backTop{position:fixed;right:24px;bottom:80px;width:44px;height:44px;
+  border-radius:50%;border:none;cursor:pointer;
+  background:var(--accent);color:#fff;font-size:20px;
+  box-shadow:0 4px 14px rgba(91,58,41,.3);z-index:99;
+  display:none;transition:opacity .25s;}
+#backTop.visible{display:block;}
+
+/* Responsive */
+@media(max-width:900px){
+  #sb{transform:translateX(-100%);transition:transform .3s;}
+  #sb.open{transform:translateX(0);}
+  #sbToggle{display:flex;align-items:center;justify-content:center;}
+  .main{margin-left:0;padding-left:0;}
+  .hero-title{font-size:40px;}
+  .ch-name{font-size:26px;}
+  .toc-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  body{font-size:15.5px;}
+  .hero-title{font-size:32px;}
+  .ch-name{font-size:22px;}
+  .toc-name{font-size:17px;}
+}
+
+/* ============ 1.2x 字級放大（buddhist-text-html 新卷預設）============ */
+body{font-size:20px!important;}
+.hero-title,.site-hero h1{font-size:56px!important;}
+.hero-subtitle,.site-hero .hero-subtitle{font-size:20px!important;}
+.hero-sub,.site-hero .hero-sub,.hero-meta{font-size:18px!important;}
+.hero-range{font-size:17px!important;}
+.preface p,.preface-text p{font-size:19px!important;line-height:2.1!important;}
+.preface h2,.preface-title{font-size:30px!important;}
+.toc-title{font-size:34px!important;}
+.toc-desc{font-size:17px!important;}
+.toc-name{font-size:19.5px!important;line-height:1.7!important;}
+.toc-num{font-size:17px!important;}
+.bridge p{font-size:18.5px!important;line-height:2.1!important;}
+.bridge-label{font-size:12.5px!important;letter-spacing:2.2px!important;}
+.ch-num{font-size:18px!important;}
+.ch-name{font-size:34px!important;}
+.ch-sub,.ch-desc,.ch-subtitle{font-size:17px!important;}
+.next-link{font-size:17px!important;}
+.read-progress{font-size:14px!important;padding:9px 24px!important;}
+.read-progress .rp-bar{width:148px!important;height:4px!important;}
+.read-progress .rp-pct{font-size:13px!important;}
+.read-progress .rp-label{font-size:12px!important;}
+.sb-circle{font-size:15px!important;}
+.sb-label{font-size:11.5px!important;}
+.site-footer,.site-footer p{font-size:15px!important;}
+</style>
+<meta name="wy-full-protection" content="v1-L8-blank">
+<meta name="robots" content="noai, noimageai, noarchive, noindex, nofollow"><meta name="googlebot" content="noai, noimageai, noarchive"><meta name="bingbot" content="noai, noimageai, noarchive"><meta name="ChatGPT-User" content="noai"><meta name="GPTBot" content="noai"><meta name="Google-Extended" content="noai"><meta name="anthropic-ai" content="noai"><meta name="ClaudeBot" content="noai">
+<style id="wy-preguard-css">
+html.wy-preguard,html.wy-preguard body{visibility:hidden!important;}
+</style>
+<script id="wy-preguard-js">
+(function(){
+  document.documentElement.classList.add('wy-preguard');
+  window.__wyOriginOK = false;
+  // ready promise（L1/L5 解碼器要等這個）
+  var _resolve;
+  window.__wyReady = new Promise(function(r){_resolve = r;});
+  window.__wyResolveReady = function(){_resolve && _resolve(true); _resolve=null;};
+})();
+</script>
+<style id="wy-l3-print">
+@media print {
+  /* 整頁：所有可見元素全部 hidden（無警告文字） */
+  html, body, body * { visibility: hidden !important; }
+  /* 額外防護：背景純白、無頁眉頁尾、移除任何 ::before / ::after */
+  html, body { background: #ffffff !important; }
+  body::before, body::after { content: none !important; display: none !important; }
+  *::before, *::after { content: none !important; }
+}
+@page { margin: 0 !important; size: auto; }
+</style>
+<script id="wy-runtime-l2-l4-l6-b">
+(function(){
+  // ---- 設定 ----
+  var ALLOWED_HOST = "weiwen0925.github.io";
+  var ALLOWED_PATH = "/dazhidulun-62/";
+  var PING_TIMEOUT = 6000;
+
+  // ---- 共用：靜默鎖定（無警告文字，純空白頁）----
+  var _locked = false;
+  function _lockdown(reason){
+    if(_locked) return;
+    _locked = true;
+    try {
+      // 拔掉所有可見元素
+      document.documentElement.classList.add('wy-preguard');
+      // body 改為純空白
+      try {
+        if(document.body) document.body.innerHTML = '';
+      } catch(e){}
+      // 確保整頁背景白底
+      try {
+        var s = document.createElement('style');
+        s.textContent = 'html,body{background:#fff!important;visibility:hidden!important;}';
+        (document.head||document.documentElement).appendChild(s);
+      } catch(e){}
+      // 永不解除 visibility，以免 origin 失敗後又被 __wyResolveReady 拉回來
+      window.__wyOriginOK = false;
+    } catch(e){}
+  }
+
+  // ---- L2 · 列印攔截 ----
+  try { window.print = function(){}; } catch(e){}
+  // 攔 Ctrl+P / Cmd+P
+  document.addEventListener('keydown', function(e){
+    if((e.metaKey || e.ctrlKey) && (e.key === 'p' || e.key === 'P')){
+      e.preventDefault(); e.stopPropagation();
+      return false;
+    }
+  }, true);
+
+  // ---- B · webdriver / headless 偵測 ----
+  try {
+    var _ua = navigator.userAgent || '';
+    var _bad = (navigator.webdriver === true) ||
+               /HeadlessChrome|PhantomJS|Selenium|puppeteer|playwright|electron/i.test(_ua);
+    if(_bad){ _lockdown('automated'); return; }
+  } catch(e){}
+
+  // ---- L4 · 同步 Origin Lock ----
+  try {
+    var hostOK = (location.hostname === ALLOWED_HOST);
+    var pathOK = (location.pathname === ALLOWED_PATH ||
+                  location.pathname.indexOf(ALLOWED_PATH) === 0);
+    var protoOK = (location.protocol === 'https:' || location.hostname === 'localhost');
+    if(!(hostOK && pathOK && protoOK)){
+      _lockdown('origin');
+      return;
+    }
+  } catch(e){ _lockdown('origin-error'); return; }
+
+  // ---- L6 · 線上活性 HEAD ping ----
+  function _ping(){
+    return new Promise(function(resolve, reject){
+      var url = 'https://' + ALLOWED_HOST + ALLOWED_PATH +
+                '?_wyping=' + Date.now() + '.' + Math.floor(Math.random()*1e9);
+      var done = false;
+      var timer = setTimeout(function(){
+        if(done) return; done = true;
+        reject(new Error('timeout'));
+      }, PING_TIMEOUT);
+      try {
+        fetch(url, { method:'HEAD', cache:'no-store', mode:'no-cors',
+                     credentials:'omit', redirect:'follow' })
+          .then(function(){ if(done) return; done=true; clearTimeout(timer); resolve(true); })
+          .catch(function(err){ if(done) return; done=true; clearTimeout(timer); reject(err); });
+      } catch(err){
+        if(done) return; done=true; clearTimeout(timer); reject(err);
+      }
+    });
+  }
+
+  _ping().then(function(){
+    // 通過 → 放行
+    window.__wyOriginOK = true;
+    document.documentElement.classList.remove('wy-preguard');
+    try { window.__wyResolveReady && window.__wyResolveReady(); } catch(e){}
+  }).catch(function(err){
+    _lockdown('ping-failed');
+  });
+
+  // ---- 防文字選取（外層）----
+  try {
+    var _block = function(e){
+      try { e.preventDefault(); e.stopPropagation(); } catch(_){}
+      return false;
+    };
+    ['copy','cut','contextmenu','selectstart','dragstart'].forEach(function(ev){
+      document.addEventListener(ev, _block, true);
+    });
+    // 阻擋常用 dev/copy 快捷
+    document.addEventListener('keydown', function(e){
+      var k = e.key;
+      if(e.ctrlKey || e.metaKey){
+        if(k==='c'||k==='C'||k==='a'||k==='A'||k==='s'||k==='S'||
+           k==='u'||k==='U'||k==='x'||k==='X'){ _block(e); }
+      }
+      if(k==='F12'){ _block(e); }
+      if((e.ctrlKey||e.metaKey) && e.shiftKey &&
+         (k==='I'||k==='J'||k==='C'||k==='K')){ _block(e); }
+    }, true);
+    // 持續清除已選取
+    setInterval(function(){
+      try {
+        if(window.getSelection) window.getSelection().removeAllRanges();
+      } catch(e){}
+    }, 300);
+  } catch(e){}
+})();
+</script>
+</head>
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onselectstart="return false" ondragstart="return false">
+<a id="top" style="position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;"></a>
+<button id="sbToggle" aria-label="開合側欄">☰</button>
+<div class="read-progress" id="readProgress">
+  <span class="rp-label">PROGRESS</span>
+  <div class="rp-bar"><div class="rp-fill" id="rpFill"></div></div>
+  <span class="rp-pct" id="rpPct">0%</span>
+</div>
+<aside id="sb">
+  <a class="sb-brand" href="#top" id="sbBrand" title="回到頂部">
+    <span class="sb-brand-line1">大智度論</span>
+    <span class="sb-brand-line2">卷六十二</span>
+    <span class="sb-brand-arrow">↑ TOP</span>
+  </a>
+  <nav class="sb-nav">
+<a class="sb-item" data-ch="1" href="#chapter-1"><span class="sb-circle">一</span><span class="sb-label">照明品</span></a>
+<a class="sb-item" data-ch="2" href="#chapter-2"><span class="sb-circle">二</span><span class="sb-label">摩訶品</span></a>
+<a class="sb-item" data-ch="3" href="#chapter-3"><span class="sb-circle">三</span><span class="sb-label">信謗品</span></a>
+  </nav>
+</aside>
+<main class="main">
+  <div class="site-hero">
+    <h1 class="hero-title">大智度論</h1>
+    <div class="hero-subtitle">卷六十二</div>
+    <div class="hero-sub">三品合刊 · 從般若十六讚到白淨明誡</div>
+    <div class="hero-meta">龍樹菩薩 造 · 鳩摩羅什 譯</div>
+    <div class="hero-range">釋照明品 · 釋摩訶若波羅蜜 · 信謗品第四十一</div>
+    <div class="hero-meta" style="margin-top:14px;font-size:14px;letter-spacing:.16em;opacity:.7;">Mahāprajñāpāramitā Śāstra · Volume 62</div>
+  
+<!-- ==== 作者聲明 · 首屏下方（八不偈版）==== -->
+<div data-wy-notice-hero="v3" style="margin:28px auto 0;padding:18px 24px;max-width:720px;
+  background:rgba(30,26,20,.55);border:1px solid rgba(184,134,11,.45);
+  border-radius:12px;backdrop-filter:blur(4px);
+  text-align:center;font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;
+  font-size:13px;line-height:1.95;color:#c4a76c;letter-spacing:1px;">
+  本文為個人研讀彙整，歡迎轉發結緣；轉發請保留連結與作者頻道
+  <a href="https://www.youtube.com/@Chengweiwen/posts" target="_blank" rel="noopener"
+     style="color:#d4a84b;text-decoration:none;border-bottom:1px dotted #b8860b;margin:0 4px;">
+    https://www.youtube.com/@Chengweiwen/posts</a>。<br>
+  <span style="color:#8b7d66;">不生亦不滅，不常亦不斷；<br>不一亦不異，不來亦不出。<br>能說是因緣，善滅諸戲論；<br>我稽首禮佛，諸說中第一。</span>
+</div>
+</div>
+
+  <section class="preface">
+    <div style="text-align:center;"><h2 class="preface-title">編 者 前 言</h2></div>
+    <div class="preface-text">
+<p>卷六十二統整三品：〈釋照明品〉、〈釋摩訶若波羅蜜〉、〈信謗品第四十一〉。三品之間環環相扣，構成一條從讚頌、命名到信謗的完整論辯鏈。</p>
+<p><strong>第一軸：讚頌與破立。</strong>〈釋照明品〉以舍利弗的般若十六讚揭幕，緊接帝釋「百千盲人喻」翻轉，須菩提以「無生故生、無所合」雙刃辯破——讚頌之下隱藏著「破而不破」的照明二義：既是智慧之光，也是自我消融。</p>
+<p><strong>第二軸：所以名大。</strong>〈釋摩訶若波羅蜜〉由凡夫「於色作大作小」入手，論主以五雙十義（合散、量無量、廣狹、有力無力、得失）逐一料揀，結成般若之所以名為「摩訶」（大）之根本——大者，非以體量，而以「離四句、絕百非」之畢竟空為其大。</p>
+<p><strong>第三軸：信謗雙刃。</strong>〈信謗品〉由舍利弗請問「能信深般若者何因緣」開展，佛答四勝因（來處、時間、行業、福德），成就三相（無相、無二、無所得）；繼而以阿鼻無間、火劫遷徙、畜生、下賤人身、感官缺陷五重果報，警誡毀謗般若之過。終以「受身大小不答之悲」與「白淨明誡」收束。</p>
+<p>三品共同建構出般若教義在世間流通的完整框架：先示其莊嚴（照明）、次示其大名（摩訶）、終示其依止與墮處（信謗）。建議讀者依序閱讀，掌握三品之間的義理銜接，方能體會龍樹菩薩在卷六十二中為般若教義所搭建的這座「破而不破」的論辯大殿。</p>
+    </div>
+  </section>
+
+  <section class="toc-section">
+    <h2 class="toc-title">總 目 錄</h2>
+    <div class="toc-desc">卷六十二 · 全三品 · 釋照明品 · 釋摩訶若波羅蜜 · 信謗品第四十一</div>
+    <div class="toc-grid">
+<a class="toc-card" href="#chapter-1"><span class="toc-num">一</span><span class="toc-name">第一品 · 釋照明品</span><span class="toc-sub">般若十六讚 · 雙刃辯破 · 破而不破的照明三軸</span></a>
+<a class="toc-card" href="#chapter-2"><span class="toc-num">二</span><span class="toc-name">第二品 · 釋摩訶若波羅蜜</span><span class="toc-sub">不作大小 · 五雙十義 · 名為摩訶之所以然</span></a>
+<a class="toc-card" href="#chapter-3"><span class="toc-num">三</span><span class="toc-name">第三品 · 信謗品第四十一</span><span class="toc-sub">四勝因 · 三相隨順 · 毀謗果報 · 白淨明誡</span></a>
+    </div>
+  </section>
+
+
+<section class="chapter" id="chapter-1">
+  <div class="ch-head">
+    <div class="ch-num">卷六十二 · 第 一 品</div>
+    <div class="ch-name">釋照明品</div>
+    <div class="ch-sub">般若十六讚 · 雙刃辯破 · 破而不破的照明三軸</div>
+  </div>
+  <div class="ch-body">
+    <div class="bridge bridge-intro">
+      <div class="bridge-label">本品要旨</div>
+      <p>本品揭開卷六十二序幕。舍利弗從「智慧之光」起讚，引出般若十六德的莊嚴讚頌；然而帝釋的「百千盲人喻」隨即翻轉視角——五波羅蜜若無般若，如盲人入城難以歸真。須菩提再以「無生故生、無所合」雙刃辯破，把整品推進到一個關鍵公案：信般若者，反而不信一切。全品由「讚 → 合 → 不信」三段論辯軸線貫穿，示現照明二字的「破立雙義」——既是般若燭照的光明，也是自我消融的無相。</p>
+    </div>
+    <iframe class="ch-frame" srcdoc="<!DOCTYPE html><html lang=&quot;zh-Hant&quot;><head><meta charset=&quot;UTF-8&quot;><link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap&quot;><style>
+/* ============ 變數 ============ */
+:root{
+  --bg:#f7f3ec; --text:#2c2416; --text2:#5a4e3a; --text-muted:#6B5B4B;
+  --accent:#8b5e3c; --accentL:#c4956a; --accent-red:#8B2500;
+  --gold:#b8860b; --goldL:#d4a84b; --gold-light:#C9A84C;
+  --border:#d4c4a8; --border-light:#EDE8E0; --card:#fffdf7;
+  --verseBg:#f0e8d8; --verseBd:#c4956a;
+  --sbW:76px; --sbBg:#1e1a14; --sbText:#d4c4a8;
+  --headGrad:linear-gradient(135deg,#2a2218 0%,#3d3225 50%,#2a2218 100%);
+  --r:8px; --primary:#2C1810; --primary-light:#5B3A29; --shadow:rgba(91,58,41,0.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  scrollbar-width:none;-ms-overflow-style:none;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none;
+}
+html::-webkit-scrollbar,body::-webkit-scrollbar,*::-webkit-scrollbar{display:none;width:0;height:0;}
+body{
+  font-family:&quot;Noto Serif TC&quot;,&quot;Source Han Serif TC&quot;,&quot;Songti TC&quot;,Georgia,serif;
+  background:var(--bg);color:var(--text);
+  line-height:1.85;font-size:17px;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(at top left,rgba(196,149,106,.06),transparent 50%),
+    radial-gradient(at bottom right,rgba(184,134,11,.05),transparent 50%);
+}
+img{-webkit-user-drag:none;pointer-events:none;}
+a{color:inherit;text-decoration:none;}
+
+/* ============ 側欄 ============ */
+#sb{position:fixed;left:0;top:0;width:var(--sbW);height:100vh;
+  background:var(--sbBg);color:var(--sbText);z-index:100;
+  display:flex;flex-direction:column;align-items:center;
+  padding:0 0 16px;overflow-y:auto;scrollbar-width:none;}
+#sb::-webkit-scrollbar{display:none;}
+.sb-brand{position:sticky;top:0;width:100%;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11px;letter-spacing:2px;
+  color:var(--gold);writing-mode:horizontal-tb;text-orientation:mixed;
+  text-align:center;line-height:1.5;
+  background:linear-gradient(to bottom,var(--sbBg) 78%,rgba(30,26,20,0));
+  padding:14px 4px 12px;margin-bottom:6px;z-index:5;
+  text-decoration:none;cursor:pointer;
+  transition:color .25s,background .25s;display:block;
+  border-bottom:1px solid rgba(184,134,11,.25);}
+.sb-brand:hover{color:var(--goldL);}
+.sb-brand .sb-brand-line1{display:block;font-size:11px;letter-spacing:1.5px;opacity:.78;}
+.sb-brand .sb-brand-line2{display:block;font-size:13px;font-weight:700;letter-spacing:2.2px;color:var(--goldL);margin-top:2px;}
+.sb-brand .sb-brand-arrow{display:block;font-size:10px;opacity:.55;margin-top:2px;}
+.sb-nav{display:flex;flex-direction:column;align-items:center;width:100%;gap:10px;padding:6px 0;}
+.sb-item{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:60px;padding:6px 4px;border-radius:8px;cursor:pointer;
+  transition:background .25s,box-shadow .25s;}
+.sb-item:hover{background:rgba(212,196,168,.08);}
+.sb-item.active{background:rgba(184,134,11,.16);box-shadow:0 0 12px rgba(184,134,11,.35) inset;}
+.sb-circle{width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--goldL));
+  color:#1e1a14;display:flex;align-items:center;justify-content:center;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-weight:700;font-size:15px;
+  box-shadow:0 2px 6px rgba(0,0,0,.4);margin-bottom:4px;}
+.sb-label{font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11px;
+  letter-spacing:1px;color:var(--sbText);text-align:center;line-height:1.3;}
+.sb-item.active .sb-label{color:var(--goldL);}
+
+#sbToggle{display:none;position:fixed;top:14px;left:14px;z-index:130;
+  width:42px;height:42px;border:none;border-radius:8px;
+  background:rgba(30,26,20,.92);color:var(--gold);
+  font-size:20px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+
+/* ============ 主版面 ============ */
+.main{margin-left:var(--sbW);min-height:100vh;}
+
+/* ============ Hero ============ */
+.site-hero{position:relative;background:var(--headGrad);color:#f0e8d8;
+  text-align:center;padding:90px 24px 80px;overflow:hidden;
+  border-bottom:3px solid var(--gold);}
+.site-hero::before{content:&quot;般若&quot;;position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);font-size:340px;font-weight:900;
+  color:rgba(212,168,75,.04);letter-spacing:30px;pointer-events:none;
+  font-family:&quot;Noto Serif TC&quot;,serif;}
+.site-hero::after{content:&quot;照明&quot;;position:absolute;bottom:-30px;right:6%;
+  font-size:200px;font-weight:900;color:rgba(212,168,75,.035);letter-spacing:18px;
+  pointer-events:none;font-family:&quot;Noto Serif TC&quot;,serif;}
+.hero-content{position:relative;z-index:2;max-width:920px;margin:0 auto;}
+.hero-eyebrow{font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:13px;
+  letter-spacing:8px;color:var(--gold);margin-bottom:20px;opacity:.85;}
+.hero-title{font-size:48px;font-weight:900;letter-spacing:8px;
+  color:#fff;margin-bottom:16px;text-shadow:0 2px 16px rgba(0,0,0,.4);}
+.hero-subtitle{font-size:18px;letter-spacing:4px;color:var(--goldL);
+  font-weight:500;margin-bottom:28px;}
+.hero-meta{font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:14px;
+  color:#d4c4a8;letter-spacing:2px;line-height:2;opacity:.85;}
+.hero-meta .dot{margin:0 10px;color:var(--gold);}
+.hero-range{display:inline-block;margin-top:24px;padding:8px 22px;
+  border:1px solid var(--gold);border-radius:30px;font-size:14px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;letter-spacing:3px;color:var(--goldL);}
+
+/* ============ 編者前言 ============ */
+.preface{max-width:880px;margin:50px auto 30px;padding:0 32px;}
+.preface-title{font-size:26px;color:var(--accent);text-align:center;
+  letter-spacing:4px;margin-bottom:18px;font-weight:700;}
+.preface-title::after{content:&quot;&quot;;display:block;width:60px;height:2px;
+  background:var(--gold);margin:14px auto 0;}
+.preface p{font-size:16.5px;line-height:2.05;color:var(--text2);
+  margin-bottom:14px;text-indent:2em;}
+.preface .preface-tag{display:inline-block;background:var(--gold);color:#fff;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11px;letter-spacing:2px;
+  padding:3px 12px;border-radius:12px;margin-bottom:12px;}
+
+/* ============ 目次 ============ */
+.toc-section{max-width:1100px;margin:60px auto;padding:0 28px;}
+.toc-title{font-size:30px;color:var(--accent);text-align:center;
+  letter-spacing:6px;margin-bottom:8px;font-weight:700;}
+.toc-title::after{content:&quot;&quot;;display:block;width:80px;height:2px;
+  background:var(--gold);margin:14px auto 0;}
+.toc-desc{text-align:center;color:var(--text-muted);font-size:14px;
+  letter-spacing:2px;margin-bottom:28px;font-family:&quot;Noto Sans TC&quot;,sans-serif;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
+.toc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:18px 20px;display:flex;align-items:center;gap:14px;
+  transition:transform .25s,box-shadow .25s,border-color .25s;cursor:pointer;}
+.toc-card:hover{transform:translateY(-3px);
+  box-shadow:0 6px 18px rgba(91,58,41,.12);border-color:var(--gold);}
+.toc-num{width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),var(--goldL));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-weight:700;font-size:16px;}
+.toc-name{font-size:16px;line-height:1.55;color:var(--text);font-weight:600;}
+
+/* ============ 章節 ============ */
+.chapter{margin:56px 0;scroll-margin-top:20px;}
+.ch-head{background:var(--headGrad);color:#fff;
+  text-align:center;padding:62px 24px;position:relative;
+  border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);}
+.ch-head::after{content:&quot;&quot;;display:block;width:80px;height:2px;
+  background:var(--gold);margin:18px auto 0;}
+.ch-num{font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:13px;
+  letter-spacing:5px;color:var(--gold);margin-bottom:14px;}
+.ch-name{font-size:32px;font-weight:700;letter-spacing:6px;color:#fff;margin-bottom:8px;}
+.ch-sub{font-size:14px;letter-spacing:3px;color:#d4c4a8;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-weight:400;}
+.ch-body{max-width:860px;margin:0 auto;padding:42px 28px 18px;}
+.ch-body > p{margin:0 0 14px;font-size:17px;line-height:1.95;color:var(--text);
+  text-indent:2em;}
+.ch-body > p.no-indent{text-indent:0;}
+
+/* h2 = 節 */
+.ch-body h2{font-size:25px;color:var(--accent);font-weight:700;
+  margin:36px 0 18px;padding:10px 0 10px 20px;
+  background:linear-gradient(90deg,rgba(212,168,75,.12),transparent);
+  border-left:4px solid var(--gold);letter-spacing:2px;line-height:1.55;}
+.ch-body h3{font-size:20px;color:var(--text);font-weight:700;
+  margin:26px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.ch-body h4{font-size:17px;color:var(--text2);font-weight:600;margin:20px 0 10px;}
+.ch-body h5{font-size:16px;color:var(--gold);font-weight:600;margin:16px 0 8px;}
+
+/* 經文 / 論釋卡 */
+.classical-text{background:#FFFDF5;border:1px solid #E8E0D0;
+  border-radius:10px;padding:20px 26px;margin:18px 0;
+  line-height:1.95;color:var(--text);position:relative;}
+.classical-text.scripture{border-left:5px solid var(--gold);}
+.classical-text.commentary{border-left:5px solid var(--accentL);background:#FBF6EC;}
+.text-label{display:inline-block;background:var(--accent);color:#fff;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11.5px;letter-spacing:3px;
+  padding:3px 14px;border-radius:14px;margin-bottom:12px;font-weight:500;}
+.classical-text.scripture .text-label{background:var(--gold);}
+.classical-text.commentary .text-label{background:var(--accentL);}
+.classical-text p{margin:0 0 10px;text-indent:2em;}
+.classical-text p:last-child{margin-bottom:0;}
+.classical-text .speaker{color:var(--accent-red);font-weight:600;}
+.classical-text .qa-q{padding-left:2em;color:#1c5a7a;}
+.classical-text .qa-a{padding-left:2em;}
+
+/* 分析 / 闡釋區 */
+.analysis{background:linear-gradient(135deg,#fffdf5,#f5ecd8);
+  border:1px solid var(--border);border-left:5px solid var(--gold);
+  border-radius:10px;padding:18px 24px;margin:20px 0;
+  box-shadow:0 2px 10px rgba(91,58,41,.06);}
+.analysis-label{display:inline-block;font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  font-size:11.5px;background:var(--gold);color:#fff;
+  padding:3px 12px;border-radius:12px;letter-spacing:2px;margin-bottom:10px;}
+.analysis p{margin:0 0 10px;color:var(--text2);line-height:2;font-size:15.5px;text-indent:2em;}
+.analysis p:last-child{margin-bottom:0;}
+.analysis strong{color:var(--accent-red);font-weight:700;}
+
+/* 章節間橋接 */
+.bridge{background:linear-gradient(135deg,#fffdf5,#f5ecd8);
+  border:1px solid var(--border);border-left:5px solid var(--gold);
+  border-radius:10px;padding:18px 24px;margin:0 0 26px;
+  box-shadow:0 2px 10px rgba(91,58,41,.06);}
+.bridge-outro{border-left-color:var(--accentL);
+  background:linear-gradient(135deg,#fdf8e8,#f2e6c8);
+  margin-top:30px;margin-bottom:14px;}
+.bridge-label{display:inline-block;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11px;
+  background:var(--gold);color:#fff;
+  padding:3px 12px;border-radius:12px;
+  letter-spacing:2px;margin-bottom:10px;}
+.bridge-outro .bridge-label{background:var(--accent);}
+.bridge p{margin:0 0 10px;color:var(--text2);line-height:2;font-size:15.5px;text-indent:2em;}
+.bridge p:last-child{margin-bottom:0;}
+.bridge strong{color:var(--accent-red);font-weight:700;}
+
+/* 卡片 / 格線 */
+.insight{background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:18px 24px;margin:16px 0;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.insight-title{color:var(--accent);font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:1px;}
+.insight p{margin:0 0 10px;color:var(--text);line-height:1.95;text-indent:2em;}
+.insight p:last-child{margin-bottom:0;}
+
+.four-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:20px 0;}
+.four-grid .cell{background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:16px 18px;}
+.four-grid .cell .num{display:inline-block;background:var(--gold);color:#fff;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11.5px;letter-spacing:1.5px;
+  padding:2px 10px;border-radius:10px;margin-bottom:8px;}
+.four-grid .cell .term{font-size:17px;color:var(--accent);font-weight:700;margin-bottom:6px;}
+.four-grid .cell .desc{font-size:14.5px;color:var(--text2);line-height:1.85;}
+
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+  background:var(--card);border:1px solid var(--border);border-radius:8px;
+  padding:20px 24px;margin:18px 0;justify-content:center;}
+.flow.flow-v{flex-direction:column;align-items:center;gap:8px;}
+.flow-box{min-width:180px;max-width:260px;
+  background:linear-gradient(135deg,#fffdf5,#f5ecd8);
+  border:1px solid var(--border);border-radius:8px;
+  padding:12px 16px;text-align:center;font-size:15px;line-height:1.6;color:var(--text);}
+.flow.flow-v .flow-box{flex:none;width:100%;max-width:560px;}
+.flow-box small{display:block;font-size:12px;color:var(--text-muted);margin-top:4px;font-weight:400;}
+.flow-arrow{font-size:22px;color:var(--gold);font-weight:700;text-align:center;}
+.flow.flow-v .flow-arrow{margin:0 auto;width:100%;}
+
+.qa-block{margin:18px 0;}
+.qa-block .q{padding-left:2em;color:#1c5a7a;margin-bottom:8px;line-height:1.95;}
+.qa-block .a{padding-left:2em;color:var(--text);margin-bottom:8px;line-height:1.95;}
+.qa-block .q::before{content:&quot;問曰：&quot;;color:#1c5a7a;font-weight:700;margin-left:-2em;}
+.qa-block .a::before{content:&quot;答曰：&quot;;color:var(--accent-red);font-weight:700;margin-left:-2em;}
+
+.note{background:#FFFDF5;border:1px solid var(--border);border-radius:8px;
+  padding:14px 20px;margin:16px 0;font-size:15px;color:var(--text2);line-height:1.95;}
+.note .note-label{display:inline-block;background:var(--accent);color:#fff;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11px;letter-spacing:2px;
+  padding:2px 10px;border-radius:10px;margin-right:10px;}
+
+/* 偈頌 */
+.gatha,.verse{background:var(--verseBg);border-left:4px solid var(--verseBd);
+  padding:14px 22px;margin:16px 0;line-height:1.9;text-align:center;
+  white-space:normal;font-size:17px;color:var(--text);border-radius:6px;}
+
+/* 重點 */
+strong,b{color:var(--accent-red);font-weight:700;}
+.ch-body p strong{color:var(--accent-red);}
+
+/* 下一品連結 */
+.next-link{display:inline-block;margin:30px auto;padding:10px 28px;
+  background:linear-gradient(135deg,var(--gold),var(--goldL));color:#fff;
+  border-radius:30px;font-family:&quot;Noto Sans TC&quot;,sans-serif;letter-spacing:3px;
+  font-size:14px;font-weight:600;}
+.next-link-wrap{text-align:center;}
+
+hr{border:none;border-top:1px dashed var(--border);margin:24px 0;}
+
+/* 底部進度膠囊 */
+.read-progress{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+  z-index:120;background:rgba(30,26,20,.92);color:var(--gold);
+  padding:8px 22px;border-radius:30px;
+  border:1px solid rgba(184,134,11,.5);
+  box-shadow:0 4px 18px rgba(0,0,0,.25);
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  font-size:13px;letter-spacing:2px;
+  display:flex;align-items:center;gap:12px;
+  pointer-events:none;user-select:none;
+  backdrop-filter:blur(6px);}
+.read-progress .rp-bar{width:140px;height:3px;background:rgba(212,196,168,.18);
+  border-radius:2px;overflow:hidden;position:relative;}
+.read-progress .rp-fill{position:absolute;top:0;left:0;bottom:0;
+  background:linear-gradient(90deg,var(--gold),var(--goldL));
+  width:0%;transition:width .3s;}
+.read-progress .rp-pct{font-weight:600;min-width:38px;text-align:right;}
+.read-progress .rp-label{font-size:11px;opacity:.75;letter-spacing:3px;}
+
+/* 回頂 */
+#backTop{position:fixed;right:24px;bottom:60px;width:44px;height:44px;
+  border-radius:50%;border:none;cursor:pointer;display:none;
+  background:var(--gold);color:#fff;font-size:20px;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:120;}
+#backTop:hover{background:var(--goldL);}
+
+/* 頁尾 */
+.site-footer{background:var(--headGrad);color:#d4c4a8;
+  text-align:center;padding:40px 20px;margin-top:60px;
+  border-top:2px solid var(--gold);}
+.site-footer p{margin:6px 0;font-size:13px;letter-spacing:2px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;line-height:1.9;}
+.site-footer .ft-title{color:var(--goldL);font-size:15px;font-weight:700;
+  letter-spacing:4px;margin-bottom:10px;}
+
+/* 響應式 */
+@media (max-width:900px){
+  #sb{transform:translateX(-100%);transition:transform .3s;}
+  #sb.open{transform:translateX(0);}
+  #sbToggle{display:block;}
+  .main{margin-left:0;}
+  .hero-title{font-size:34px;letter-spacing:4px;}
+  .ch-name{font-size:26px;letter-spacing:3px;}
+  .ch-body{padding:32px 18px 12px;}
+  .toc-grid{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  body{font-size:15.5px;}
+  .hero-title{font-size:28px;}
+  .ch-body h2{font-size:22px;}
+  .ch-body h3{font-size:18px;}
+}
+
+/* ============ 1.2x 字級放大（buddhist-text-html 新卷預設）============ */
+body{font-size:20px!important;}
+.hero-title,.site-hero h1{font-size:56px!important;}
+.hero-subtitle,.site-hero .hero-subtitle{font-size:20px!important;}
+.hero-meta{font-size:18px!important;}
+.hero-range{font-size:17px!important;}
+.preface p{font-size:19px!important;line-height:2.1!important;}
+.preface-title{font-size:30px!important;}
+.toc-title{font-size:34px!important;}
+.toc-desc{font-size:17px!important;}
+.toc-name{font-size:19.5px!important;line-height:1.7!important;}
+.toc-num{font-size:17px!important;}
+.bridge p,.analysis p{font-size:18.5px!important;line-height:2.1!important;}
+.bridge-label,.analysis-label{font-size:12.5px!important;letter-spacing:2.2px!important;}
+.ch-num{font-size:18px!important;}
+.ch-name{font-size:34px!important;}
+.ch-sub{font-size:17px!important;}
+.next-link{font-size:17px!important;}
+.read-progress{font-size:14px!important;padding:9px 24px!important;}
+.read-progress .rp-bar{width:148px!important;height:4px!important;}
+.read-progress .rp-pct{font-size:13px!important;}
+.read-progress .rp-label{font-size:12px!important;}
+.sb-circle{font-size:15px!important;}
+.sb-label{font-size:11.5px!important;}
+.site-footer,.site-footer p{font-size:15px!important;}
+.ch-body,.ch-body p{font-size:20px!important;line-height:1.95!important;}
+.ch-body h2{font-size:30px!important;}
+.ch-body h3{font-size:23.5px!important;}
+.ch-body h4{font-size:20px!important;}
+.ch-body h5{font-size:18.5px!important;}
+.classical-text{font-size:20px!important;line-height:1.95!important;}
+.classical-text p{font-size:20px!important;line-height:1.95!important;}
+.text-label{font-size:13.5px!important;}
+.gatha,.verse{font-size:22px!important;line-height:2.2!important;}
+.insight-title{font-size:21.5px!important;}
+.insight p{font-size:20px!important;line-height:1.95!important;}
+.flow-box{font-size:17.5px!important;}
+.qa-block .q,.qa-block .a{font-size:20px!important;line-height:1.95!important;}
+.four-grid .cell{font-size:19px!important;}
+.four-grid .cell .term{font-size:21px!important;}
+.four-grid .cell .desc{font-size:17px!important;}
+.note{font-size:17.5px!important;line-height:2!important;}
+
+
+html,body{margin:0!important;padding:0!important;background:transparent!important;
+  min-height:0!important;height:auto!important;
+  overflow:hidden!important;
+  scrollbar-width:none!important;-ms-overflow-style:none!important;
+  -webkit-user-select:none!important;-moz-user-select:none!important;
+  -ms-user-select:none!important;user-select:none!important;
+  -webkit-touch-callout:none!important;}
+html::-webkit-scrollbar,body::-webkit-scrollbar,
+*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important;}
+*{-webkit-user-select:none!important;-moz-user-select:none!important;
+  -ms-user-select:none!important;user-select:none!important;
+  -webkit-user-drag:none!important;
+  scrollbar-width:none!important;}
+body{padding:0 8px;}
+.main,main,#main{min-height:0!important;height:auto!important;
+  padding-bottom:0!important;margin-bottom:0!important;margin-left:0!important;}
+section:last-of-type,.chapter:last-of-type,.chapter:last-child,
+section.chapter:last-child,.ch-body:last-child{
+  margin-bottom:0!important;padding-bottom:0!important;}
+#sb,#sbToggle,#backTop,aside.sb{display:none!important;}
+img{-webkit-user-drag:none!important;pointer-events:none;}
+/* 統一卡片暖色化，章節頭深色化 */
+.ch-head{background:var(--headGrad,linear-gradient(135deg,#2a2218 0%,#3d3225 50%,#2a2218 100%))!important;color:#fff!important;}
+.ch-head .ch-num,.ch-head .ch-name,.ch-head .ch-sub{color:#fff!important;}
+.ch-body{background:var(--bg,#f7f3ec)!important;max-width:980px!important;margin:0 auto!important;}
+.toc-title,.toc-desc,.toc-header{text-align:center!important;}
+*{font-style:normal!important;}
+
+/* 1.2x inner boost · iframe srcdoc 內部 */
+.ch-body,.chapter,.section,article,main{font-size:20px!important;line-height:1.9!important;}
+.ch-body p,.chapter p,.section p,article p,p,li,td,th{font-size:20px!important;line-height:1.9!important;}
+h1{font-size:38px!important;}
+h2{font-size:30px!important;}
+h3{font-size:23.5px!important;}
+h4{font-size:20px!important;}
+h5{font-size:18.5px!important;}
+.verse,.gatha,blockquote,.classical-text{font-size:22px!important;line-height:2.2!important;}
+.toc-title{font-size:30px!important;}
+.toc-desc{font-size:17px!important;}
+.toc-num{font-size:18px!important;}
+.toc-name{font-size:20px!important;line-height:1.7!important;}
+.ch-num{font-size:18px!important;}
+.ch-name{font-size:32px!important;}
+.ch-sub{font-size:17px!important;}
+.card-content,.col-content,.section-content,.card-desc,.insight-content,.commentary p{font-size:20px!important;line-height:1.9!important;}
+.card-title,.col-title,.section-title,.insight-title{font-size:21.5px!important;}
+.text-label{font-size:13.5px!important;}
+.flow-box,.flow-step,.flow-chart .flow-step,.domino{font-size:17.5px!important;}
+.qa .q,.qa .a{font-size:20px!important;line-height:1.9!important;}
+.four-grid .cell,.two-col .col,.three-col .col{font-size:19px!important;}
+.grid-4 .cell{font-size:19px!important;}
+.debate .q-side,.debate .a-side{font-size:19px!important;}
+.spectrum .sp-node{font-size:15.5px!important;}
+.refutation-grid .ref-cell{font-size:17.5px!important;}
+.roadmap .rm-step{font-size:17px!important;}
+.triangle-diagram .tri-node{font-size:17px!important;}
+.checklist li{font-size:20px!important;}
+.phase-badge{font-size:14px!important;}
+/* Venn 圓 v2 */
+.venn-wrap{min-height:240px!important;gap:0!important;}
+.venn-circle{display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  width:220px!important;height:220px!important;
+  font-size:16px!important;line-height:1.55!important;
+  padding:0 22px!important;box-sizing:border-box!important;gap:6px!important;}
+.venn-circle br{display:none!important;}
+.venn-circle small{font-size:12.5px!important;display:block!important;
+  width:100%!important;text-align:center!important;line-height:1.4!important;margin:0!important;}
+.venn-a{margin-right:-50px!important;}
+.venn-b{margin-left:-50px!important;}
+/* 金底 h5 疊色防護 */
+.sp-mid,.sp-mid *{color:#fff!important;}
+.sp-mid h5{color:#fff!important;font-weight:700!important;text-shadow:0 1px 3px rgba(0,0,0,.35);}
+.sp-mid small{color:rgba(255,255,255,.92)!important;}
+</style></head><body oncontextmenu=&quot;return false&quot; oncopy=&quot;return false&quot; oncut=&quot;return false&quot; onselectstart=&quot;return false&quot; ondragstart=&quot;return false&quot;><a id=&quot;top&quot; style=&quot;position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;&quot;></a>
+
+
+
+<div class=&quot;preface&quot;>
+<div style=&quot;text-align:center;&quot;><span class=&quot;preface-tag&quot;>編者前言</span></div>
+<h2 class=&quot;preface-title&quot;>何謂「照明」？</h2>
+<p>「照明品」之名容易令人誤會：以為這一品是在談「般若如何照亮諸法」。但若依文細讀，全品其實在做相反的事——它把所有可被照亮、可被讚歎、可被獲得、可被信受的「對象」一一抽空。經文從舍利弗讚歎般若十六德起手，看似要建立般若的「正面意像」；但接著佛即點出：般若不合善法、不合不善、不合世間、不合出世間，乃至不合薩婆若；再接著告誡：取「般若有所合」是失般若，取「般若空虛無所有」也是失般若；最後落到「信般若即不信色乃至一切種智」。整品就是一場精密的邏輯解構（Prajna Logic Deconstructed）：把「能照」與「所照」雙泯，把讚歎本身也化為無生。</p>
+<p>這份單頁讀本依「卷 → 品 → 章 → 節」的層級體系，將全品重新編排為六章。第一章為導讀，先描出全品的論辯藍圖；第二章到第六章，逐段把《經》文與龍樹《論》釋對讀並列，並在每節之間補入闡釋橋段，使讀者不必跳出整段古文就能把握彼此呼應之處。每章末有「承先啟後」橋接，銜接下一章的問題意識。</p>
+<p>讀完此品，你會發現「照明」其實並不照亮什麼——它只是讓「凡夫對般若的所有把柄」一一鬆手。這就是「破而不破」：般若不破諸法，是諸法本來不可得；般若不立諸法，亦無法可立。當所有立足點都消融時，才是真正的「照明」。</p>
+</div>
+<div class=&quot;toc-section&quot;>
+<h2 class=&quot;toc-title&quot;>目 次</h2>
+<p class=&quot;toc-desc&quot;>卷六十二 · 照明品 · 全六章</p>
+<div class=&quot;toc-grid&quot;>
+<a class=&quot;toc-card&quot; href=&quot;#chapter-1&quot;><span class=&quot;toc-num&quot;>1</span><span class=&quot;toc-name&quot;>第一章 · 導讀：「照明」二字的破立雙義</span></a>
+<a class=&quot;toc-card&quot; href=&quot;#chapter-2&quot;><span class=&quot;toc-num&quot;>2</span><span class=&quot;toc-name&quot;>第二章 · 般若十六讚 · 經論對讀</span></a>
+<a class=&quot;toc-card&quot; href=&quot;#chapter-3&quot;><span class=&quot;toc-num&quot;>3</span><span class=&quot;toc-name&quot;>第三章 · 五波羅蜜如盲依眼</span></a>
+<a class=&quot;toc-card&quot; href=&quot;#chapter-4&quot;><span class=&quot;toc-num&quot;>4</span><span class=&quot;toc-name&quot;>第四章 · 般若無生故生 · 無所合</span></a>
+<a class=&quot;toc-card&quot; href=&quot;#chapter-5&quot;><span class=&quot;toc-num&quot;>5</span><span class=&quot;toc-name&quot;>第五章 · 帝釋與須菩提 · 雙刃辯破</span></a>
+<a class=&quot;toc-card&quot; href=&quot;#chapter-6&quot;><span class=&quot;toc-num&quot;>6</span><span class=&quot;toc-name&quot;>第六章 · 信般若即不信一切 · 全品總綱</span></a>
+</div>
+</div>
+<section class=&quot;chapter&quot; id=&quot;chapter-1&quot;>
+<div class=&quot;ch-head&quot;>
+<div class=&quot;ch-num&quot;>卷六十二 · 照明品 · 第一章</div>
+<div class=&quot;ch-name&quot;>導讀：「照明」二字的破立雙義</div>
+<div class=&quot;ch-sub&quot;>全品論辯藍圖總覽</div>
+</div>
+<div class=&quot;ch-body&quot;>
+<div class=&quot;bridge&quot;>
+<div class=&quot;bridge-label&quot;>本章要旨</div>
+<p>進入正文之前，先把整品的論辯藍圖看清楚——<strong>「照明」的破立雙義</strong>、<strong>四位對話人各自承擔的功能</strong>、<strong>讚→合→不信的三段式論辯軸線</strong>。把這三件事掌握住，後續五章不論看到哪段經文或論釋，都能立刻知道它落在整體佈局中的哪一個位置。</p>
+</div>
+<h2>第一節　從「智慧之光」到「自我消融」：照明的雙層義</h2>
+<p>「照明」二字在外觀上似乎僅指一種正面動作——以智慧為光，遍照諸法令其顯現。但若以全品內容為佐證，會發現這個詞同時承擔兩種相反方向的工作：一面是「能照」，另一面是「所照與能照同時消融」。</p>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第一義</span>
+<div class=&quot;term&quot;>能照之光</div>
+<div class=&quot;desc&quot;>般若波羅蜜遍照五種法藏（過去、未來、現在、無為、不可說），畢竟清淨故能無所遺漏。此為十六讚的正面表述。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第二義</span>
+<div class=&quot;term&quot;>能所雙泯</div>
+<div class=&quot;desc&quot;>般若不取相、不受、不住、不著、不斷；般若亦不合一切法、不合薩婆若。當「能照」與「所照」皆無自性時，照明才不被執取為實有的光。</div>
+</div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>第一義是表面義，第二義是底層義。讀者若只停在第一義，會把般若當作一種「最強的智慧」來追求；唯有進到第二義，才能看出本品為何要在讚歎之後立即否定「合與不合」、再否定「空虛不堅固」、最終否定「信任」。<strong>「照明」不是一道照向外的光，而是一種讓內外二邊都失去落腳點的處境。</strong></p>
+</div>
+<h2>第二節　四角對辯的舞台配置：舍利弗、佛、帝釋、須菩提</h2>
+<p>本品的對話結構並非單線的師徒問答，而是「四角對辯」——四位對話人各自扮演不同邏輯位置，使般若義能從多個角度被激盪出來。</p>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>主問者</span>
+<div class=&quot;term&quot;>舍利弗</div>
+<div class=&quot;desc&quot;>代表「漏盡寂滅」的聲聞智慧。他從對隨喜義的歡喜起問，由衷讚歎；此舉本身就在示範一個聲聞乘者如何接觸甚深般若。十六讚出自他之口。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>主答者</span>
+<div class=&quot;term&quot;>佛</div>
+<div class=&quot;desc&quot;>承擔最終解構工作。從「禮般若如禮世尊」開始一路把般若的所有可被取相之處——合、不合、得、不得、信、不信——全部剝除。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>疑者</span>
+<div class=&quot;term&quot;>釋提桓因（帝釋）</div>
+<div class=&quot;desc&quot;>代表「天界尊長 + 對般若仍有取著」。他發出兩類關鍵疑問：「為何獨讚般若？」「薩婆若亦不合？」每一問都把佛的解構推進一步。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>復刃者</span>
+<div class=&quot;term&quot;>須菩提</div>
+<div class=&quot;desc&quot;>在帝釋讚歎「未曾有」的高峰處插入兩刃警語：取「合不合」也失、取「空虛無堅固」也失。他把讀者從可能的執取中拉回。</div>
+</div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>四人的功能不可互換：<strong>舍利弗發問→佛回應→帝釋追問→須菩提復刃</strong>，是一個由表入裡、由立到破的邏輯遞進。其中須菩提扮演的「復刃者」尤為關鍵——若沒有他在第五章插入雙刃警語，讀者會誤把「不合」當成新的依靠之處。</p>
+</div>
+<h2>第三節　全品三段式論辯軸線：讚 → 合 → 不信</h2>
+<p>把全品依論辯動態拆開，可以看到三段式的逐層深化：</p>
+<div class=&quot;flow flow-v&quot;>
+<div class=&quot;flow-box&quot;><strong>第一段 · 讚</strong><br/>舍利弗讚歎般若十六德 → 佛答禮般若如禮世尊<br/><small>建立般若的正面表述</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-box&quot;><strong>第二段 · 合</strong><br/>云何生般若 → 不生故生 → 與何法合？無所合 → 不合善惡、世/出世、有漏/無漏、有罪/無罪、有為/無為 → 薩婆若亦不合<br/><small>抽除般若的「對象性」</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-box&quot;><strong>第三段 · 不信</strong><br/>取合不合則失 → 取空虛則失 → 信般若即不信色乃至一切種智<br/><small>抽除般若的「主體性」</small></div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>這個三段式軸線是判讀本品所有經文位置的座標：<strong>第一段在「立」、第二段在「破對象」、第三段在「破主體」</strong>。讚歎之後若立即接受「般若有所合」，那麼第二段尚未發生；接受了「無所合」之後若再執取「無所合是般若的真相」，那麼第三段才警告你這也要捨。三段不是依序通過的階梯，而是同時並存的多重否定。</p>
+<p>後續五章正是依這個軸線展開：第二章對應「讚」，第三章對應「五度依眼」（屬「讚」延續），第四章對應「合」（破對象），第五章對應「合」之深處與「復刃」轉接到「不信」，第六章對應「不信」與全品總綱。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;>
+<div class=&quot;bridge-label&quot;>承先啟後</div>
+<p>導讀建立了三條讀本品的線索（破立雙義、四角配置、三段軸線）。接下來進入正文：第二章先處理整品起手的「般若十六讚」——這是經由舍利弗之口建立的般若正面表述，論釋部分逐一解說每一德的義理，並導向「般若無相相、佛即般若」的論主核心觀點。</p>
+</div>
+<div class=&quot;next-link-wrap&quot;><a class=&quot;next-link&quot; href=&quot;#chapter-2&quot;>前往下一章 →</a></div>
+</div>
+</section>
+<section class=&quot;chapter&quot; id=&quot;chapter-2&quot;>
+<div class=&quot;ch-head&quot;>
+<div class=&quot;ch-num&quot;>卷六十二 · 照明品 · 第二章</div>
+<div class=&quot;ch-name&quot;>般若十六讚 · 經論對讀</div>
+<div class=&quot;ch-sub&quot;>舍利弗讚歎與龍樹疏解</div>
+</div>
+<div class=&quot;ch-body&quot;>
+<div class=&quot;bridge&quot;>
+<div class=&quot;bridge-label&quot;>本章要旨</div>
+<p>本章處理整品起手段落：舍利弗從默然聽聞中起座，白佛讚歎般若波羅蜜的<strong>十六種功德</strong>，再由佛陀回應「禮般若當如禮世尊」。論釋部分（龍樹《大智度論》）<strong>逐一解釋十六德的內在意義</strong>，並由此導出「般若是無相相、佛與般若無異」的論主核心立場——這是後面五章一切論辯的根據。</p>
+</div>
+<h2>第一節　經文：舍利弗白佛問般若</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 起問</span>
+<p>爾時，慧命舍利弗白佛言：「世尊！是般若波羅蜜？」</p>
+<p>佛言：「是般若波羅蜜。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>這段對話極為簡短，但功能不容忽視：舍利弗的提問語氣既非求解、亦非質疑，而是一種<strong>「驗證式的呼喚」</strong>——他在前文中已聽聞佛、彌勒、須菩提、帝釋共說隨喜義，深感其甚深無邊，於是起座合掌，以幾乎是感嘆的口吻問道「這就是般若波羅蜜嗎？」佛只以「是般若波羅蜜」一句確認。這個極簡的「是」字，為下面整段十六讚定了調：所有讚歎不是舍利弗自己虛構的形容，而是佛親自認可後再展開的內容。</p>
+</div>
+<h2>第二節　經文：般若十六讚原典</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 十六讚</span>
+<p>「世尊！般若波羅蜜<strong>能照一切法</strong>，畢竟淨故。世尊！<strong>應禮般若波羅蜜</strong>。世尊！般若波羅蜜<strong>不著三界</strong>。世尊！般若波羅蜜<strong>除諸闇冥</strong>，一切煩惱諸見除故。世尊！般若波羅蜜<strong>一切助道法中最上</strong>。世尊！般若波羅蜜<strong>安隱</strong>，能斷一切怖畏苦惱故。世尊！般若波羅蜜<strong>能與光明</strong>，五眼莊嚴故。世尊！般若波羅蜜<strong>能示導墮邪道眾生</strong>，離二邊故。世尊！般若波羅蜜<strong>是一切種智</strong>，一切煩惱及習斷故。世尊！般若波羅蜜<strong>諸菩薩摩訶薩母</strong>，能生諸佛法故。世尊！般若波羅蜜<strong>不生不滅</strong>，自相空故。世尊！般若波羅蜜<strong>遠離生死</strong>，非常非滅故。世尊！般若波羅蜜<strong>無救者作護</strong>，施一切珍寶故。世尊！般若波羅蜜<strong>具足力</strong>，無能破壞故。世尊！般若波羅蜜<strong>能轉三轉十二行法輪</strong>，一切諸法不轉不還故。世尊！般若波羅蜜<strong>能示諸法性</strong>，不有不無故。」</p>
+</div>
+<div class=&quot;note&quot;>
+<span class=&quot;note-label&quot;>編者註</span>原典本段為一氣貫注，無明顯分段。為便閱讀，上文以粗體標出十六德。讚詞的順序與佛德的順序高度對應：第一德「能照一切法」與品名「照明」直接相應；最末第十六德「能示諸法性，不有不無」即為般若究竟義之收束。
+</div>
+<h2>第三節　經文：佛答禮般若如禮世尊</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 佛印可</span>
+<p>佛言：「<strong>當如供養世尊。禮般若波羅蜜，當如禮世尊。</strong>何以故？世尊不異般若波羅蜜，般若波羅蜜不異世尊；<strong>世尊即是般若波羅蜜，般若波羅蜜即是世尊。</strong>是般若波羅蜜中出生諸佛、菩薩、辟支佛、阿羅漢、阿那含、斯陀含、須陀洹；般若波羅蜜中生十善道、四禪、四無量心、四無色定、五神通，內空乃至無法有法空，四念處乃至八聖道分；是般若波羅蜜中生佛十力、十八不共法、大慈大悲、一切種智。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>佛的回答看似只是肯定舍利弗的讚歎，實則完成了三件事：<strong>(一) 把「般若」從「客體性的法」拉回到「世尊」——人格化的覺悟整體</strong>；<strong>(二) 用「不異」「即是」確立般若與佛之間沒有本體上的差別</strong>；<strong>(三) 列舉「般若中出生」的所有聖者、所有道法、所有功德——以此宣告般若是一切修證內容的母體</strong>。這三步合起來，正是「禮般若如禮世尊」的具體理由。</p>
+</div>
+<h2>第四節　論釋：龍樹疏解十六德</h2>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 釋曰</span>
+<p>上佛、彌勒、須菩提、釋提桓因共說隨喜義。舍利弗雖默然，聽聞是般若波羅蜜隨喜義甚深，無量無邊，大利益眾生；雖漏盡寂滅，發歡喜心，從坐起，合掌，白佛言：「能作隨喜、斷諸戲論、利益無量眾生令入佛道者，是般若波羅蜜。」佛可其語，故言「是」。</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>龍樹首句解釋了「為何此時是舍利弗發問」：他原本默然，不參與隨喜的辯說，但因為聽出隨喜義甚深無邊大利益眾生，連他這位<strong>漏盡寂滅</strong>的聲聞乘人也被打動，發歡喜心起座白佛。這是個重要的人物心理轉折——讓我們看到般若不只是菩薩的事，連聲聞也會在合適的時機被它「拉動」。</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 逐一疏解</span>
+<p>(1) 般若波羅蜜中說<strong>諸法實相</strong>；諸法實相中無戲論垢濁，故名「畢竟清淨」；畢竟清淨，故能<strong>遍照一切五種法藏</strong>，所謂過去、未來、現在、無為及不可說。是故舍利弗言：「般若波羅蜜能照一切法，畢竟淨故。」</p>
+<p>(2) 般若波羅蜜能守護菩薩，救諸苦惱，能滿所願，<strong>如梵天王守護三千大千世界</strong>，故眾生皆禮。</p>
+<p>(3) 三界中三毒泥所不污，故言「不著三界」。</p>
+<p>(4) 破一切愛等百八煩惱、我見等六十二見，故言「破無明黑闇」。</p>
+<p>(5) 諸法中智慧最上，一切智慧中般若波羅蜜為上；以智慧為本，分別四念處等三十七品，是故言「一切助道法中最上」。</p>
+<p>(6) 能斷生、老、病、死等諸怖畏苦惱，故言「安隱」。</p>
+<p>(7) 是般若波羅蜜中攝五眼，故言「能與光明」。</p>
+<p>(8) 離有邊、無邊等諸二邊，故言「能示正道」。</p>
+<p>(9) 菩薩住<strong>金剛三昧</strong>，斷一切煩惱微習，令無遺餘，得無礙解脫，故言「一切種智」。復次，知一切法<strong>總相、別相</strong>，一切種智因緣，故名「一切種智」。</p>
+<p>(10) 能生十方三世無量諸佛法故言「諸菩薩母」。</p>
+<p>(11) 一切法中各各<strong>自相空</strong>故言「不生不滅」。</p>
+<p>(12) 斷、常是諸見本，諸見是諸結使本，諸結使是一切生死中苦本，是故言「遠離生死」。</p>
+<p>(13) 能令眾生信三寶等諸善法寶；得諸善法寶故，得世間、出世間樂。能令眾生得二種樂故言「無救者作護」。</p>
+<p>(14) 是般若波羅蜜相，<strong>乃至十方諸佛所不能壞</strong>。所以者何？畢竟不可得故，何況餘人！故言「具足波羅蜜」。</p>
+<p>(15) 是般若波羅蜜中無自性故，說諸法不轉生死中，不還入涅槃——不生故不轉，不滅故不還，故言「能轉三轉十二行法輪」。三轉十二行法輪義，如先說。</p>
+<p>(16) 一切法有二分：若有、若無。是般若中，<strong>有亦不應取，無亦不應取</strong>；離是有、無，即是諸法性，是故言「能示諸法性」。</p>
+<p>如是等無量因緣，讚歎般若，後當廣說。</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>論主把十六德分成幾個邏輯叢：<strong>(1)–(2)</strong> 是「光與護」（能照、應禮）；<strong>(3)–(8)</strong> 是「破諸過」（不著、除闇、最上、安隱、與光、示導）；<strong>(9)–(10)</strong> 是「成大果」（一切種智、諸佛之母）；<strong>(11)–(12)</strong> 是「離斷常」（不生不滅、遠離生死）；<strong>(13)–(14)</strong> 是「不壞性」（無救作護、具足力）；<strong>(15)–(16)</strong> 是「不轉相」（轉法輪、示諸法性）。</p>
+<p>整個十六德的最終結穴是第十六項——<strong>「有亦不應取，無亦不應取，離是有無即是諸法性」</strong>。這句話直接預告了第四章「不合一切法」、第六章「信般若即不信一切」的所有後續論辯。讚歎到這裡其實已經暗中翻轉成「破取」。</p>
+</div>
+<h2>第五節　論釋：般若無相相、佛即般若</h2>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 無相相</span>
+<p>是般若波羅蜜<strong>是無相相</strong>。有人心未淳熟，求其定相不能得，便生慢心。是故舍利弗問：「應云何供養？」</p>
+<p>佛教言：「當如供養佛。」以人從久遠已來深著眾生相，於貴法情薄，是故言：「如供養世尊。」</p>
+<p>智者觀之，<strong>佛與般若等無異</strong>。所以者何？般若修集，即變為一切智。此中佛自說因緣：「是般若波羅蜜中，出生賢聖等，出生十善道等，世間、出世間法，乃至一切種智。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論主核心</div>
+<p>「般若是無相相」是龍樹在這一品安插的<strong>邏輯地基</strong>。「無相相」不是「沒有相」，而是「以無相為相」——亦即般若的特質正是「不能被定義為任何特定的相」。這也是為什麼：</p>
+<p>(1) 求其定相而不可得時，未熟之人會生「慢心」——以為般若虛無；佛便以「如供養世尊」的方式，借「世尊」這個有人格之相的對象，反向錨定般若的可敬。</p>
+<p>(2) 智者觀之，般若與佛無異——因為般若一旦修集，就變為「一切智」，而一切智正是佛之所以為佛的內容。<strong>佛是般若的人格化果報，般若是佛的內容性因素</strong>。兩者相即。</p>
+<p>這個論主立場將是後面四章的根據：當經文一再說「般若不合一切法」「不合薩婆若」時，並非要否定般若的真實，而是要把「相」從般若身上撤下，使它回到「無相相」的本來位置。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;>
+<div class=&quot;bridge-label&quot;>承先啟後</div>
+<p>第二章為般若建立了正面表述（十六德）與論主立場（無相相、佛即般若）。但這只是論辯的第一層——「讚歎」。第三章將進入「讚歎之延續」：般若如何<strong>「將導五波羅蜜」</strong>，使它們成為波羅蜜？經文以「百千盲人」喻說明這個將導關係，論釋則在五個層次（百千、客來、道城、合散、大將）反覆回應。讚歎在第三章達到結構性高峰，之後第四章將開始解構。</p>
+</div>
+<div class=&quot;next-link-wrap&quot;><a class=&quot;next-link&quot; href=&quot;#chapter-3&quot;>前往下一章 →</a></div>
+</div>
+</section>
+<section class=&quot;chapter&quot; id=&quot;chapter-3&quot;>
+<div class=&quot;ch-head&quot;>
+<div class=&quot;ch-num&quot;>卷六十二 · 照明品 · 第三章</div>
+<div class=&quot;ch-name&quot;>五波羅蜜如盲依眼</div>
+<div class=&quot;ch-sub&quot;>般若獨將導五度的五重論證</div>
+</div>
+<div class=&quot;ch-body&quot;>
+<div class=&quot;bridge&quot;>
+<div class=&quot;bridge-label&quot;>本章要旨</div>
+<p>本章處理一個關鍵問題：<strong>為什麼六波羅蜜中要獨讚般若？</strong>經文以「百千盲人無前導」為喻：五波羅蜜若無般若將導，如盲無眼，不能趣道入城。論釋部分（龍樹）對此設了三組問答（百千之問、客來之問、合散大將之問），把「般若獨被名」的合理性做出五重論證。<strong>本章是「讚歎」的延伸高峰，但同時暗藏結構性線索：當「將導」被推到極致時，般若也必須面對「相依與獨稱」的張力</strong>——這個張力正是下一章「無所合」要解開的。</p>
+</div>
+<h2>第一節　經文：帝釋發問與「百千盲人」喻</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 帝釋發問</span>
+<p>爾時，釋提桓因心念：「何因緣故舍利弗問是事？」念已，語舍利弗：「何因緣故問是事？」</p>
+<p>舍利弗語釋提桓因言：「憍尸迦！諸菩薩摩訶薩為般若波羅蜜守護，以<strong>漚和拘舍羅力</strong>故，於過去、未來、現在諸佛，從初發心乃至法住，於其中間所作善根，一切和合隨喜，迴向阿耨多羅三藐三菩提。以是因緣故，我問是事。</p>
+<p>憍尸迦！菩薩摩訶薩般若波羅蜜勝檀波羅蜜、尸羅、羼提、毘梨耶、禪波羅蜜。<strong>譬如生盲人，若百、若千、若百千而無前導，不能趣道、入城。</strong>憍尸迦！五波羅蜜亦如是，離般若波羅蜜，如盲無導，不能趣道、不能得一切種智。憍尸迦！若五波羅蜜得般若波羅蜜將導，是時五波羅蜜名為有眼；<strong>般若波羅蜜將導，得波羅蜜名字。</strong>」</p>
+</div>
+<div class=&quot;note&quot;>
+<span class=&quot;note-label&quot;>名相</span><strong>漚和拘舍羅</strong>（Skt. <em>upāyakauśalya</em>）即「方便善巧」，是菩薩在實踐中能因應根器與情境而靈活運用法門的智慧。舍利弗在此引出「方便」，是要交代：菩薩之所以能「廣作隨喜並迴向阿耨多羅三藐三菩提」而不破壞般若的無相相，正是因為有方便力的支持。
+</div>
+<h2>第二節　經文：般若獨將導五度</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 帝釋追問</span>
+<p>釋提桓因語舍利弗：「如汝所言，般若波羅蜜將導五波羅蜜故，得波羅蜜名字。舍利弗！<strong>若無檀波羅蜜，五波羅蜜不得波羅蜜名字；若無尸羅波羅蜜、羼提波羅蜜、毘梨耶波羅蜜、禪波羅蜜，五波羅蜜不得波羅蜜名字。</strong>若爾者，何以故獨讚般若波羅蜜？」</p>
+<p>舍利弗言：「如是！如是！憍尸迦！無檀波羅蜜，五波羅蜜不得波羅蜜名字；無尸羅波羅蜜、羼提波羅蜜、毘梨耶波羅蜜、禪波羅蜜，五波羅蜜不得波羅蜜名字。<strong>但菩薩摩訶薩住般若波羅蜜中，能具足檀波羅蜜、尸羅波羅蜜、羼提波羅蜜、毘梨耶波羅蜜、禪波羅蜜。</strong>以是故，憍尸迦！般若波羅蜜於五波羅蜜中，最上、第一、最妙、無上、無與等。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>帝釋的追問極具邏輯威力——他指出：依「相依」邏輯，<strong>每一波羅蜜對其他五度而言都是必要條件</strong>。若沒有檀波羅蜜，其他五度也得不到「波羅蜜」的名字；尸羅、羼提、毘梨耶、禪皆然。既然每一度都同等必要，何以獨讚般若？</p>
+<p>舍利弗承認此追問「如是！如是！」（每一度都不可缺），但隨即翻轉為一個更精細的判準：「<strong>住般若波羅蜜中，能具足其餘五度</strong>」——關鍵不在「誰是必要條件」，而在「誰能容攝其餘」。其餘五度雖各為必要條件，卻不能反向具足彼此；唯有般若是「住於其中，餘五自具」的容器。這就是般若獨被讚歎的真正理由。</p>
+</div>
+<h2>第三節　論釋：百千、客來、道城、合散、大將五喻</h2>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 1·百千之問</span>
+<p>復次，憍尸迦！般若波羅蜜<strong>自力勢</strong>故，勝五波羅蜜。</p>
+</div>
+<div class=&quot;qa-block&quot;>
+<p class=&quot;q&quot;>五波羅蜜應以五盲人作喻，何以乃說「百千」？</p>
+<p class=&quot;a&quot;>此中說其<strong>力勢</strong>，不論多少。</p>
+<p class=&quot;a&quot;>復次，若言導五不足為貴，故說「百千」。</p>
+<p class=&quot;a&quot;>復次，波羅蜜亦多，如《賢劫三昧》中有<strong>八萬四千種波羅蜜</strong>，廣說則無量。</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>第一組問答把「百千」這個數字解開三層意義：(1) 強調般若的「力勢」之大，數字只是修辭手段；(2) 反襯——若只說「導五」似乎還不算稀奇，須說「百千」才見其能；(3) 實際上波羅蜜的種類遠不止五度，《賢劫三昧》中即有八萬四千種，廣說無量。這三層回應使「百千盲人」之喻不限於六波羅蜜的小框架。</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 2·客來之問</span>
+</div>
+<div class=&quot;qa-block&quot;>
+<p class=&quot;q&quot;>檀波羅蜜亦有眼。所以者何？信有罪福，破邪見等無明，故能布施，何以故喻無眼？</p>
+<p class=&quot;a&quot;>布施中，<strong>智慧是客來，非正體</strong>。譬如四大常和合，不得相離；諸波羅蜜和合亦如是。</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>第二組問答解開一個容易被誤會的點：檀波羅蜜（布施）裡明明也包含智慧（信因果、破邪見），怎能說它「無眼」？論主答得很乾脆：<strong>布施中的智慧只是「客來」（外援），不是「正體」（自體）</strong>。布施之所以為布施，正體是「捨」這個動作；智慧只是讓這個動作合於正法的補助條件。但反過來，般若之中，智慧本身就是正體，不是客來。這是「般若獨被名」的另一個結構性理由。</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 3·道城雙釋</span>
+<p><strong>不能趣道，道者，菩薩十地道；城者，一切種智等諸佛法。</strong></p>
+<p>復次，<strong>道者，八聖道分；城者，涅槃。</strong></p>
+<p>如盲人雖有手足力，不能得隨意有所至；得有眼人示導，則隨意所往，皆能成辦。五波羅蜜雖各各有事能，不得般若示導，尚不得二乘，何況無上道！五波羅蜜得般若波羅蜜將導故，得波羅蜜名字，至成佛道。</p>
+</div>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第一義</span>
+<div class=&quot;term&quot;>大乘層</div>
+<div class=&quot;desc&quot;>「道」＝菩薩十地道；「城」＝一切種智等諸佛法。此義對應大乘修行的長遠軌跡。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第二義</span>
+<div class=&quot;term&quot;>通乘層</div>
+<div class=&quot;desc&quot;>「道」＝八聖道分；「城」＝涅槃。此義對應聲聞、緣覺、菩薩三乘共通的根本框架。</div>
+</div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>論主對「道」「城」做了兩義並陳的解釋，意在說明：般若之導，不只是大乘的事，連二乘的「八聖道分→涅槃」也有賴於它。換言之——<strong>離般若，連聲聞二乘都得不到，何況無上道</strong>？這把「將導」的範圍從大乘的「成佛之道」一路推到聲聞乘的「斷漏成阿羅漢」，使般若的力勢無乘不及。</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 4·合散之問 · 5·大將之喻</span>
+<p>帝釋問：「汝自說諸波羅蜜和合，互相佐助，如四大不得相離。如是者，般若波羅蜜亦待五法，何以獨說以般若故五法得波羅蜜名字？」</p>
+<p>答曰：雖六事和合、互相佐助，但<strong>般若波羅蜜力大故，五法因得波羅蜜名字</strong>。譬如<strong>合散</strong>，雖眾藥各各有力，<strong>石勢大故，名為石散</strong>。又如<strong>大軍摧敵，雖各各有力，主將力大故，主得名字</strong>。</p>
+</div>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>合散喻</span>
+<div class=&quot;term&quot;>石勢大故名石散</div>
+<div class=&quot;desc&quot;>中藥複方「合散」由多味藥構成，每味皆有藥力，但主治成分（如石膏）勢力最強，整方便以該主成分命名。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>大將喻</span>
+<div class=&quot;term&quot;>主將力大故主得名</div>
+<div class=&quot;desc&quot;>大軍摧敵，將士皆有力，但主將的指揮力最大，戰功之名歸於主將。</div>
+</div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>第三組問答正面回應了帝釋第二章的反詰——「既然六事互相依待，憑什麼獨稱般若？」論主的答案不是否認相依，而是區分「相依」與「主導」：<strong>相依說明六度誰也離不了誰；主導說明在這個整體中般若擔任統合者</strong>。合散喻與大將喻都在說同一件事：主成分／主將不是「沒有其他成分／士兵」，而是「在整體中扮演定名功能」。這完全呼應第二節舍利弗的結論——「住般若波羅蜜中，能具足其餘五度」。</p>
+<p>但這裡有個微妙的轉折——當論主把「將導」推到「主將定名」這麼強的位置時，反而引出一個新的疑慮：<strong>般若會不會因此被取為「實有的主導者」？</strong>如果有人因為讚歎而把般若實體化，那就違背了第二章末的「般若是無相相」。這個張力正是下一章經文要處理的——所以舍利弗緊接著問：「云何應生般若波羅蜜？」</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;>
+<div class=&quot;bridge-label&quot;>承先啟後</div>
+<p>第三章把「讚歎」推到了結構高峰：般若不只是六度之一，而是<strong>整個六度體系的定名者與容攝者</strong>。但讚歎一旦推到極致，就有被執取的危險——「將導」若被誤解為「實有的主導力」，般若便落入相中。第四章要處理的正是這個轉折：經文從「云何應生般若」開始，一路導向「不生故生」「無所合」「不合善惡有為無為」，把般若從「主導者」的相中再撤回到「無相相」的位置。讚歎在這裡開始翻轉為解構。</p>
+</div>
+<div class=&quot;next-link-wrap&quot;><a class=&quot;next-link&quot; href=&quot;#chapter-4&quot;>前往下一章 →</a></div>
+</div>
+</section>
+<section class=&quot;chapter&quot; id=&quot;chapter-4&quot;>
+<div class=&quot;ch-head&quot;>
+<div class=&quot;ch-num&quot;>卷六十二 · 照明品 · 第四章</div>
+<div class=&quot;ch-name&quot;>般若無生故生 · 無所合</div>
+<div class=&quot;ch-sub&quot;>從十類否定走入無相相</div>
+</div>
+<div class=&quot;ch-body&quot;>
+<div class=&quot;bridge&quot;>
+<div class=&quot;bridge-label&quot;>本章要旨</div>
+<p>本章是全品「破對象」的關鍵段落。經文從<strong>「云何應生般若」</strong>開始發問，佛答「色等不生故般若生」；再追問「不起、不生、不得、不失」的細義；再轉向<strong>「般若與何法合」</strong>，佛答「無所合」，並列出十類否定（不善/善、世間/出世間、有漏/無漏、有罪/無罪、有為/無為）。論釋部分把「不生」與「無所合」這兩個看似不同的命題鎖在同一根原理上——<strong>因緣和合無自性故無生，無生相故無所合</strong>。本章是第二章「無相相」、第三章「將導」之後的<strong>邏輯收束</strong>。</p>
+</div>
+<h2>第一節　經文：色等不生故般若生</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 起問</span>
+<p>舍利弗白佛言：「世尊！<strong>云何應生般若波羅蜜？</strong>」</p>
+<p>佛告舍利弗：「<strong>色不生故，般若波羅蜜生</strong>；受、想、行、識不生故，般若波羅蜜生；檀波羅蜜不生故，般若波羅蜜生；乃至禪波羅蜜不生故，般若波羅蜜生；內空乃至無法有法空，四念處乃至八聖道分，佛十力乃至一切智，一切種智不生故，般若波羅蜜生。<strong>如是諸法不生故，般若波羅蜜應生。</strong>」</p>
+<p>舍利弗言：「世尊！云何色不生故般若波羅蜜生？乃至一切諸法不生故般若波羅蜜應生？」</p>
+<p>佛言：「<strong>色不起、不生、不得、不失故</strong>，乃至一切諸法不起、不生、不得、不失故，般若波羅蜜生。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>佛的回答展現了一個根本性的逆轉：<strong>「般若如何生起」這個問題本身就帶著錯誤預設</strong>——它預設了「有一個叫般若的法可以被製造出來」。佛的回答把問題消解：般若之所以「生」，恰恰因為色等諸法皆「不生」。換言之，<strong>不是有一個對象等著般若去照亮，而是當對象的自性消融時，般若這種「無相相」的處境才現前</strong>。</p>
+<p>第二輪問答進一步把「不生」拆成「不起、不生、不得、不失」四義：<strong>不起</strong>是因緣未動之相；<strong>不生</strong>是無自體可成之相；<strong>不得</strong>是無實體可被取之相；<strong>不失</strong>是因為本來無得故亦無可失。四義疊合，使「不生」不會被誤解為「未來不再有」這種斷滅見。</p>
+</div>
+<h2>第二節　經文：般若無所合的十類否定</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 與何合</span>
+<p>舍利弗白佛言：「<strong>如是生般若波羅蜜，與何等法合？</strong>」</p>
+<p>佛言：「<strong>無所合，以是故得名般若波羅蜜。</strong>」</p>
+<p>「世尊！不合何等法？」</p>
+<p>佛言：「<strong>不與不善法合，不與善法合；不與世間法合，不與出世間法合；不與有漏法合，不與無漏法合；不與有罪法合，不與無罪法合；不與有為法合，不與無為法合。</strong>何以故？般若波羅蜜<strong>不為得諸法故生</strong>，以是故於諸法無所合。」</p>
+</div>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第1對</span>
+<div class=&quot;term&quot;>善 / 不善</div>
+<div class=&quot;desc&quot;>不取道德意義上的二元對立。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第2對</span>
+<div class=&quot;term&quot;>世間 / 出世間</div>
+<div class=&quot;desc&quot;>不取存在領域的二元對立（凡夫位與聖位）。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第3對</span>
+<div class=&quot;term&quot;>有漏 / 無漏</div>
+<div class=&quot;desc&quot;>不取煩惱有無的二元對立。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第4對</span>
+<div class=&quot;term&quot;>有罪 / 無罪</div>
+<div class=&quot;desc&quot;>不取業報層面的二元對立。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第5對</span>
+<div class=&quot;term&quot;>有為 / 無為</div>
+<div class=&quot;desc&quot;>不取造作與不造作的二元對立。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>總因</span>
+<div class=&quot;term&quot;>不為得諸法故生</div>
+<div class=&quot;desc&quot;>般若不是為了「獲得」任何法而起，故與所有法皆不合。這是十類否定背後的單一原理。</div>
+</div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>佛列出五對十類否定，幾乎窮盡了佛教義學中所有可能的二元範疇——道德、存在、煩惱、業報、造作。這個窮舉法的功能不是要羅列「般若不合什麼」，而是要使讀者意識到：<strong>無論你想用哪一個範疇去定位般若，都不會合</strong>。十類否定背後只有一個原理：「般若不為得諸法故生」。</p>
+<p>這句話極為關鍵——<strong>般若的「生」不是為了「得」什麼</strong>。一切「合」的關係都預設了「為了得到對方」（合善法為了得善、合無漏法為了得解脫等）；當般若不以「得」為動機時，它與一切法的「合」關係便結構性地不成立。這把第三章「主導」的相也撤了——主導者預設有所主導的對象，般若連這層也沒有。</p>
+</div>
+<h2>第三節　論釋：因緣和合無生 · 無生相故無所合</h2>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 解云何生</span>
+<p>舍利弗已問供養般若事，今問：「行者云何生般若波羅蜜？」</p>
+<p>佛答：「若行者觀色等諸法<strong>不生相</strong>，是則生般若波羅蜜。」</p>
+<p>舍利弗復問：「云何觀色等不生故，般若波羅蜜生？」</p>
+<p>答曰：「色等，<strong>因緣和合起，行者知色虛妄，不令起；不起故不生，不生故不得，不得故不失</strong>。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>論主把「不起、不生、不得、不失」這四環緊扣為一個遞進鏈：</p>
+</div>
+<div class=&quot;flow flow-v&quot;>
+<div class=&quot;flow-box&quot;><strong>因緣和合起</strong><br/><small>色法只是因緣和合的現象</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-box&quot;><strong>行者知色虛妄</strong><br/><small>智者觀知此和合相非實有</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-box&quot;><strong>不令起 → 不起</strong><br/><small>不執取、不再令其在心中生起為「實」</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-box&quot;><strong>不起故不生</strong><br/><small>未起之故，自然亦無實生</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-box&quot;><strong>不生故不得</strong><br/><small>未生之故，自然亦無可得</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-box&quot;><strong>不得故不失</strong><br/><small>本來無所得故，亦無所謂的失</small></div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>這個遞進鏈把「不生」從一個抽象命題變成具體的觀照次第：<strong>從「觀知因緣性」到「不再執取」到「無生無得無失」</strong>。整個過程不需要外加力量去「製造般若」，只需把對虛妄相的執取一層層放下，般若自然「生」於這個放下之中。這就是「不生故生」的具體義。</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 解無所合</span>
+<p>爾時，舍利弗問意：「般若無生緣處，行者亦無生，<strong>如是般若與何法合？終歸何處住？得何果報？</strong>」</p>
+<p>答曰：「<strong>般若波羅蜜無生相故無所合。</strong>」若般若波羅蜜有法合者，若善、若不善等，是不名般若波羅蜜；今無所合，故入般若波羅蜜數中。</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論主核心</div>
+<p>論主用一句話封死了「合」的可能：<strong>「般若波羅蜜無生相故無所合」</strong>。「合」這個動作預設了兩件實體之間的接合，但般若本身既然是「無生相」，它就不是一件可以被當作端點來接合的實體。論主再做反證：如果般若有法合，無論合的是善是不善——這個「能合」的般若就已經有了相，就不再是般若。所以<strong>「無所合」不是般若的缺憾，而是般若得以為般若的條件</strong>。這便是經文所說「無所合，以是故得名般若波羅蜜」的論主註腳。</p>
+</div>
+<div class=&quot;insight&quot;>
+<div class=&quot;insight-title&quot;>本章小結 · 三條命題的同一性</div>
+<p>本章所有經文與論釋其實都在表述<strong>同一個核心命題的三種說法</strong>：</p>
+<p><strong>(一) 不生故生</strong>——當對象的自性消融時，般若才不被當作「另一個實有」來追求。</p>
+<p><strong>(二) 不為得故生</strong>——般若不以「獲得任何法」為動機，故與一切法無「合」之關係。</p>
+<p><strong>(三) 無生相故無所合</strong>——般若本身無生相，亦不能成為被合的端點。</p>
+<p>三句並非三件事，而是<strong>從「動機」「過程」「結果」三個角度看同一個無相相</strong>。把握這個三位一體，第五章帝釋與須菩提的雙刃辯破才能讀得通。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;>
+<div class=&quot;bridge-label&quot;>承先啟後</div>
+<p>第四章已把「般若不合一切法」說透。第五章接著要追問兩個更尖銳的問題：(一) <strong>般若是否也不合「薩婆若」（一切智）？</strong>（帝釋之問）；(二) <strong>若取「不合」這個結論為實，是否還是失般若？</strong>（須菩提之復刃）。前一問把否定推到佛智的極限，後一問則回頭警告「不合」這個答案本身也是要被破的相。第五章是全品論辯張力最大的段落。</p>
+</div>
+<div class=&quot;next-link-wrap&quot;><a class=&quot;next-link&quot; href=&quot;#chapter-5&quot;>前往下一章 →</a></div>
+</div>
+</section>
+<section class=&quot;chapter&quot; id=&quot;chapter-5&quot;>
+<div class=&quot;ch-head&quot;>
+<div class=&quot;ch-num&quot;>卷六十二 · 照明品 · 第五章</div>
+<div class=&quot;ch-name&quot;>帝釋與須菩提 · 雙刃辯破</div>
+<div class=&quot;ch-sub&quot;>取合不合、取空虛皆失般若</div>
+</div>
+<div class=&quot;ch-body&quot;>
+<div class=&quot;bridge&quot;>
+<div class=&quot;bridge-label&quot;>本章要旨</div>
+<p>本章是全品論辯張力最尖銳的段落。<strong>帝釋</strong>把「不合」推到極限——連薩婆若（一切智）都不合？又問既然不合，那「合」究竟是什麼意思？佛以<strong>「不取、不受、不住、不著、不斷」五者</strong>定義「佛心合」。緊接著<strong>須菩提</strong>插入兩刃警語：(一) 取「般若有合不合」是失般若；(二) 取「般若空虛無堅固」也是失般若。<strong>取與不取兩邊都被破</strong>，使讀者無從找到任何安住點。這正是般若邏輯解構的最深處。</p>
+</div>
+<h2>第一節　經文：薩婆若亦不合亦不得</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 帝釋追問</span>
+<p>爾時，釋提桓因白佛言：「世尊！<strong>是般若波羅蜜亦不合薩婆若？</strong>」</p>
+<p>佛言：「如是！憍尸迦！<strong>般若波羅蜜亦不合薩婆若，亦不得。</strong>」</p>
+<p>釋提桓因言：「世尊！云何般若波羅蜜亦不合薩婆若，亦不得？」</p>
+<p>佛言：「般若波羅蜜<strong>不如名字、不如相、不如起作法合</strong>。」</p>
+</div>
+<div class=&quot;note&quot;>
+<span class=&quot;note-label&quot;>名相</span><strong>薩婆若</strong>（Skt. <em>sarvajña</em>）即「一切智」，廣義指佛的圓滿智慧。在三智的階位中，薩婆若是聲聞、辟支佛、菩薩共證的「總相智」；最高一級是「一切種智」，唯佛獨證。本品中「薩婆若」與「一切種智」常並用，泛指佛智之果。
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>帝釋的這個追問極具衝擊力。<strong>薩婆若是修行的終極目標</strong>——所有般若波羅蜜的努力，理論上都指向證得薩婆若。如果連薩婆若也不合，那豈不是說「般若波羅蜜的目的本身也不能被它所達」？佛斬釘截鐵答：「如是！亦不合，亦不得。」</p>
+<p>「亦不合，亦不得」是兩重否定：<strong>「不合」抽除了關係性</strong>（般若與薩婆若不存在「為了得它而朝它前進」的對接），<strong>「不得」抽除了結果性</strong>（修行不導致一個叫「薩婆若」的實體被取得）。這兩重否定一起把「目的論」的修行框架解構掉。但這不是說修行無意義——修行的意義在「畢竟空中無所得」這件事的當下展現，而不是在某個未來時點的「終於得到薩婆若」。</p>
+</div>
+<h2>第二節　經文：不取不受不住不著不斷</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 五不</span>
+<p>釋提桓因言：「今云何合？」</p>
+<p>佛言：「若菩薩摩訶薩如<strong>不取、不受、不住、不著、不斷</strong>，如是合，亦無所合。如是，憍尸迦！般若波羅蜜、一切法合，亦無所合。」</p>
+<p>爾時，釋提桓因白佛言：「未曾有也！世尊！<strong>是般若波羅蜜為一切法不起、不生、不得、不失故生。</strong>」</p>
+</div>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>不取</span>
+<div class=&quot;term&quot;>不執取相</div>
+<div class=&quot;desc&quot;>一切相虛誑故不取相。對任何顯現的相不執為實。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>不受</span>
+<div class=&quot;term&quot;>不領納為己</div>
+<div class=&quot;desc&quot;>一切法中有無常等過咎故不受。不把法相領納為自己的。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>不住</span>
+<div class=&quot;term&quot;>不安住為定</div>
+<div class=&quot;desc&quot;>吾我心縛著世間皆動相故不住。不在任何法上定居作為立足點。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>不著</span>
+<div class=&quot;term&quot;>不黏著為實</div>
+<div class=&quot;desc&quot;>能生種種苦惱後變異故不著。不對任何法黏著愛重。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>不斷</span>
+<div class=&quot;term&quot;>不斷滅為無</div>
+<div class=&quot;desc&quot;>一切世間顛倒果報不實如幻如夢無所滅故不斷。不在「不取不受不住不著」之後落入「乾脆斷滅」的虛無見。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>總義</span>
+<div class=&quot;term&quot;>合而無合</div>
+<div class=&quot;desc&quot;>五不齊備時，般若與一切法的關係呈現為「合而無所合」——不離一切法，又不黏著一切法。</div>
+</div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>佛在這裡終於給出了「合」的真正意義——不是世間的接合、結合、依附，而是<strong>「五不齊備的合而無合」</strong>。值得注意的是「不斷」一項：前四個（不取、不受、不住、不著）若被誤讀為「乾脆切斷與一切法的關係」，就會墮入斷滅見；「不斷」這一項正是用來防止這個墮落的。<strong>「不取不受不住不著」是為了不執實，「不斷」是為了不落空</strong>——五者構成一個不偏兩端的中道結構。</p>
+<p>帝釋聽到這裡讚歎「未曾有！」並把佛的回答總結為一句話：「是般若波羅蜜為一切法不起、不生、不得、不失故生」——這正是把第四章開頭舍利弗問的答案完整收回。論辯到此似乎達到了一個圓滿的高峰。</p>
+</div>
+<h2>第三節　經文：須菩提雙刃警語</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 須菩提復刃</span>
+<p>須菩提白佛言：「世尊！若菩薩摩訶薩行般若波羅蜜時，作是念：<strong>『般若波羅蜜，若一切法合、若不合。』是菩薩摩訶薩則捨般若波羅蜜、遠離般若波羅蜜。</strong>」</p>
+<p>佛告須菩提：「<strong>復有因緣</strong>，菩薩摩訶薩捨般若波羅蜜、遠離般若波羅蜜。若菩薩摩訶薩作是念：<strong>『是般若波羅蜜無所有、空虛、不堅固。』是菩薩摩訶薩則捨般若波羅蜜、遠離般若波羅蜜。</strong>須菩提！以是因緣故，捨離般若波羅蜜。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>這是全品最尖銳、也是最美的一段。在帝釋讚歎「未曾有」的高峰處，<strong>須菩提突然插入一刃</strong>——他直接挑戰前面所有結論：「若菩薩起念思惟『般若與一切法合、或不合』，就已經失去般若。」這把第四、五章好不容易確立的「無所合」結論再次拆解：<strong>連「無所合」這個結論若被執取為念，也是失般若</strong>。</p>
+<p>佛立即補上第二刃——而且這一刃不是反駁須菩提，而是<strong>幫他補完雙刃</strong>：「復有因緣」（即還有另一邊的失），若菩薩起念「般若無所有、空虛、不堅固」，這也是失般若。如此一來，<strong>取「合不合」失之於「執有」，取「空虛無堅固」失之於「執無」</strong>。兩刃齊出，使讀者無論轉向哪一端都失。</p>
+</div>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第一刃</span>
+<div class=&quot;term&quot;>取合不合者失</div>
+<div class=&quot;desc&quot;>須菩提之刃。讀者讀完第四、五章可能執取「無所合」為般若的真相；須菩提警告：起此念即失般若。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第二刃</span>
+<div class=&quot;term&quot;>取空虛不堅固者失</div>
+<div class=&quot;desc&quot;>佛之刃。讀者也可能因為「無所合、不可得」而推論「般若是空虛的、不牢靠的」；佛警告：起此念也是失般若。</div>
+</div>
+</div>
+<h2>第四節　論釋：佛心合 vs 凡夫取相 · 取空亦失</h2>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 解帝釋特問薩婆若</span>
+</div>
+<div class=&quot;qa-block&quot;>
+<p class=&quot;q&quot;>若爾者，帝釋已知一切法不合，何以獨問「薩婆若不合」？</p>
+<p class=&quot;a&quot;><strong>帝釋貴重深著是般若，於薩婆若愛未斷</strong>，故言：「乃至薩婆若亦不合耶？」</p>
+<p class=&quot;a&quot;>佛答：「般若波羅蜜、薩婆若亦不合。」一切法畢竟無生故。</p>
+<p class=&quot;a&quot;>此中佛<strong>破斷滅邪見</strong>故說「合」；般若波羅蜜不如凡夫人取相、著名、作起有為法合，<strong>如佛心合</strong>。</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>論主在這裡點出了帝釋的心理底層：<strong>他並非邏輯上不懂「一切法不合」，而是情感上對薩婆若仍有愛慕未斷</strong>。所以他特別把薩婆若拿出來再問一次。佛的回答有兩層：(一) 是的，連薩婆若也不合（畢竟無生故）；(二) 但這個「不合」不是斷滅見，所以又說「合」——這個「合」不是凡夫式的取相、著名、作起有為法的合，而是<strong>「如佛心合」</strong>。佛的回答既消解了帝釋的執愛，又防止他墮入虛無。</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 解云何如佛心合</span>
+</div>
+<div class=&quot;qa-block&quot;>
+<p class=&quot;q&quot;>云何如佛心合？</p>
+<p class=&quot;a&quot;><strong>一切相虛誑，故「不取相」</strong>；<strong>一切法中有無常等過咎，故「不受」</strong>；<strong>吾我心縛著世間，皆動相，故「不住」</strong>；<strong>能生種種苦惱，後變異，故「不著」</strong>；<strong>一切世間顛倒，顛倒果報不實，如幻、如夢，無所滅，故「不斷」</strong>。是故佛不著法、不生高心，入畢竟空善相中，深入大悲，以救眾生，<strong>菩薩應如佛心合</strong>。</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>論主把佛的「五不」一一對應到具體的觀照根據：</p>
+<p><strong>不取相</strong>——根據「一切相虛誑」的觀知；<strong>不受</strong>——根據「一切法皆有無常等過咎」的觀知；<strong>不住</strong>——根據「吾我心縛著世間皆是動相」的觀知；<strong>不著</strong>——根據「黏著生苦惱、後又變異」的觀知；<strong>不斷</strong>——根據「世間果報如幻如夢、本不曾實有可滅」的觀知。</p>
+<p>五者並非五種單獨的修行，而是同一觀知下的五重不黏。最後論主給出收束句：<strong>「不著法、不生高心，入畢竟空善相中，深入大悲，以救眾生」</strong>。注意這句話的後半——畢竟空與大悲是並陳的，不是非此即彼。這是中觀「悲智雙運」的源頭。</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 解雙刃</span>
+<p>帝釋歡喜，讚言：「希有！是般若波羅蜜不破壞諸法，不生、不得、不失故，而能成就菩薩，令得至佛。」</p>
+<p>須菩提言：「若菩薩用<strong>有所得</strong>如是分別一切智等，一切法若合、若不合，是菩薩則失般若波羅蜜。」</p>
+<p>佛然可其言，<strong>如是更有因緣</strong>：「菩薩若取汝所說『一切法無合不合』，<strong>取是空相，言『般若空無所有、不牢固』</strong>，是亦失般若波羅蜜。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論主核心</div>
+<p>論主把雙刃的邏輯結構說得極清楚：<strong>須菩提刃針對「有所得」</strong>——只要你還用「分別」的心去判定「合與不合」，無論結論是合還是不合，已經是「有所得」，已經失般若。<strong>佛刃針對「取空相」</strong>——若進一步把「無所合」也當作一個結論來抓持，並由此推出「般若空虛不牢固」的另一個結論，那是另一種「有所得」（得空），同樣失般若。</p>
+<p>這雙刃結構正是中觀後來最重要的破立工具：<strong>有見、無見都要破；既不取「般若有合」之相，也不取「般若無合」之相</strong>。它與《中論》「不生亦不滅，不常亦不斷，不一亦不異，不來亦不出」的八不結構完全一致——本品其實是八不的具體應用版。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;>
+<div class=&quot;bridge-label&quot;>承先啟後</div>
+<p>第五章的雙刃辯破已把「執取」的所有可能立足點都拆掉。但第三段論辯軸線的最後一環尚未完成——<strong>當所有對象性與結果性都被破之後，主體性（信任、信心）會不會還是執取的避難所？</strong>第六章將處理這個最後的問題：經文以須菩提之問起首：「信般若波羅蜜，為信何法？」佛的回答把「信」這個動作也轉成不信——「信般若波羅蜜，則不信色乃至一切種智」。第六章是全品的收束，也將回應第一章導讀提出的「破而不破」綱領。</p>
+</div>
+<div class=&quot;next-link-wrap&quot;><a class=&quot;next-link&quot; href=&quot;#chapter-6&quot;>前往下一章 →</a></div>
+</div>
+</section>
+<section class=&quot;chapter&quot; id=&quot;chapter-6&quot;>
+<div class=&quot;ch-head&quot;>
+<div class=&quot;ch-num&quot;>卷六十二 · 照明品 · 第六章</div>
+<div class=&quot;ch-name&quot;>信般若即不信一切 · 全品總綱</div>
+<div class=&quot;ch-sub&quot;>自性不可得 · 照明的破而不破</div>
+</div>
+<div class=&quot;ch-body&quot;>
+<div class=&quot;bridge&quot;>
+<div class=&quot;bridge-label&quot;>本章要旨</div>
+<p>本章是全品的最後一道破——<strong>把「信」這個動作也轉空</strong>。前五章已破「般若可被讚歎成定相」「般若可被合於某法」「般若可被得為實有」，但有一個位置還沒破：行者「信」般若波羅蜜這件事本身。經文以須菩提之問起手：「信般若波羅蜜，為信何法？」佛答：「信般若波羅蜜，則不信色乃至一切種智。」<strong>「信」與「不信」翻成同一件事</strong>。論釋以「自性不可得故不可信」收束。本章末附全品總綱，回應第一章導讀提出的「破而不破」三段軸線。</p>
+</div>
+<h2>第一節　經文：信般若即不信色乃至一切種智</h2>
+<div class=&quot;classical-text scripture&quot;>
+<span class=&quot;text-label&quot;>經 · 須菩提之問</span>
+<p>須菩提白佛言：「世尊！<strong>信般若波羅蜜，為信何法？</strong>」</p>
+<p>佛告須菩提：「<strong>信般若波羅蜜，則不信色，不信受、想、行、識；不信眼乃至意；不信色乃至法；不信眼界乃至意識界；不信檀波羅蜜、尸羅波羅蜜、羼提波羅蜜、毘梨耶波羅蜜、禪波羅蜜；不信內空乃至無法有法空；不信四念處乃至八聖道分；不信佛十力乃至十八不共法；不信須陀洹果、斯陀含果、阿那含果、阿羅漢果、辟支佛道；不信菩薩道；不信阿耨多羅三藐三菩提乃至一切種智。</strong>」</p>
+<p>須菩提白佛言：「世尊！云何信般若波羅蜜時，不信色乃至一切種智？」</p>
+<p>佛告須菩提：「<strong>色不可得故，信般若波羅蜜，不信色；乃至一切種智不可得故，信般若波羅蜜，不信一切種智。</strong>以是故，須菩提！信般若波羅蜜時，不信色乃至不信一切種智。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>佛把「信」的清單列得極長，可分為七層：</p>
+</div>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第1層</span>
+<div class=&quot;term&quot;>五蘊</div>
+<div class=&quot;desc&quot;>色、受、想、行、識——個體存在的最基本構成。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第2層</span>
+<div class=&quot;term&quot;>十二處·十八界</div>
+<div class=&quot;desc&quot;>眼乃至意、色乃至法、眼界乃至意識界——認識作用的全幅範疇。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第3層</span>
+<div class=&quot;term&quot;>六波羅蜜</div>
+<div class=&quot;desc&quot;>檀、尸羅、羼提、毘梨耶、禪、般若——菩薩修行的核心法門。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第4層</span>
+<div class=&quot;term&quot;>十八空</div>
+<div class=&quot;desc&quot;>內空乃至無法有法空——觀空的全部範疇。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第5層</span>
+<div class=&quot;term&quot;>道品</div>
+<div class=&quot;desc&quot;>四念處乃至八聖道分——三十七道品。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第6層</span>
+<div class=&quot;term&quot;>佛德</div>
+<div class=&quot;desc&quot;>佛十力乃至十八不共法——佛獨有的功德。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第7層</span>
+<div class=&quot;term&quot;>果位</div>
+<div class=&quot;desc&quot;>須陀洹至阿羅漢、辟支佛、菩薩道、阿耨多羅三藐三菩提、一切種智——三乘所有果位。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>總義</span>
+<div class=&quot;term&quot;>皆不信</div>
+<div class=&quot;desc&quot;>凡能列舉者，皆不可被取為「所信對象」。「信般若」即「對所有這些不再以信任的方式去抓持」。</div>
+</div>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論點</div>
+<p>七層清單的邏輯效果是：<strong>從凡夫的存在構成（五蘊）到佛的圓滿果位（一切種智），所有可被信任、可被嚮往、可被執取為「我所信」的對象，全部歸零</strong>。佛的第二輪解答點明原理——<strong>「色不可得故，信般若波羅蜜，不信色」</strong>。這個「不可得」是第四章「不為得故生」與第五章「亦不得」的結穴。「不可得」並非否定它存在，而是否定它能被作為一個有自體可被信任、可被執取的對象。</p>
+<p>因此「信般若」不是再增加一個信仰對象，而是<strong>「以不可得的方式接觸般若」這個處境本身</strong>——這個處境正是第二章說的「無相相」、第四章說的「無生相」、第五章說的「不取不受不住不著不斷」。</p>
+</div>
+<h2>第二節　論釋：自性不可得故不可信</h2>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 釋帝釋讚歎</span>
+<p>帝釋歡喜，讚言：「希有！是般若波羅蜜不破壞諸法，不生、不得、不失故，而能成就菩薩，令得至佛。」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>闡釋</div>
+<p>帝釋這句讚歎其實是論主借來收束第五章張力的。他點出一個重要平衡：<strong>般若「不破壞諸法」</strong>——它不是要把諸法弄沒，而是因為諸法本來「不生、不得、不失」，般若只是順著這個本來的樣子去成就菩薩。「破而不破」的綱領在這裡又現一次。</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 釋雙刃</span>
+<p>須菩提言：「若菩薩用<strong>有所得</strong>如是分別一切智等，一切法若合、若不合，是菩薩則失般若波羅蜜。」</p>
+<p>佛然可其言，如是更有因緣：「菩薩若取汝所說『一切法無合不合』，取是空相，言『般若空無所有、不牢固』，是亦失般若波羅蜜。」</p>
+</div>
+<div class=&quot;classical-text commentary&quot;>
+<span class=&quot;text-label&quot;>論 · 釋信何法</span>
+<p>須菩提知般若波羅蜜<strong>不可得相</strong>，是故問：「若信般若波羅蜜，信何法？」<strong>般若波羅蜜空亦不可得，為決定心信於何法？</strong></p>
+<p>佛言：「色等一切法不可信。何以故？<strong>色等一切法自性不可得故不可信。</strong>」</p>
+</div>
+<div class=&quot;analysis&quot;>
+<div class=&quot;analysis-label&quot;>論主核心</div>
+<p>須菩提的問題其實是雙刃辯破的延續——他指出：<strong>「般若波羅蜜空亦不可得」</strong>。也就是說，第五章說了「不可取空」，但「不可取空」本身仍是個關於般若的描述；如果連這個描述也「空亦不可得」，那麼「決定心」（具有確定性的信心）究竟以什麼為對象呢？</p>
+<p>佛的回答把這個追問扎進更底層的原理：<strong>「色等一切法自性不可得故不可信」</strong>。「不可信」不是否定信本身，而是指出「信」原本預設了「自性可得」這個前提；當所有對象的自性都不可得時，「信」就轉化為一種<strong>「無對象的信」</strong>——也就是「信般若」。這種信不是把般若當作新的對象來信，而是「在無自性的處境中安住」這件事本身。</p>
+</div>
+<h2>第三節　全品總綱：照明品的「破而不破」</h2>
+<div class=&quot;insight&quot;>
+<div class=&quot;insight-title&quot;>三段軸線的閉合 · 破而不破的圓相</div>
+<p>回到第一章導讀提出的三段軸線——<strong>讚 → 合 → 不信</strong>——本品到此完成了一個圓相結構：</p>
+</div>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第一段</span>
+<div class=&quot;term&quot;>讚 · 立</div>
+<div class=&quot;desc&quot;>第二章十六讚 + 第三章五度依眼。建立般若的正面表述：能照、應禮、不著、最上、安隱、與光、示導、一切種智、菩薩母、不生不滅、遠離生死、無救作護、具足力、轉法輪、示諸法性。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第二段</span>
+<div class=&quot;term&quot;>合 · 破對象</div>
+<div class=&quot;desc&quot;>第四章不生故生 + 不合十類 + 第五章不合薩婆若。把般若可以合的「對象」逐一抽空——不合善惡、不合有無漏、不合有為無為、不合一切智。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>第三段</span>
+<div class=&quot;term&quot;>不信 · 破主體</div>
+<div class=&quot;desc&quot;>第五章雙刃 + 第六章信即不信。把行者「信」般若這個主體性動作也轉空——取合不合失、取空虛失、信般若即不信一切。</div>
+</div>
+<div class=&quot;cell&quot;>
+<span class=&quot;num&quot;>圓相</span>
+<div class=&quot;term&quot;>破而不破</div>
+<div class=&quot;desc&quot;>「破」的不是諸法，而是凡夫對諸法的取相；「不破」的是諸法本來的不可得相。讚歎與不信並非矛盾，而是同一件事的兩面。</div>
+</div>
+</div>
+<div class=&quot;insight&quot;>
+<div class=&quot;insight-title&quot;>為何此品名「照明」</div>
+<p>「照明」之名的真義，到此可正面說出：</p>
+<p>(一) <strong>能照</strong>：般若如十六德所讚，能遍照五種法藏（過去、未來、現在、無為、不可說），畢竟清淨。</p>
+<p>(二) <strong>所照雙泯</strong>：當被照的對象皆不可得時，能照亦不立。能照與所照同消，才是「照明」的圓滿義。</p>
+<p>(三) <strong>不破諸法而諸法自顯</strong>：般若不是用智慧之光去打破諸法，而是順著諸法本來的「不生不得不失」，使諸法以「無相相」的方式自然顯現。這就是「不破壞諸法、不生不得不失故而能成就菩薩令得至佛」的真義。</p>
+</div>
+<div class=&quot;insight&quot;>
+<div class=&quot;insight-title&quot;>本品在《大智度論》全論中的位置</div>
+<p>釋照明品為總第四十品、卷六十二之首。本品上承前段「隨喜迴向品」對「隨喜功德如何不破般若相」的鋪墊（第三章舍利弗發問緣由處可見），下啟後續「信謗品」「歎淨品」「無作品」等對般若各種側面的進一步剖析。在《大智度論》整部架構中，本品扮演<strong>「般若邏輯的奠基章」</strong>之一——它把後面數十卷反覆運用的「無生、無所合、無所得、不可信」等核心命題，集中在一個品內以「四角對辯 + 三段軸線」的方式說透。讀通此品，後續諸品的論辯結構即可一望而知。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;>
+<div class=&quot;bridge-label&quot;>承先啟後</div>
+<p>本卷六十二僅含照明品一品。下一卷六十三將進入「信謗品」，論述對般若波羅蜜的信受與謗毀如何體現修行者的根器與業力——若本品是<strong>從「般若如何被解構」的角度</strong>立論，下一品則是<strong>從「眾生如何回應這已被解構的般若」的角度</strong>立論。兩品互為內外鏡像，可並讀。</p>
+</div>
+</div>
+</section>
+
+
+
+<script>
+(function(){
+  var blk=function(e){e.preventDefault();return false;};
+  ['contextmenu','copy','cut','selectstart','dragstart','mousedown'].forEach(function(ev){
+    document.addEventListener(ev,function(e){
+      if(ev==='mousedown' &amp;&amp; e.button!==2) return;
+      blk(e);
+    },true);
+  });
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(e.ctrlKey&amp;&amp;(k==='c'||k==='C'||k==='a'||k==='A'||k==='s'||k==='S'||k==='p'||k==='P'||k==='u'||k==='U'||k==='x'||k==='X')){blk(e);}
+    if(k==='F12')blk(e);
+    if(e.ctrlKey&amp;&amp;e.shiftKey&amp;&amp;(k==='I'||k==='J'||k==='C'||k==='K')){blk(e);}
+  },true);
+  setInterval(function(){
+    if(window.getSelection) try{window.getSelection().removeAllRanges();}catch(e){}
+  },300);
+})();
+</script><script>
+(function(){
+  if(!window.frameElement) return;
+  document.addEventListener('click',function(e){
+    var a=e.target;
+    while(a&amp;&amp;a.tagName!=='A') a=a.parentElement;
+    if(!a) return;
+    var h=a.getAttribute('href');
+    if(!h||h.charAt(0)!=='#') return;
+    e.preventDefault();
+    e.stopPropagation();
+    var id=h.substring(1);
+    var el=document.getElementById(id);
+    if(!el) return;
+    try{
+      var rect=el.getBoundingClientRect();
+      var fr=window.frameElement;
+      var frRect=fr.getBoundingClientRect();
+      var targetY=window.parent.scrollY+frRect.top+rect.top-60;
+      window.parent.scrollTo({top:targetY,behavior:'smooth'});
+    }catch(ex){}
+  },true);
+})();
+</script></body></html>"></iframe>
+    <div class="bridge bridge-outro">
+      <div class="bridge-label">承先啟後</div>
+      <p>照明品以「不信即信」為總綱，意在破除一切取相之執；卷六十二第二品〈釋摩訶若波羅蜜〉緊接而來，把焦點從「為何信」轉向「何以名為大」——由須菩提發問、佛之反詰，引出「不作大小」「五雙十義」等對辯結構，從另一面詮釋般若所以稱為「摩訶」（大）的內在邏輯。</p>
+    </div>
+    <a class="next-link" href="#chapter-2">前往下一品 · 第二品 · 釋摩訶若波羅蜜 →</a>
+  </div>
+</section>
+
+
+<section class="chapter" id="chapter-2">
+  <div class="ch-head">
+    <div class="ch-num">卷六十二 · 第 二 品</div>
+    <div class="ch-name">釋摩訶若波羅蜜</div>
+    <div class="ch-sub">不作大小 · 五雙十義 · 名為摩訶之所以然</div>
+  </div>
+  <div class="ch-body">
+    <div class="bridge bridge-intro">
+      <div class="bridge-label">本品要旨</div>
+      <p>本品由須菩提發問「云何名摩訶波羅蜜」開展，佛以反詰回應：「凡夫於色作大作小，菩薩般若不作大小」。全品圍繞五雙十義（合散、量無量、廣狹、有力無力、得失）展開：凡夫於諸法各起對待，般若皆破之。論主進一步以「不離六度方名摩訶」、「無生之理」、「般若力不成就」等重重料揀，結成「摩訶」之大名——大者，非以體量之大、非以分量之多，而是以「離四句、絕百非」之畢竟空為其大。</p>
+    </div>
+    <iframe class="ch-frame" srcdoc="<!DOCTYPE html><html lang=&quot;zh-Hant&quot;><head><meta charset=&quot;UTF-8&quot;><link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap&quot;><style>
+:root{
+  --bg:#f7f3ec;--text:#2c2416;--text2:#5a4e3a;--text-muted:#6B5B4B;
+  --accent:#8b5e3c;--accentL:#c4956a;--accent-red:#8B2500;
+  --gold:#b8860b;--goldL:#d4a84b;--gold-light:#C9A84C;
+  --border:#d4c4a8;--border-light:#EDE8E0;--card:#fffdf7;
+  --verseBg:#f0e8d8;--verseBd:#c4956a;
+  --sbW:76px;--sbBg:#1e1a14;--sbText:#d4c4a8;
+  --headGrad:linear-gradient(135deg,#2a2218 0%,#3d3225 50%,#2a2218 100%);
+  --r:8px;--shadow:rgba(91,58,41,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none;-webkit-user-drag:none;}
+html,body{scrollbar-width:none;-ms-overflow-style:none;}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0;}
+body{
+  font-family:&quot;Noto Serif TC&quot;,&quot;Source Han Serif TC&quot;,&quot;Songti TC&quot;,Georgia,serif;
+  background:var(--bg);color:var(--text);
+  font-size:20px;line-height:1.8;
+  padding-left:var(--sbW);
+}
+a{color:inherit;text-decoration:none;}
+img{-webkit-user-drag:none;pointer-events:none;}
+
+/* ===== 頂部錨點 ===== */
+#top{position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;}
+
+/* ===== Sidebar ===== */
+#sb{
+  position:fixed;left:0;top:0;width:var(--sbW);height:100vh;
+  background:var(--sbBg);color:var(--sbText);z-index:100;
+  display:flex;flex-direction:column;align-items:center;
+  padding:0 0 16px;overflow-y:auto;scrollbar-width:none;
+}
+#sb::-webkit-scrollbar{display:none;}
+.sb-brand{
+  position:sticky;top:0;width:100%;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11px;letter-spacing:2px;
+  color:var(--gold);text-align:center;line-height:1.5;
+  background:linear-gradient(to bottom,var(--sbBg) 78%,rgba(30,26,20,0));
+  padding:14px 4px 12px;margin-bottom:6px;z-index:5;
+  text-decoration:none;cursor:pointer;
+  transition:color .25s,background .25s;display:block;
+  border-bottom:1px solid rgba(184,134,11,.25);
+}
+.sb-brand:hover{color:var(--goldL);}
+.sb-brand .sb-brand-line1{display:block;font-size:11px;letter-spacing:1.5px;opacity:.78;}
+.sb-brand .sb-brand-line2{display:block;font-size:13px;font-weight:700;letter-spacing:2.2px;color:var(--goldL);margin-top:2px;}
+.sb-brand .sb-brand-arrow{display:block;font-size:10px;opacity:.55;margin-top:2px;}
+
+.sb-nav{display:flex;flex-direction:column;gap:10px;width:100%;align-items:center;padding:6px 0;}
+.sb-item{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:6px 4px;border-radius:8px;width:64px;
+  transition:background .25s;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;
+}
+.sb-item:hover{background:rgba(184,134,11,.18);}
+.sb-item.active{background:rgba(184,134,11,.28);box-shadow:0 0 12px rgba(184,134,11,.4);}
+.sb-circle{
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;
+  background:transparent;border:1.5px solid var(--gold);
+  color:var(--gold);font-size:15px;font-weight:600;
+}
+.sb-item.active .sb-circle{background:var(--gold);color:#fff;}
+.sb-label{font-size:11.5px;color:var(--sbText);letter-spacing:.5px;}
+
+#sbToggle{display:none;}
+
+/* ===== 進度膠囊 ===== */
+.read-progress{
+  position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+  z-index:120;background:rgba(30,26,20,.92);color:var(--gold);
+  padding:9px 24px;border-radius:30px;
+  border:1px solid rgba(184,134,11,.5);
+  box-shadow:0 4px 18px rgba(0,0,0,.25);
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  font-size:14px;letter-spacing:2px;
+  display:flex;align-items:center;gap:12px;
+  pointer-events:none;user-select:none;
+  backdrop-filter:blur(6px);
+}
+.read-progress .rp-label{font-size:12px;opacity:.75;letter-spacing:3px;}
+.read-progress .rp-bar{width:148px;height:4px;background:rgba(212,196,168,.18);border-radius:2px;overflow:hidden;position:relative;}
+.read-progress .rp-fill{position:absolute;top:0;left:0;bottom:0;background:linear-gradient(90deg,var(--gold),var(--goldL));width:0%;transition:width .3s;}
+.read-progress .rp-pct{font-weight:600;min-width:38px;text-align:right;font-size:13px;}
+
+/* ===== Main ===== */
+.main{position:relative;}
+
+/* ===== Hero ===== */
+.site-hero{
+  position:relative;background:var(--headGrad);
+  color:#f7e9c8;padding:80px 24px 70px;text-align:center;overflow:hidden;
+}
+.site-hero::before{
+  content:&quot;摩訶&quot;;position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-size:340px;font-weight:900;color:#fff;
+  opacity:.04;letter-spacing:30px;pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;}
+.hero-tag{
+  display:inline-block;font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  font-size:13px;letter-spacing:5px;color:var(--goldL);
+  border:1px solid var(--goldL);padding:5px 18px;border-radius:24px;
+  margin-bottom:20px;
+}
+.hero-title{
+  font-size:56px;font-weight:900;color:var(--goldL);
+  letter-spacing:8px;margin-bottom:14px;
+  text-shadow:0 2px 18px rgba(0,0,0,.5);
+}
+.hero-subtitle{
+  font-size:20px;color:#f0d9a8;letter-spacing:3px;
+  margin-bottom:30px;font-weight:300;
+}
+.hero-meta{
+  display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+  font-size:18px;color:#dcc596;letter-spacing:2px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;
+}
+.hero-meta span{padding:4px 14px;border:1px solid rgba(212,168,75,.4);border-radius:18px;}
+.hero-range{
+  margin-top:22px;font-size:17px;color:#c4a978;letter-spacing:3px;
+  font-style:normal;
+}
+
+/* ===== Preface ===== */
+.preface{
+  max-width:900px;margin:50px auto 30px;padding:30px 36px;
+  background:linear-gradient(135deg,#fffdf5,#f5ecd8);
+  border:1px solid var(--border);border-left:5px solid var(--gold);
+  border-radius:14px;
+  box-shadow:0 4px 20px rgba(91,58,41,.06);
+}
+.preface h2{
+  font-size:30px;color:var(--accent);
+  text-align:center;margin-bottom:18px;letter-spacing:4px;
+  font-weight:700;
+}
+.preface h2::before,.preface h2::after{content:&quot;❖&quot;;color:var(--gold);margin:0 14px;font-size:18px;vertical-align:middle;}
+.preface p{
+  font-size:19px;line-height:2.1;color:var(--text2);
+  margin-bottom:14px;text-align:justify;text-indent:2em;
+}
+.preface p:last-child{margin-bottom:0;}
+
+/* ===== TOC ===== */
+.toc-section{
+  max-width:1100px;margin:30px auto 50px;padding:36px 28px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;box-shadow:0 4px 16px rgba(91,58,41,.06);
+}
+.toc-title{
+  font-size:34px;color:var(--accent);text-align:center;
+  letter-spacing:8px;margin-bottom:8px;font-weight:700;
+}
+.toc-desc{
+  text-align:center;font-size:17px;color:var(--text-muted);
+  letter-spacing:2px;margin-bottom:28px;font-family:&quot;Noto Sans TC&quot;,sans-serif;
+}
+.toc-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+}
+.toc-card{
+  display:flex;align-items:center;gap:16px;
+  padding:14px 18px;background:#fffdf5;
+  border:1px solid var(--border);border-radius:10px;
+  transition:all .3s;cursor:pointer;
+}
+.toc-card:hover{
+  background:#fff8e8;transform:translateX(4px);
+  border-color:var(--gold);box-shadow:0 4px 14px rgba(184,134,11,.18);
+}
+.toc-num{
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:50%;
+  background:var(--gold);color:#fff;font-weight:700;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:17px;
+}
+.toc-name{
+  font-size:19.5px;color:var(--text);line-height:1.7;
+  font-weight:600;letter-spacing:1px;
+}
+.toc-sub{display:block;font-size:14.5px;color:var(--text-muted);margin-top:3px;font-weight:400;letter-spacing:.5px;}
+
+/* ===== Chapter ===== */
+.chapter{margin:0 0 60px;}
+.ch-head{
+  background:var(--headGrad);color:#f7e9c8;
+  padding:50px 24px 46px;text-align:center;position:relative;
+}
+.ch-head::after{
+  content:&quot;&quot;;position:absolute;left:50%;bottom:18px;
+  transform:translateX(-50%);width:130px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--goldL),transparent);
+}
+.ch-num{font-size:18px;color:var(--goldL);letter-spacing:4px;margin-bottom:10px;font-family:&quot;Noto Sans TC&quot;,sans-serif;}
+.ch-name{font-size:34px;color:#fff;font-weight:700;letter-spacing:6px;margin-bottom:8px;}
+.ch-sub{font-size:17px;color:#dcc596;letter-spacing:2px;font-weight:300;font-family:&quot;Noto Sans TC&quot;,sans-serif;}
+
+.ch-body{
+  max-width:900px;margin:0 auto;padding:40px 28px 30px;
+}
+
+/* ===== Bridge ===== */
+.bridge{
+  background:linear-gradient(135deg,#fffdf5,#f5ecd8);
+  border:1px solid var(--border);
+  border-left:5px solid var(--gold);
+  border-radius:10px;
+  padding:18px 24px;margin:0 0 26px;
+  box-shadow:0 2px 10px rgba(91,58,41,.06);
+}
+.bridge-outro{
+  border-left-color:var(--accentL);
+  background:linear-gradient(135deg,#fdf8e8,#f2e6c8);
+  margin-top:30px;margin-bottom:14px;
+}
+.bridge-label{
+  display:inline-block;font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:12.5px;
+  background:var(--gold);color:#fff;padding:3px 12px;border-radius:12px;
+  letter-spacing:2.2px;margin-bottom:10px;font-weight:500;
+}
+.bridge-outro .bridge-label{background:var(--accent);}
+.bridge p{margin:0;color:var(--text2);line-height:2.1;font-size:18.5px;text-align:justify;}
+.bridge p+p{margin-top:10px;}
+
+/* ===== 標題 ===== */
+h2{
+  font-size:30px;color:var(--accent);font-weight:700;
+  margin:32px 0 14px;padding:10px 0 10px 20px;
+  border-left:4px solid var(--gold);
+  background:linear-gradient(90deg,rgba(184,134,11,.08),transparent);
+  letter-spacing:3px;
+}
+h3{
+  font-size:23.5px;color:var(--text);font-weight:600;
+  margin:24px 0 10px;padding-bottom:6px;
+  border-bottom:1px solid var(--border-light);
+  letter-spacing:2px;
+}
+h4{font-size:20px;color:var(--text2);font-weight:600;margin:18px 0 8px;letter-spacing:1.5px;}
+h5{font-size:18.5px;color:var(--accent);font-weight:600;margin:14px 0 6px;letter-spacing:1px;}
+
+p{font-size:20px;line-height:1.95;color:var(--text);margin:0 0 14px;text-align:justify;text-indent:2em;}
+p.qa-2{text-indent:0;padding-left:2em;}
+p.qa-3{text-indent:0;padding-left:3em;}
+
+strong,b{color:var(--accent-red);font-weight:700;}
+
+/* ===== 經文卡 ===== */
+.classical-text{
+  background:#FFFDF5;border:1px solid #E8E0D0;
+  border-left:4px solid var(--gold);
+  border-radius:10px;
+  padding:20px 26px;margin:18px 0;
+  line-height:2;font-size:20px;
+  position:relative;
+}
+.classical-text p{font-size:20px;line-height:2;margin:0 0 10px;text-indent:2em;}
+.classical-text p:last-child{margin-bottom:0;}
+.text-label{
+  display:inline-block;font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  background:var(--accent);color:#fff;
+  font-size:13.5px;padding:3px 12px;border-radius:10px;
+  letter-spacing:2.5px;margin-bottom:12px;font-weight:500;
+}
+
+/* ===== 偈頌 / 引文 ===== */
+.verse,blockquote{
+  background:var(--verseBg);border-left:4px solid var(--verseBd);
+  padding:14px 22px;margin:16px 0;
+  line-height:2.2;font-size:22px;
+  white-space:normal;text-align:center;
+  border-radius:0 8px 8px 0;
+  font-style:normal;
+}
+
+/* ===== 卡片類 ===== */
+.card,.note,.commentary,.insight{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:16px 22px;margin:14px 0;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+.card-title,.note-title,.insight-title{
+  font-size:21.5px;color:var(--accent);font-weight:600;
+  margin-bottom:8px;letter-spacing:1.5px;
+}
+.card p,.note p,.commentary p,.insight p{font-size:20px;line-height:1.9;}
+
+/* 高亮卡 */
+.hilite{
+  background:linear-gradient(135deg,#fffae8,#fdf3d4);
+  border:1px solid var(--gold);border-left:5px solid var(--gold);
+  border-radius:10px;padding:18px 24px;margin:16px 0;
+}
+.hilite-title{
+  font-size:18px;color:var(--accent);font-weight:600;
+  letter-spacing:2px;margin-bottom:8px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;
+}
+.hilite-title::before{content:&quot;❖ &quot;;color:var(--gold);}
+
+/* ===== 問答 ===== */
+.qa{margin:18px 0;display:grid;gap:10px;}
+.qa .q{
+  background:#eaf3fa;border-left:4px solid #5b89b5;
+  padding:12px 18px;border-radius:0 8px 8px 0;color:#1f3b5a;
+  font-size:20px;line-height:1.9;
+}
+.qa .a{
+  background:#fdf6ea;border-left:4px solid var(--accent);
+  padding:12px 18px;border-radius:0 8px 8px 0;color:var(--text);
+  font-size:20px;line-height:1.9;
+}
+.qa-label{
+  display:inline-block;font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  font-size:13px;font-weight:600;letter-spacing:2px;margin-right:8px;
+  padding:1px 8px;border-radius:8px;
+}
+.qa .q .qa-label{background:#5b89b5;color:#fff;}
+.qa .a .qa-label{background:var(--accent);color:#fff;}
+
+/* ===== 十義並陳格 ===== */
+.ten-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:12px;margin:18px 0;
+}
+.ten-grid .cell{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:14px 18px;
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:18px;line-height:1.7;
+}
+.ten-grid .cell .ti{
+  flex-shrink:0;width:32px;height:32px;border-radius:50%;
+  background:var(--gold);color:#fff;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:14px;
+}
+.ten-grid .cell .term{font-weight:700;color:var(--accent);font-size:18.5px;display:block;margin-bottom:4px;}
+.ten-grid .cell .desc{color:var(--text2);font-size:15px;line-height:1.7;}
+
+/* ===== 五雙偶對比 ===== */
+.pair-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:14px;margin:18px 0;
+}
+.pair-card{
+  background:var(--card);border:1px solid var(--border);
+  border-top:4px solid var(--gold);border-radius:10px;
+  padding:14px 18px;
+}
+.pair-card h5{
+  font-size:18px;color:var(--accent);margin-bottom:8px;
+  letter-spacing:1.5px;border:none;padding:0;
+}
+.pair-card .vs{
+  display:flex;justify-content:space-between;gap:8px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:14.5px;
+  color:var(--text-muted);margin-top:8px;
+  border-top:1px dashed var(--border);padding-top:8px;
+}
+.pair-card .vs .ord{color:var(--text-muted);}
+.pair-card .vs .pra{color:var(--accent-red);font-weight:600;}
+
+/* ===== 章末連結 ===== */
+.next-link{
+  display:inline-block;margin-top:24px;
+  padding:10px 22px;border:1px solid var(--gold);
+  border-radius:24px;color:var(--accent);
+  font-size:17px;letter-spacing:2px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  transition:all .25s;
+}
+.next-link:hover{background:var(--gold);color:#fff;}
+
+/* ===== 回頂 ===== */
+#backTop{
+  position:fixed;right:24px;bottom:24px;width:44px;height:44px;
+  border-radius:50%;border:none;cursor:pointer;
+  background:var(--accent);color:#fff;font-size:20px;
+  box-shadow:0 4px 14px rgba(0,0,0,.2);
+  opacity:0;pointer-events:none;transition:all .3s;z-index:90;
+}
+#backTop.show{opacity:1;pointer-events:auto;}
+#backTop:hover{background:var(--gold);transform:translateY(-3px);}
+
+/* ===== 頁尾 ===== */
+.site-footer{
+  margin-top:50px;padding:30px 20px;background:#1e1a14;color:#a89878;
+  text-align:center;font-size:15px;letter-spacing:2px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;line-height:1.8;
+}
+.site-footer p{font-size:15px;text-indent:0;color:#a89878;margin-bottom:6px;}
+
+/* ===== 響應式 ===== */
+@media (max-width:900px){
+  body{padding-left:0;font-size:18px;}
+  #sb{transform:translateX(-100%);transition:transform .3s;}
+  #sb.show{transform:translateX(0);}
+  #sbToggle{
+    display:flex;align-items:center;justify-content:center;
+    position:fixed;top:14px;left:14px;width:42px;height:42px;
+    border-radius:8px;border:none;cursor:pointer;
+    background:var(--sbBg);color:var(--gold);font-size:20px;z-index:110;
+  }
+  .hero-title{font-size:38px;letter-spacing:4px;}
+  .ch-name{font-size:26px;letter-spacing:3px;}
+  .toc-grid{grid-template-columns:1fr;}
+  h2{font-size:24px;}h3{font-size:20px;}
+  .preface{padding:24px 20px;}
+  .ch-body{padding:24px 18px;}
+  .ten-grid,.pair-grid{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  body{font-size:16.5px;}
+  .hero-title{font-size:30px;letter-spacing:3px;}
+  .ch-name{font-size:22px;}
+  p,.classical-text p,.qa .q,.qa .a{font-size:17px;}
+  .verse,blockquote{font-size:18px;}
+}
+
+
+html,body{margin:0!important;padding:0!important;background:transparent!important;
+  min-height:0!important;height:auto!important;
+  overflow:hidden!important;
+  scrollbar-width:none!important;-ms-overflow-style:none!important;
+  -webkit-user-select:none!important;-moz-user-select:none!important;
+  -ms-user-select:none!important;user-select:none!important;
+  -webkit-touch-callout:none!important;}
+html::-webkit-scrollbar,body::-webkit-scrollbar,
+*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important;}
+*{-webkit-user-select:none!important;-moz-user-select:none!important;
+  -ms-user-select:none!important;user-select:none!important;
+  -webkit-user-drag:none!important;
+  scrollbar-width:none!important;}
+body{padding:0 8px;}
+.main,main,#main{min-height:0!important;height:auto!important;
+  padding-bottom:0!important;margin-bottom:0!important;margin-left:0!important;}
+section:last-of-type,.chapter:last-of-type,.chapter:last-child,
+section.chapter:last-child,.ch-body:last-child{
+  margin-bottom:0!important;padding-bottom:0!important;}
+#sb,#sbToggle,#backTop,aside.sb{display:none!important;}
+img{-webkit-user-drag:none!important;pointer-events:none;}
+/* 統一卡片暖色化，章節頭深色化 */
+.ch-head{background:var(--headGrad,linear-gradient(135deg,#2a2218 0%,#3d3225 50%,#2a2218 100%))!important;color:#fff!important;}
+.ch-head .ch-num,.ch-head .ch-name,.ch-head .ch-sub{color:#fff!important;}
+.ch-body{background:var(--bg,#f7f3ec)!important;max-width:980px!important;margin:0 auto!important;}
+.toc-title,.toc-desc,.toc-header{text-align:center!important;}
+*{font-style:normal!important;}
+
+/* 1.2x inner boost · iframe srcdoc 內部 */
+.ch-body,.chapter,.section,article,main{font-size:20px!important;line-height:1.9!important;}
+.ch-body p,.chapter p,.section p,article p,p,li,td,th{font-size:20px!important;line-height:1.9!important;}
+h1{font-size:38px!important;}
+h2{font-size:30px!important;}
+h3{font-size:23.5px!important;}
+h4{font-size:20px!important;}
+h5{font-size:18.5px!important;}
+.verse,.gatha,blockquote,.classical-text{font-size:22px!important;line-height:2.2!important;}
+.toc-title{font-size:30px!important;}
+.toc-desc{font-size:17px!important;}
+.toc-num{font-size:18px!important;}
+.toc-name{font-size:20px!important;line-height:1.7!important;}
+.ch-num{font-size:18px!important;}
+.ch-name{font-size:32px!important;}
+.ch-sub{font-size:17px!important;}
+.card-content,.col-content,.section-content,.card-desc,.insight-content,.commentary p{font-size:20px!important;line-height:1.9!important;}
+.card-title,.col-title,.section-title,.insight-title{font-size:21.5px!important;}
+.text-label{font-size:13.5px!important;}
+.flow-box,.flow-step,.flow-chart .flow-step,.domino{font-size:17.5px!important;}
+.qa .q,.qa .a{font-size:20px!important;line-height:1.9!important;}
+.four-grid .cell,.two-col .col,.three-col .col{font-size:19px!important;}
+.grid-4 .cell{font-size:19px!important;}
+.debate .q-side,.debate .a-side{font-size:19px!important;}
+.spectrum .sp-node{font-size:15.5px!important;}
+.refutation-grid .ref-cell{font-size:17.5px!important;}
+.roadmap .rm-step{font-size:17px!important;}
+.triangle-diagram .tri-node{font-size:17px!important;}
+.checklist li{font-size:20px!important;}
+.phase-badge{font-size:14px!important;}
+/* Venn 圓 v2 */
+.venn-wrap{min-height:240px!important;gap:0!important;}
+.venn-circle{display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  width:220px!important;height:220px!important;
+  font-size:16px!important;line-height:1.55!important;
+  padding:0 22px!important;box-sizing:border-box!important;gap:6px!important;}
+.venn-circle br{display:none!important;}
+.venn-circle small{font-size:12.5px!important;display:block!important;
+  width:100%!important;text-align:center!important;line-height:1.4!important;margin:0!important;}
+.venn-a{margin-right:-50px!important;}
+.venn-b{margin-left:-50px!important;}
+/* 金底 h5 疊色防護 */
+.sp-mid,.sp-mid *{color:#fff!important;}
+.sp-mid h5{color:#fff!important;font-weight:700!important;text-shadow:0 1px 3px rgba(0,0,0,.35);}
+.sp-mid small{color:rgba(255,255,255,.92)!important;}
+</style></head><body oncontextmenu=&quot;return false&quot; oncopy=&quot;return false&quot; oncut=&quot;return false&quot; onselectstart=&quot;return false&quot; ondragstart=&quot;return false&quot;>
+<a id=&quot;top&quot;></a>
+
+
+
+
+
+
+
+<div class=&quot;preface&quot;>
+<h2>本品要旨</h2>
+<p>本品承接卷六十一末「般若波羅蜜攝諸法畢竟空」之餘緒，須菩提於佛前讚歎：「是般若波羅蜜，名為摩訶波羅蜜（大波羅蜜）。」全品即繞此一句展開——<strong>為何「大」？又「大」何以非執？</strong></p>
+<p>須菩提先以「不作色大、不作色小，乃至諸佛不作大不作小」十句相對，標舉般若於諸法不起增減廣狹之分別；再以「眾生不生故般若不生」等十義並陳，將般若波羅蜜與所緣境（眾生、色乃至佛）的「無生、性無、空、離、不可思議、不滅、不可知、力不成就」貫通於一，由此立「摩訶」之名。</p>
+<p>論主龍樹於〈論〉中，先以凡夫於色「作大、作小」「分別合散」之執為對照，逐句疏釋〈經〉文五雙十義（大小／合散／量無量／廣狹／有力無力）；繼而料揀「離五波羅蜜行般若」與「執不大不小空相」兩種失，總結為：<strong>不離六度而行畢竟空，方名為「摩訶」</strong>。最後並以問答揀別「般若觀法不作有力，何以又說般若力不成就？」之疑，使「摩訶」之義不墮於有所得相。</p>
+<p>本頁面依「卷 → 品 → 章 → 節」四級層級結構編號，將本品分為〈經〉、〈論〉二章，凡十三節；每節先列原典，繼以白話導讀疏通前後脈絡，俾讀者循次而入，得睹「大波羅蜜」名實相符之全貌。</p>
+</div>
+
+<div class=&quot;toc-section&quot;>
+<h2 class=&quot;toc-title&quot;>目 次</h2>
+<p class=&quot;toc-desc&quot;>卷六十二 · 第二品 · 全二章 · 凡十三節</p>
+<div class=&quot;toc-grid&quot;>
+<a class=&quot;toc-card&quot; href=&quot;#sec-1-1&quot;>
+<span class=&quot;toc-num&quot;>1</span>
+<span class=&quot;toc-name&quot;>第一章 · 第一節<span class=&quot;toc-sub&quot;>須菩提發問　佛之反詰</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-1-2&quot;>
+<span class=&quot;toc-num&quot;>2</span>
+<span class=&quot;toc-name&quot;>第一章 · 第二節<span class=&quot;toc-sub&quot;>不作大小　五雙十義</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-1-3&quot;>
+<span class=&quot;toc-num&quot;>3</span>
+<span class=&quot;toc-name&quot;>第一章 · 第三節<span class=&quot;toc-sub&quot;>警誡新發意菩薩之過失</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-1-4&quot;>
+<span class=&quot;toc-num&quot;>4</span>
+<span class=&quot;toc-name&quot;>第一章 · 第四節<span class=&quot;toc-sub&quot;>般若眾生十義並陳</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-1-5&quot;>
+<span class=&quot;toc-num&quot;>5</span>
+<span class=&quot;toc-name&quot;>第一章 · 第五節<span class=&quot;toc-sub&quot;>結成「摩訶波羅蜜」名</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-2-1&quot;>
+<span class=&quot;toc-num&quot;>6</span>
+<span class=&quot;toc-name&quot;>第二章 · 第一節<span class=&quot;toc-sub&quot;>論主開題　須菩提疑解</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-2-2&quot;>
+<span class=&quot;toc-num&quot;>7</span>
+<span class=&quot;toc-name&quot;>第二章 · 第二節<span class=&quot;toc-sub&quot;>凡夫於色作大作小</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-2-3&quot;>
+<span class=&quot;toc-num&quot;>8</span>
+<span class=&quot;toc-name&quot;>第二章 · 第三節<span class=&quot;toc-sub&quot;>釋不合不散　非量非無量</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-2-4&quot;>
+<span class=&quot;toc-num&quot;>9</span>
+<span class=&quot;toc-name&quot;>第二章 · 第四節<span class=&quot;toc-sub&quot;>釋非廣非狹　不作有力無力</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-2-5&quot;>
+<span class=&quot;toc-num&quot;>10</span>
+<span class=&quot;toc-name&quot;>第二章 · 第五節<span class=&quot;toc-sub&quot;>不離六度方名摩訶</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-2-6&quot;>
+<span class=&quot;toc-num&quot;>11</span>
+<span class=&quot;toc-name&quot;>第二章 · 第六節<span class=&quot;toc-sub&quot;>有所得失　無生之理</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-2-7&quot;>
+<span class=&quot;toc-num&quot;>12</span>
+<span class=&quot;toc-name&quot;>第二章 · 第七節<span class=&quot;toc-sub&quot;>釋般若力不成就</span></span>
+</a>
+<a class=&quot;toc-card&quot; href=&quot;#sec-2-8&quot;>
+<span class=&quot;toc-num&quot;>13</span>
+<span class=&quot;toc-name&quot;>第二章 · 第八節<span class=&quot;toc-sub&quot;>問答料揀　結成大名</span></span>
+</a>
+</div>
+</div>
+
+<section class=&quot;chapter&quot; id=&quot;chapter-1&quot;>
+<div class=&quot;ch-head&quot;>
+<div class=&quot;ch-num&quot;>卷六十二 · 第二品 · 第一章</div>
+<div class=&quot;ch-name&quot;>經文釋讀</div>
+<div class=&quot;ch-sub&quot;>須菩提白佛 · 般若名為摩訶</div>
+</div>
+<div class=&quot;ch-body&quot;>
+<div class=&quot;bridge bridge-intro&quot;>
+<div class=&quot;bridge-label&quot;>本章導讀</div>
+<p>本章為〈經〉文部分，由須菩提發起、佛為印可的一段「為何般若波羅蜜名為摩訶波羅蜜」的問答。須菩提先標一語：<strong>「是般若波羅蜜名為摩訶波羅蜜」</strong>，佛即反詰其因；須菩提以「不作大小、不作合散、不作無量非無量、不作廣狹、不作有力無力」五雙十義作答，指出般若觀諸法時，皆不墮入凡夫之相對分別。繼而再以「眾生不生故般若不生」等十義並陳，將般若與所緣境的不二徹底貫通。本章最後結成大名，為下章〈論〉之開端。</p>
+</div>
+
+<h2 id=&quot;sec-1-1&quot;>第一節　須菩提發問　佛之反詰</h2>
+<p>本節啟全品之開卷語：須菩提向佛宣說「般若波羅蜜即摩訶波羅蜜」之名；佛不直印可，反問其「何故」。此一反詰，正逼出本品全部義理——所謂「摩訶」（大），不在語名之大，而在所離之執。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>經文</span>
+<p>須菩提白佛言：「世尊！是般若波羅蜜名為摩訶波羅蜜。」</p>
+<p>「須菩提！何因緣故，是般若波羅蜜名為摩訶波羅蜜？」</p>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>脈絡解讀</div>
+<p>「摩訶」（mahā）譯為「大」。此處須菩提所讚之「大」，並非數量、體積、勢力之大，而是般若於一切法不起大小、廣狹、合散等對待分別之「絕對」之大。佛之反問，意在引出此「大」之真實所以然——若能說出「大之因緣」，則此「大」即非有所得相之大，方名摩訶。</p>
+</div>
+
+<h2 id=&quot;sec-1-2&quot;>第二節　不作大小　五雙十義</h2>
+<p>須菩提應佛之問，舉「色受想行識、十二處十八界、六波羅蜜、十八空、三十七品乃至阿耨多羅三藐三菩提、諸佛法、諸佛」凡一切法為對象，宣說般若於此一切法皆<strong>不作大、不作小</strong>，乃至<strong>不作合散、不作無量非無量、不作廣狹、不作有力無力</strong>，凡五對十義。此即「摩訶」之第一重內涵。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>經文</span>
+<p>須菩提言：「世尊！是般若波羅蜜，不作色大、不作色小，受、想、行、識不作大、不作小；眼乃至意，色乃至法，眼識界乃至意識界，不作大、不作小；檀波羅蜜乃至禪波羅蜜，不作大、不作小；內空乃至無法有法空，不作大、不作小；四念處乃至阿耨多羅三藐三菩提，不作大、不作小；諸佛法，不作大、不作小；諸佛，不作大、不作小。是般若波羅蜜，不作色合、不作色散，受、想、行、識不作合、不作散；乃至諸佛不作合、不作散。色不作無量、不作非無量；乃至諸佛不作無量、亦不作非無量。色不作廣、不作狹；乃至諸佛不作廣、不作狹。不作色有力、不作色無力；乃至諸佛不作有力、不作無力。世尊！以是因緣故，是般若波羅蜜，名摩訶波羅蜜。」</p>
+</div>
+<h3>五雙十義一覽</h3>
+<div class=&quot;pair-grid&quot;>
+<div class=&quot;pair-card&quot;>
+<h5>一、不作大　不作小</h5>
+<p>於色乃至諸佛，不隨情想令其增廣或減損。</p>
+<div class=&quot;vs&quot;><span class=&quot;ord&quot;>凡夫：作大、作小</span><span class=&quot;pra&quot;>般若：不大、不小</span></div>
+</div>
+<div class=&quot;pair-card&quot;>
+<h5>二、不作合　不作散</h5>
+<p>不說微塵和合而有麁色生，亦不說麁色散歸微塵滅。</p>
+<div class=&quot;vs&quot;><span class=&quot;ord&quot;>凡夫：作合、作散</span><span class=&quot;pra&quot;>般若：不合、不散</span></div>
+</div>
+<div class=&quot;pair-card&quot;>
+<h5>三、不作無量　不作非無量</h5>
+<p>遠離「空故說無量」與「實故說有量」二邊。</p>
+<div class=&quot;vs&quot;><span class=&quot;ord&quot;>凡夫：作量、作無量</span><span class=&quot;pra&quot;>般若：非量、非無量</span></div>
+</div>
+<div class=&quot;pair-card&quot;>
+<h5>四、不作廣　不作狹</h5>
+<p>不隨心憶念之解，於法妄作開廣或狹隘相。</p>
+<div class=&quot;vs&quot;><span class=&quot;ord&quot;>凡夫：作廣、作狹</span><span class=&quot;pra&quot;>般若：非廣、非狹</span></div>
+</div>
+<div class=&quot;pair-card&quot;>
+<h5>五、不作有力　不作無力</h5>
+<p>知和合相而有力，分散時無力，皆是假名，非定相。</p>
+<div class=&quot;vs&quot;><span class=&quot;ord&quot;>凡夫：執有力、無力</span><span class=&quot;pra&quot;>般若：不有力、不無力</span></div>
+</div>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>關鍵把握</div>
+<p>所謂「不作」者，非「無作為」，而是<strong>不於諸法上強加增減合散等對待相</strong>。般若觀法如其本然——色之無自性，本不可大可小；諸法緣合，本不可定為合定為散。因此，般若波羅蜜「不作」此十事，正是其所以為「摩訶」之根本因緣。</p>
+</div>
+
+<h2 id=&quot;sec-1-3&quot;>第三節　警誡新發意菩薩之過失</h2>
+<p>須菩提既舉五雙十義，恐新發意菩薩誤認此「不作大小」之名相為般若實相，反生新執，故立此一節，警示其失。重點在於：<strong>「執不作大小」亦是失</strong>——若於六波羅蜜共行之中，作如是分別念著，則為「非般若波羅蜜相」。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>經文</span>
+<p>「世尊！若新發意菩薩摩訶薩若不遠離般若波羅蜜、不遠離禪波羅蜜、不遠離毘梨耶波羅蜜、不遠離羼提波羅蜜、不遠離尸羅波羅蜜、不遠離檀波羅蜜，如是念：『是般若波羅蜜，不作色大、不作色小，乃至諸佛不作大、不作小；色不作合、不作散；不作色無量、不作色非無量；不作色有力、不作色無力；乃至諸佛不作有力、不作無力。』世尊！菩薩摩訶薩若如是知，是為不行般若波羅蜜。何以故？是非般若波羅蜜相，所謂作色大小，乃至諸佛作大小；色有力無力，乃至諸佛有力無力。</p>
+<p>「世尊！是菩薩摩訶薩用有所得故，有大過失。所謂行般若波羅蜜時，作色大、作色小，乃至諸佛作有力、作無力。何以故？有所得相者，無阿耨多羅三藐三菩提。</p>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>辯證關鍵</div>
+<p>此節極微妙：<strong>前段須菩提自說「不作大小」是般若；此段又說若菩薩起念「不作大小」便不行般若</strong>。何以故？前者是離凡夫之分別執；後者是揀別連「不作大小」之相亦不可取。前段破有；此段破空相之執——即「執空亦失」之雙非門。<br/>菩薩若於六度共行之際，於般若起任何「有所得」相（無論是「作大小」或「執不作大小」），皆失般若體性。「有所得相者，無阿耨多羅三藐三菩提」，此一句乃全品之大眼目。</p>
+</div>
+
+<h2 id=&quot;sec-1-4&quot;>第四節　般若眾生十義並陳</h2>
+<p>本節為〈經〉文之核心義蘊。須菩提以十義並陳，將般若波羅蜜的存在性質，與所緣的「眾生」「色」乃至「佛」全然對等。其句法為「<em>X 不生故</em>，般若波羅蜜不生」，凡十句。此十義不是十種屬性，而是<strong>從十個面向證成「般若無自體，與所觀法平等」</strong>，乃直透畢竟空之根本句。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>經文</span>
+<p>「所以者何？眾生不生故，般若波羅蜜亦應不生；色不生故，般若波羅蜜不生；乃至佛不生故，般若波羅蜜不生。</p>
+<p>「眾生性無故，般若波羅蜜性無；色性無故，般若波羅蜜性無；乃至佛性無故，般若波羅蜜性無。</p>
+<p>「眾生非法故，般若波羅蜜非法；色非法故，般若波羅蜜非法；乃至佛非法故，般若波羅蜜非法。</p>
+<p>「眾生空故，般若波羅蜜空；色空故，般若波羅蜜空；乃至佛空故，般若波羅蜜空。</p>
+<p>「眾生離故，般若波羅蜜離；色離故，般若波羅蜜離；乃至佛離故，般若波羅蜜離。</p>
+<p>「眾生無有故，般若波羅蜜無有；色無有故，般若波羅蜜無有；乃至佛無有故，般若波羅蜜無有。</p>
+<p>「眾生不可思議故，般若波羅蜜不可思議；色不可思議故，般若波羅蜜不可思議；乃至佛不可思議故，般若波羅蜜不可思議。</p>
+<p>「眾生不滅故，般若波羅蜜不滅；色不滅故，般若波羅蜜不滅；乃至佛不滅故，般若波羅蜜不滅。</p>
+<p>「眾生不可知故，般若波羅蜜不可知；色不可知故，般若波羅蜜不可知；乃至佛不可知故，般若波羅蜜不可知。</p>
+<p>「眾生力不成就故，般若波羅蜜力不成就；色力不成就故，般若波羅蜜力不成就；乃至佛力不成就故，般若波羅蜜力不成就。</p>
+</div>
+<h3>十義表式</h3>
+<div class=&quot;ten-grid&quot;>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>1</div><div><span class=&quot;term&quot;>不生</span><span class=&quot;desc&quot;>畢竟無始生相，因緣假合，無實生者。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>2</div><div><span class=&quot;term&quot;>性無</span><span class=&quot;desc&quot;>無自性可指，故不能立其為實有。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>3</div><div><span class=&quot;term&quot;>非法</span><span class=&quot;desc&quot;>非可取為定相之法，超能所對待。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>4</div><div><span class=&quot;term&quot;>空</span><span class=&quot;desc&quot;>緣起性空，畢竟離所執。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>5</div><div><span class=&quot;term&quot;>離</span><span class=&quot;desc&quot;>離分別、離對待、離一切相。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>6</div><div><span class=&quot;term&quot;>無有</span><span class=&quot;desc&quot;>於十方求索不可得，但有假名。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>7</div><div><span class=&quot;term&quot;>不可思議</span><span class=&quot;desc&quot;>非凡情測度、語言可詮。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>8</div><div><span class=&quot;term&quot;>不滅</span><span class=&quot;desc&quot;>既無實生，亦無實滅。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>9</div><div><span class=&quot;term&quot;>不可知</span><span class=&quot;desc&quot;>無能知所知之差別相。</span></div></div>
+<div class=&quot;cell&quot;><div class=&quot;ti&quot;>10</div><div><span class=&quot;term&quot;>力不成就</span><span class=&quot;desc&quot;>諸法各無自力，般若亦不立有力之名。</span></div></div>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>義理綱維</div>
+<p>此十義之精髓在於——<strong>般若波羅蜜並非超於諸法之上的某種能力或智慧實體</strong>，而是與所觀的眾生、色乃至佛同體無異。眾生若無自性，能觀之般若亦無自性；色若不可知，能知色之智亦不可知。故般若所以為「摩訶」者，正在於它<strong>不立自身為一實有大法</strong>，而與一切法畢竟平等。此即《中論》「諸法不自生，亦不從他生」之同一脈絡。</p>
+</div>
+
+<h2 id=&quot;sec-1-5&quot;>第五節　結成「摩訶波羅蜜」名</h2>
+<p>須菩提以前四節之所說為因緣，總結回應佛之初問：「以是因緣故，諸菩薩摩訶薩般若波羅蜜名為摩訶波羅蜜。」此句既承「五雙十義」之不作分別，亦承「眾生般若十義並陳」之畢竟平等，使「摩訶」之名終究落實於「無所得、無自性」之大義上。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>經文</span>
+<p>「世尊！以是因緣故，諸菩薩摩訶薩般若波羅蜜名為摩訶波羅蜜。」</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;>
+<div class=&quot;bridge-label&quot;>承先啟後</div>
+<p>本章之〈經〉文部分至此告一段落。須菩提先以「不作大小等十事」標摩訶之相，次以「眾生不生故般若不生等十義」彰摩訶之體，二說相成，皆指向「不取相、不執空、不立自體」之畢竟空。</p>
+<p>然〈經〉中文義精微，初學易於迷誤——例如「不作大小」與「眾生力不成就故般若力不成就」二語，其間如何貫串？又「先說色等不作有力無力，今復說力不成就」是否重複？這些疑情，皆有待龍樹於下章〈論〉中為之疏通。次章將循經文逐節料揀，並以凡夫之執為對照、以五波羅蜜之共行為救正、以「無生」「無所得」之本旨為歸結。</p>
+</div>
+<a class=&quot;next-link&quot; href=&quot;#chapter-2&quot;>前往第二章　論主釋義 →</a>
+</div>
+</section>
+
+<section class=&quot;chapter&quot; id=&quot;chapter-2&quot;>
+<div class=&quot;ch-head&quot;>
+<div class=&quot;ch-num&quot;>卷六十二 · 第二品 · 第二章</div>
+<div class=&quot;ch-name&quot;>論主釋義</div>
+<div class=&quot;ch-sub&quot;>龍樹疏釋 · 不離六度而觀畢竟空</div>
+</div>
+<div class=&quot;ch-body&quot;>
+<div class=&quot;bridge bridge-intro&quot;>
+<div class=&quot;bridge-label&quot;>本章導讀</div>
+<p>本章為〈論〉文，龍樹菩薩依〈經〉文次第逐句疏釋。論主行文有三大特色：<strong>一、以凡夫之執為對照</strong>（如指業合為色、麁色微塵之辯）；<strong>二、以譬喻立義</strong>（眾縷成繩、八聖道分相佐之喻）；<strong>三、以兩失雙遮</strong>（離五度行般若是失，著「不大不小」空相亦是失）。最後設一問答料揀「般若觀法不作有力，何以又說般若力不成就」之疑，使讀者徹見「摩訶」非別有大力，乃即諸法畢竟空之異名。</p>
+</div>
+
+<h2 id=&quot;sec-2-1&quot;>第一節　論主開題　須菩提疑解</h2>
+<p>論主開卷敘述〈經〉文之來龍：須菩提因聞佛之前說（卷六十一末「般若攝諸法畢竟空」），疑情冰釋，故讚般若為「摩訶」；佛欲令大眾共聞其義，故反問之；須菩提乃以「色等諸法不作大、不作小」為答。本節即〈經〉文敘事之復述，並先引出主議題。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>論</span>
+<p>釋曰：</p>
+<p>須菩提聞佛所說，疑心開解，讚歎般若波羅蜜言：「是般若名為摩訶波羅蜜。」</p>
+<p>佛反問須菩提：「於汝意云何？何以名為大波羅蜜？」</p>
+<p>須菩提答：「色等諸法不作大、不作小故。」</p>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>脈絡點撥</div>
+<p>論主以「<strong>疑心開解</strong>」四字標明須菩提此時之心境。前文佛說般若攝一切法盡入畢竟空，是廓清凡夫實有見之究極說；須菩提至此疑情頓釋，故發此讚。讚不在「般若有大功能」，而在「般若能盡攝諸法之畢竟空相」——此即下文逐節所釋之中心義。</p>
+</div>
+
+<h2 id=&quot;sec-2-2&quot;>第二節　凡夫於色作大作小</h2>
+<p>論主先以凡夫習慣為對照，說明「作大、作小」並非客觀屬性，而是隨情想分別所安立。心急則色縮為小，心寬則色廣為大；又如八背捨之觀，外色亦隨心而大、隨心而小。此一節以「心隨意作大小」破除「諸法本有定大定小」之邪見。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>論</span>
+<p>凡夫人心於諸法中隨意作大、小。如人急時，其心縮小；安隱富樂時，心則寬大。又如八背捨中，隨心故，外色或大、或小。</p>
+<p>又如凡夫人於眼見色中，非色事亦言色；如指業、指量、指數、指一異等法合為色，是名色作大。有人眼見色，可見處名色，不可見處不名色。有人言：麁色虛誑非真色，但微塵常故是真色；微塵和合時，假名為色，是名色作小。</p>
+<p>如是等因緣，凡夫人於色或作大、或作小，隨憶想分別故，破諸法性；般若波羅蜜，隨色性如實觀，不作大、小。</p>
+</div>
+<h3>對照表式</h3>
+<div class=&quot;pair-grid&quot;>
+<div class=&quot;pair-card&quot;>
+<h5>作色大者</h5>
+<p>於眼所見之外，連「指業、指量、指數、指一異」等抽象範疇亦合為「色」，使色之內涵無限擴張。</p>
+</div>
+<div class=&quot;pair-card&quot;>
+<h5>作色小者</h5>
+<p>反之，主張麁色虛誑非真色，唯有不可見之微塵常住為真實。微塵和合方假名為色——色之外延嚴格收縮。</p>
+</div>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>義旨歸結</div>
+<p>論主以此例顯示：凡夫之「大小」皆是<strong>「破諸法性」之妄執</strong>——或以非色為色（作大），或以麁色為非色（作小），皆損諸法本然之性相。<strong>般若波羅蜜不作此兩端，乃「隨色性如實觀」</strong>——色之為色，但有假名，無有定大定小，故曰不作大、不作小。此即「摩訶」之第一義。</p>
+</div>
+
+<h2 id=&quot;sec-2-3&quot;>第三節　釋不合不散　非量非無量</h2>
+<p>本節釋〈經〉中第二、第三雙：「不合不散」與「不無量、非無量」。論主從「微塵合為麁色」之物理推論出發，指出般若不立「合而生」「散而滅」之相；又從「空故無量、實故有量」二邊出發，遮其執，立「非量非無量」之中道。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>論</span>
+<p>「不合不散」者，般若波羅蜜，不說微色和合更有色生；但有假名，無有定相色，是故無合、無散。</p>
+<p>色無邊故無量，無處不有色、無時不有色，故無有量。</p>
+<p>色是作法；般若波羅蜜中，不以微塵合故有麁色；不以麁色散故還歸微塵，是故言不合不散；起法有分別籌量多少，不得言不合不散。</p>
+<p>無量，如凡人空故說無量，實故說有量；般若波羅蜜遠離空、實故言「非量非無量」。</p>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>中觀洞見</div>
+<p>「合散」「量無量」皆是凡夫對作法（緣生法）之分別籌量。<br/>
+      ・<strong>合散</strong>：論主明指「色但有假名，無有定相色」——既無定相色，自無「合而生、散而滅」之事。<br/>
+      ・<strong>非量非無量</strong>：「空故無量」是執斷，「實故有量」是執常；般若同時遮二邊，故曰「非量非無量」。<br/>
+      此處可見龍樹一貫之「八不」進路：不生不滅、不常不斷、不一不異、不來不出，皆同此理。</p>
+</div>
+
+<h2 id=&quot;sec-2-4&quot;>第四節　釋非廣非狹　不作有力無力</h2>
+<p>本節續釋第四、第五雙。「廣狹」緣於「凡夫隨心憶念得解」之分別；「有力無力」緣於「不知和合因緣」之妄執。論主以「眾縷成繩」「牆崩殺人」二喻，揭示「有力」非繩、非牆所固有，而是和合相所立之假名。般若知此和合相，故不立任一法為「有力」，亦不立其為「無力」。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>論</span>
+<p>凡夫人隨心憶念得解故，於色作廣、作狹；般若波羅蜜觀實法相，不隨心故，非廣、非狹。</p>
+<p>凡夫人不知和合因緣生諸法，故言「色有力」。如合眾縷以為繩，不知者謂繩有力；又如牆崩殺人，言牆有力。若各各分散，則無有力。般若波羅蜜，知和合相，不說一法有力、不說言無力。</p>
+<p>是故名「摩訶般若波羅蜜」。</p>
+</div>
+<div class=&quot;card&quot;>
+<div class=&quot;card-title&quot;>「眾縷為繩」喻</div>
+<p>單縷無力以縛物，合多縷成繩，方有縛縛之力。然此力非繩自有——分散之則無。同理，凡夫見牆崩殺人，遂言牆有力；若磚石各別，則牆無從崩。<br/>論主之意：<strong>世間所謂「有力」「無力」皆是和合假相，非實有體</strong>。般若觀和合相而知其假，故於諸法不立「有力」「無力」之名。</p>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>小結</div>
+<p>至此，論主已逐項疏釋〈經〉中五雙十義（大小／合散／量無量／廣狹／有力無力），總結為：「<strong>是故名摩訶般若波羅蜜</strong>。」此「故」字承前五雙——般若波羅蜜以不立此十義之名相對待，故得「摩訶」之名。然此義猶有未盡，下節繼續料揀。</p>
+</div>
+
+<h2 id=&quot;sec-2-5&quot;>第五節　不離六度方名摩訶</h2>
+<p>本節提出第二重「大因緣」——僅僅「不作大小」尚不足以為「摩訶」，還必須<strong>不離六波羅蜜共行</strong>。若離五波羅蜜獨行般若，則「心散亂、不調順，多生疑悔邪見」；若於諸法分別大小，墮「有所得邊」；若執「不大不小」之空相，亦墮失。論主於此立「兩失雙遮」之要旨。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>論</span>
+<p>復有大因緣，若菩薩不遠離六波羅蜜，色等諸法不作大、不作小。但行般若波羅蜜，則心散亂、不調順，多生疑悔、邪見，失般若波羅蜜相。若與五波羅蜜和合行，則調柔不錯，能成辦眾事。譬如八聖道分，正見是道，若無七事佐助，則不能辦事，亦不名正見。是故佛說：一切諸善法皆從因緣和合共生，無有一法獨自生者。是故和合時各各有力，但力有大小。是名行般若波羅蜜。</p>
+<p>若菩薩離五波羅蜜，行般若波羅蜜，分別色等諸法若大、若小等，是人即墮用有所得，墮有邊中。若於色等諸法無所分別若大、若小，離五波羅蜜，著是不大不小等空相。先分別諸法大小，有所得為失；今著不大不小等空相，亦是失。</p>
+</div>
+<div class=&quot;card&quot;>
+<div class=&quot;card-title&quot;>八聖道分之喻</div>
+<p>「正見是道，若無七事佐助，則不能辦事，亦不名正見。」——縱使般若如正見之為道首，若無布施、持戒、忍辱、精進、禪定五者佐助，亦無從成辦菩薩之眾事，<strong>連「般若」之名亦不得立</strong>。<br/>由此可見：般若波羅蜜不是孤懸於六度之上的「冠冕」，而是與其他五度<strong>互為因緣、各各有力但力有大小</strong>的緣生聖法之一。</p>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>兩失雙遮</div>
+<p><strong>失之一</strong>：離五波羅蜜，獨行般若，於色等諸法分別大小——墮「有所得相」「有邊」。<br/>
+<strong>失之二</strong>：離五波羅蜜，獨行般若，反過來執著「不大不小」之空相——墮「執空相」之失。<br/>
+      此二者皆失般若波羅蜜之真相。<strong>真行般若者，必與五度共行，於諸法不分別大小，亦不執不大不小之空相</strong>——此乃「摩訶」之真實內涵。</p>
+</div>
+
+<h2 id=&quot;sec-2-6&quot;>第六節　有所得失　無生之理</h2>
+<p>論主於此節為前節「兩失」立義，引〈經〉中須菩提「有所得相者，無阿耨多羅三藐三菩提」之語為據；繼而以「我、眾生」十方求索不可得為例，疏通〈經〉中「眾生不生故般若不生」之十義句法。重點在於：<strong>能觀（般若）與所觀（眾生、色乃至佛）二者畢竟平等，皆從因緣和合假名而生，無有定性，故皆無生</strong>。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>論</span>
+<p>所以者何？此中須菩提說因緣：「有所得相者，乃至無阿耨多羅三藐三菩提。」</p>
+<p>所以者何？阿耨多羅三藐三菩提，寂滅相、無所得相、畢竟清淨相。有所得相者，生諸戲論、諍競；一切法無生無滅，無所得相。</p>
+<p>如我、眾生，十方求索不可得，但有假名，實不生。眾生不生故，般若波羅蜜亦如眾生相，破吾我顛倒，故不生不滅。如色等諸法，生相不可得故不生。二法攝一切法：若眾生、若法。此二法因緣故和合生，但有假名，無有定性；若法無定性，此法即是無生。是二法無生故，當知色等諸法亦無生。</p>
+<p>眾生、法，無性、無所有、空、離、不可思議、不滅、不可知亦如是。</p>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>總攝二法</div>
+<p>論主以「<strong>二法攝一切法：若眾生、若法</strong>」一句總攝。眾生（人空）與法（法空）二者皆因緣和合假名而生，無有定性。法無定性即無生；二法無生，色等一切法亦無生。<br/>
+      故〈經〉中所列「不生、性無、非法、空、離、無有、不可思議、不滅、不可知」九義，皆從「無定性即無生」一義輾轉開出，<strong>皆同一畢竟空之異名</strong>。</p>
+</div>
+
+<h2 id=&quot;sec-2-7&quot;>第七節　釋般若力不成就</h2>
+<p>〈經〉文十義之最後一義為「眾生力不成就故，般若波羅蜜力不成就」。此義最為精微：論主明確點出，般若波羅蜜本身亦從諸法緣生，故無自力；無自力故同諸法畢竟空。此即<strong>般若亦不立自體為實有大法</strong>之徹底貫穿。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>論</span>
+<p>「眾生力不成就故，般若波羅蜜力不成就」者，先說「一切法從因緣和合生，各各無自力」。般若波羅蜜，知諸法各各無自力故無自性，無自性故空。</p>
+<p>般若波羅蜜從諸法生故無自力；無自力故，亦同諸法畢竟空。是故說「眾生及法力不成就故，般若波羅蜜力亦不成就」。</p>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>義理頂巔</div>
+<p>本節為全〈論〉之至要。前文諸節雖已說「般若不作大小、不作合散、不作有力無力」，但仍可能令人誤想「般若雖不作此等分別，自身畢竟是一大法」。此處論主直截言：<strong>般若亦從諸法生故無自力，亦同諸法畢竟空</strong>。<br/>
+      ──故所謂「摩訶」者，非指有別於諸法之大力，而是般若<strong>連「自身為大法」之執亦不立</strong>，乃徹底之畢竟空。此義一立，「摩訶」之名實相符乃至極矣。</p>
+</div>
+
+<h2 id=&quot;sec-2-8&quot;>第八節　問答料揀　結成大名</h2>
+<p>論主於此設一問答，揀別前後二說似有重複之疑。問者以為：上文既說「般若觀諸法不作有力、不作無力」，何以下文又說「眾生及色等法力不成就故，般若波羅蜜力亦不成就」？論主答以：前者破諸法之有力相；聽者若以為般若有「能作此觀」之大力，則此處更破「般若自身有大力」之執。<strong>前後二說非重複，實為層層遮遣之深化</strong>。</p>
+<div class=&quot;classical-text&quot;>
+<span class=&quot;text-label&quot;>論</span>
+<p>問曰：</p>
+<p>先說「色等諸法不作有力、不作無力」，今何以更說「眾生及色等諸法力不成就故，般若波羅蜜力亦不成就」？</p>
+<p>答曰：</p>
+<p>上說「般若觀諸法，不作有力、不作無力」，聽者謂：「般若波羅蜜能作是觀，即有大力。」是故此中說「眾生、色等力不成就故，般若波羅蜜力亦不成就」。</p>
+<p>如是等種種因緣故名「摩訶波羅蜜」。</p>
+</div>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;><span class=&quot;qa-label&quot;>問</span>「色等諸法不作有力、不作無力」與「眾生及色法力不成就故般若力亦不成就」二說，豈非重複？</div>
+<div class=&quot;a&quot;><span class=&quot;qa-label&quot;>答</span>非重複也。前說破<strong>諸法有力</strong>之執，後說破<strong>般若自身有力</strong>之執——後者正所以救前者之餘執，使「能觀」「所觀」一齊歸於畢竟空。</div>
+</div>
+<div class=&quot;hilite&quot;>
+<div class=&quot;hilite-title&quot;>全品結語</div>
+<p>「<strong>如是等種種因緣故名摩訶波羅蜜</strong>。」</p>
+<p>──論主以此一句總結全品。所謂「摩訶」（大），其實踐上之內涵為：</p>
+<p>① <strong>不作五雙十義之分別</strong>（大小／合散／量無量／廣狹／有力無力）；<br/>
+      ② <strong>不離五波羅蜜共行</strong>（不孤行般若、不墮有所得，亦不執空相）；<br/>
+      ③ <strong>能所俱遣，畢竟空中無大法可得</strong>（般若亦從諸法生，無自力）。</p>
+<p>由此三重，「摩訶波羅蜜」之名乃名實相符——<strong>非有大可立，乃以無所立而名為大</strong>。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;>
+<div class=&quot;bridge-label&quot;>承先啟後</div>
+<p>本品自須菩提發問「般若名為摩訶」始，至論主結成「種種因緣故名摩訶波羅蜜」終，前後一氣，所立者為「無所立之大」。此義既明，則下品（卷六十二第三品）將承此基礎，續論「般若波羅蜜如何於諸法中無染無著、不取不捨」之具體實踐，使「畢竟空」之理進一步落實於菩薩摩訶薩之日用威儀。</p>
+<p>就讀者而言，本品的關鍵法眼當把握三句：「<strong>有所得相者，無阿耨多羅三藐三菩提</strong>」、「<strong>不離五度而行般若</strong>」、「<strong>般若亦同諸法畢竟空</strong>」。三句連貫，則摩訶之名實相符，亦為下文一切般若行門之先導。</p>
+</div>
+<a class=&quot;next-link&quot; href=&quot;#top&quot;>返回目次 ↑</a>
+</div>
+</section>
+
+
+
+
+
+<script>
+(function(){
+  var blk=function(e){e.preventDefault();return false;};
+  ['contextmenu','copy','cut','selectstart','dragstart','mousedown'].forEach(function(ev){
+    document.addEventListener(ev,function(e){
+      if(ev==='mousedown' &amp;&amp; e.button!==2) return;
+      blk(e);
+    },true);
+  });
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(e.ctrlKey&amp;&amp;(k==='c'||k==='C'||k==='a'||k==='A'||k==='s'||k==='S'||k==='p'||k==='P'||k==='u'||k==='U'||k==='x'||k==='X')){blk(e);}
+    if(k==='F12')blk(e);
+    if(e.ctrlKey&amp;&amp;e.shiftKey&amp;&amp;(k==='I'||k==='J'||k==='C'||k==='K')){blk(e);}
+  },true);
+  setInterval(function(){
+    if(window.getSelection) try{window.getSelection().removeAllRanges();}catch(e){}
+  },300);
+})();
+</script><script>
+(function(){
+  if(!window.frameElement) return;
+  document.addEventListener('click',function(e){
+    var a=e.target;
+    while(a&amp;&amp;a.tagName!=='A') a=a.parentElement;
+    if(!a) return;
+    var h=a.getAttribute('href');
+    if(!h||h.charAt(0)!=='#') return;
+    e.preventDefault();
+    e.stopPropagation();
+    var id=h.substring(1);
+    var el=document.getElementById(id);
+    if(!el) return;
+    try{
+      var rect=el.getBoundingClientRect();
+      var fr=window.frameElement;
+      var frRect=fr.getBoundingClientRect();
+      var targetY=window.parent.scrollY+frRect.top+rect.top-60;
+      window.parent.scrollTo({top:targetY,behavior:'smooth'});
+    }catch(ex){}
+  },true);
+})();
+</script></body></html>"></iframe>
+    <div class="bridge bridge-outro">
+      <div class="bridge-label">承先啟後</div>
+      <p>本品以「不作大小、結成大名」收束，卷六十二第三品〈釋信謗品第四十一〉接續登場——前兩品已從正面建立般若之莊嚴與所以名大，本品則切入「信」與「謗」的雙軌結構，從正反兩面深掘：誰能信、何故謗、果報何在？由舍利弗請問三事，佛答四勝因，層層拓展至「破法即破自性」的根本因果。</p>
+    </div>
+    <a class="next-link" href="#chapter-3">前往下一品 · 第三品 · 信謗品第四十一 →</a>
+  </div>
+</section>
+
+
+<section class="chapter" id="chapter-3">
+  <div class="ch-head">
+    <div class="ch-num">卷六十二 · 第 三 品</div>
+    <div class="ch-name">信謗品第四十一</div>
+    <div class="ch-sub">四勝因 · 三相隨順 · 毀謗果報 · 白淨明誡</div>
+  </div>
+  <div class="ch-body">
+    <div class="bridge bridge-intro">
+      <div class="bridge-label">本品要旨</div>
+      <p>本品以「信」「謗」為雙軸，由舍利弗的希有讚嘆開卷：「希有世尊！能信深般若者，當知是人為何因緣？」佛答以四勝因（來處勝、時間勝、行業勝、福德勝），並隨順成就「三相」：無相 · 無二 · 無所得。其後須菩提反問「般若可聞可見耶」，引發二相辯證——佛答「不定，應分別說」，將不信轉為毀謗的因果鏈一一鋪陳，並以阿鼻無間、火劫遷徙、畜生道、下賤人身、感官缺陷五重果報層次警誡眾生。終以「受身大小不答之悲」與「白淨明誡」作結，回扣全品「信則為依止、謗則為墮處」之主軸。</p>
+    </div>
+    <iframe class="ch-frame" srcdoc="<!DOCTYPE html><html lang=&quot;zh-Hant&quot;><head><meta charset=&quot;UTF-8&quot;><link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;display=swap&quot;><style>
+:root{
+  --bg:#f7f3ec; --text:#2c2416; --text2:#5a4e3a; --text-muted:#6B5B4B;
+  --accent:#8b5e3c; --accentL:#c4956a; --accent-red:#8B2500;
+  --gold:#b8860b; --goldL:#d4a84b; --gold-light:#C9A84C;
+  --border:#d4c4a8; --border-light:#EDE8E0; --card:#fffdf7;
+  --verseBg:#f0e8d8; --verseBd:#c4956a;
+  --sbW:76px; --sbBg:#1e1a14; --sbText:#d4c4a8;
+  --headGrad:linear-gradient(135deg,#2a2218 0%,#3d3225 50%,#2a2218 100%);
+  --r:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0;}
+body{
+  font-family:&quot;Noto Serif TC&quot;,&quot;Source Han Serif TC&quot;,&quot;Songti TC&quot;,Georgia,serif;
+  background:var(--bg); color:var(--text);
+  line-height:1.8; font-size:20px;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none;
+}
+img{-webkit-user-drag:none;pointer-events:none;}
+
+/* ============ Sidebar ============ */
+#sb{position:fixed;left:0;top:0;width:var(--sbW);height:100vh;
+  background:var(--sbBg);color:var(--sbText);z-index:100;
+  display:flex;flex-direction:column;align-items:center;
+  padding:0 0 16px;overflow-y:auto;scrollbar-width:none;}
+#sb::-webkit-scrollbar{display:none;}
+.sb-brand{position:sticky;top:0;width:100%;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:11px;letter-spacing:2px;
+  color:var(--gold);text-align:center;line-height:1.5;
+  background:linear-gradient(to bottom,var(--sbBg) 78%,rgba(30,26,20,0));
+  padding:14px 4px 12px;margin-bottom:6px;z-index:5;
+  text-decoration:none;cursor:pointer;
+  transition:color .25s,background .25s;display:block;
+  border-bottom:1px solid rgba(184,134,11,.25);}
+.sb-brand:hover{color:var(--goldL);}
+.sb-brand .sb-brand-line1{display:block;font-size:11px;letter-spacing:1.5px;opacity:.78;}
+.sb-brand .sb-brand-line2{display:block;font-size:13px;font-weight:700;letter-spacing:2.2px;color:var(--goldL);margin-top:2px;}
+.sb-brand .sb-brand-arrow{display:block;font-size:10px;opacity:.55;margin-top:2px;}
+.sb-nav{display:flex;flex-direction:column;gap:6px;width:100%;align-items:center;padding-top:4px;}
+.sb-item{display:flex;flex-direction:column;align-items:center;
+  text-decoration:none;color:var(--sbText);font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  padding:3px 4px;border-radius:6px;cursor:pointer;transition:all .25s;
+  width:64px;}
+.sb-item:hover{color:var(--goldL);}
+.sb-item.active .sb-circle{background:var(--gold);color:#fff;
+  box-shadow:0 0 12px rgba(184,134,11,.55);transform:scale(1.05);}
+.sb-circle{width:34px;height:34px;border-radius:50%;
+  border:1.5px solid rgba(212,196,168,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:600;color:var(--sbText);
+  margin-bottom:3px;transition:all .25s;background:rgba(60,50,36,.4);}
+.sb-label{font-size:11.5px;letter-spacing:0.5px;opacity:.85;text-align:center;line-height:1.2;}
+
+/* ============ Hamburger ============ */
+#sbToggle{display:none;position:fixed;top:14px;left:14px;z-index:200;
+  background:var(--sbBg);color:var(--gold);
+  border:1px solid rgba(184,134,11,.4);
+  width:42px;height:42px;border-radius:8px;
+  font-size:22px;cursor:pointer;}
+
+/* ============ Read Progress (bottom capsule) ============ */
+.read-progress{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);
+  z-index:120;background:rgba(30,26,20,.92);color:var(--gold);
+  padding:9px 24px;border-radius:30px;
+  border:1px solid rgba(184,134,11,.5);
+  box-shadow:0 4px 18px rgba(0,0,0,.25);
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:14px;letter-spacing:2px;
+  display:flex;align-items:center;gap:12px;
+  pointer-events:none;user-select:none;backdrop-filter:blur(6px);}
+.read-progress .rp-label{font-size:12px;opacity:.75;letter-spacing:3px;}
+.read-progress .rp-bar{width:148px;height:4px;background:rgba(212,196,168,.18);
+  border-radius:2px;overflow:hidden;position:relative;}
+.read-progress .rp-fill{position:absolute;top:0;left:0;bottom:0;
+  background:linear-gradient(90deg,var(--gold),var(--goldL));
+  width:0%;transition:width .3s;}
+.read-progress .rp-pct{font-size:13px;font-weight:600;min-width:40px;text-align:right;}
+
+/* ============ Main ============ */
+.main{margin-left:var(--sbW);min-height:100vh;}
+
+/* ============ Hero ============ */
+.site-hero{
+  background:var(--headGrad);
+  color:#fff;padding:96px 40px 80px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.site-hero::before{
+  content:&quot;般若&quot;;position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-size:480px;font-weight:900;
+  color:#fff;opacity:.04;
+  font-family:&quot;Noto Serif TC&quot;,serif;
+  letter-spacing:60px;pointer-events:none;
+}
+.site-hero h1{font-size:56px;font-weight:900;letter-spacing:8px;margin-bottom:18px;
+  color:var(--goldL);text-shadow:0 2px 14px rgba(0,0,0,.4);position:relative;z-index:2;}
+.site-hero .hero-sub{font-size:18px;letter-spacing:6px;color:rgba(255,255,255,.85);
+  margin-bottom:14px;font-family:&quot;Noto Sans TC&quot;,sans-serif;position:relative;z-index:2;}
+.site-hero .hero-meta{font-size:18px;color:rgba(255,255,255,.65);
+  margin-bottom:22px;letter-spacing:3px;font-family:&quot;Noto Sans TC&quot;,sans-serif;position:relative;z-index:2;}
+.site-hero .hero-eng{font-size:15px;color:rgba(184,134,11,.85);
+  letter-spacing:3px;font-style:italic;
+  font-family:Georgia,serif;position:relative;z-index:2;}
+.site-hero .hero-range{font-size:17px;color:rgba(255,255,255,.7);
+  margin-top:20px;letter-spacing:2px;font-family:&quot;Noto Sans TC&quot;,sans-serif;position:relative;z-index:2;}
+
+/* ============ Preface ============ */
+.preface{
+  max-width:880px;margin:48px auto 28px;padding:0 32px;
+}
+.preface h2{
+  font-size:30px;color:var(--accent);text-align:center;
+  margin-bottom:24px;letter-spacing:6px;font-weight:700;
+}
+.preface p{
+  font-size:19px;line-height:2.1;
+  color:var(--text2);margin-bottom:14px;text-indent:2em;
+}
+
+/* ============ TOC ============ */
+.toc-section{
+  max-width:1100px;margin:24px auto 36px;padding:0 32px 12px;
+}
+.toc-title{font-size:34px;text-align:center;color:var(--accent);
+  margin-bottom:10px;letter-spacing:8px;font-weight:700;}
+.toc-desc{font-size:17px;text-align:center;color:var(--text-muted);
+  margin-bottom:28px;letter-spacing:2px;font-family:&quot;Noto Sans TC&quot;,sans-serif;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;}
+.toc-card{display:flex;align-items:flex-start;gap:14px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:16px 18px;text-decoration:none;
+  color:var(--text);transition:all .3s;
+  box-shadow:0 1px 3px rgba(91,58,41,.05);}
+.toc-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(91,58,41,.12);
+  border-color:var(--gold);}
+.toc-num{flex-shrink:0;
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--goldL));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;font-size:18px;font-weight:700;}
+.toc-name{font-size:19.5px;font-weight:600;color:var(--text);
+  line-height:1.7;flex:1;letter-spacing:.5px;}
+
+/* ============ Chapter ============ */
+.chapter{padding:32px 0 8px;}
+.ch-head{
+  background:var(--headGrad);color:#fff;
+  padding:50px 32px 38px;text-align:center;
+  border-radius:0;position:relative;overflow:hidden;
+}
+.ch-head::after{
+  content:&quot;&quot;;position:absolute;left:50%;bottom:18px;transform:translateX(-50%);
+  width:60px;height:2px;background:var(--gold);
+}
+.ch-num{font-size:18px;color:var(--gold);letter-spacing:4px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;margin-bottom:14px;}
+.ch-name{font-size:34px;font-weight:700;letter-spacing:5px;color:#fff;margin-bottom:12px;}
+.ch-sub{font-size:17px;color:rgba(255,255,255,.75);letter-spacing:2px;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;}
+.ch-body{
+  max-width:980px;margin:0 auto;padding:30px 32px 18px;
+}
+.ch-body p{margin:0 0 12px;font-size:20px;line-height:1.9;color:var(--text);}
+.ch-body p+p{margin-top:0;}
+.ch-body strong,.ch-body b{color:var(--accent-red);font-weight:700;}
+
+/* ============ Bridges ============ */
+.bridge{
+  background:linear-gradient(135deg,#fffdf5,#f5ecd8);
+  border:1px solid var(--border); border-left:5px solid var(--gold);
+  border-radius:10px; padding:18px 24px; margin:0 0 26px;
+  box-shadow:0 2px 10px rgba(91,58,41,.06);
+}
+.bridge-outro{
+  border-left-color:var(--accentL);
+  background:linear-gradient(135deg,#fdf8e8,#f2e6c8);
+  margin-top:30px; margin-bottom:14px;
+}
+.bridge-label{display:inline-block;font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  font-size:12.5px;background:var(--gold);color:#fff;
+  padding:3px 12px;border-radius:12px;letter-spacing:2.2px;margin-bottom:10px;}
+.bridge-outro .bridge-label{background:var(--accent);}
+.bridge p{margin:0;color:var(--text2);line-height:2.1;font-size:18.5px;}
+.bridge p+p{margin-top:8px;}
+
+/* ============ Headings ============ */
+.ch-body h2{
+  font-size:30px;font-weight:700;color:var(--accent);
+  margin:32px 0 14px;padding:10px 0 10px 20px;
+  border-left:4px solid var(--gold);
+  background:linear-gradient(to right,rgba(184,134,11,.07),transparent);
+  letter-spacing:1.5px;
+}
+.ch-body h3{
+  font-size:23.5px;font-weight:600;color:var(--text);
+  margin:24px 0 10px;padding-bottom:6px;
+  border-bottom:1px solid var(--border-light);
+}
+.ch-body h4{font-size:20px;color:var(--text2);margin:18px 0 8px;}
+.ch-body h5{font-size:18.5px;color:var(--accent);font-weight:700;margin:0 0 8px;letter-spacing:1px;}
+
+/* ============ Cards ============ */
+.card,.insight,.commentary,.metaphor,.note{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:16px 22px;margin:14px 0;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);font-size:20px;line-height:1.9;
+}
+.insight{border-left:4px solid var(--gold);background:linear-gradient(135deg,#fffdf5,#fbf3df);}
+.commentary{border-left:4px solid var(--accent);background:#fbf6ec;}
+.metaphor{border-left:4px solid var(--accentL);background:#fdf6e6;}
+.note{border-left:4px solid var(--text-muted);background:#f5ede0;}
+.card p,.insight p,.commentary p,.metaphor p,.note p{font-size:20px;line-height:1.9;}
+
+/* ============ Classical text ============ */
+.classical-text{
+  background:#FFFDF5;border:1px solid #E8E0D0;border-radius:10px;
+  padding:18px 24px;margin:16px 0;line-height:1.9;
+  position:relative;
+}
+.text-label{display:inline-block;font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  font-size:13.5px;background:var(--text);color:#fff;
+  padding:3px 14px;border-radius:12px;letter-spacing:2.2px;
+  margin-bottom:10px;font-weight:600;}
+.classical-text p{font-size:21px;line-height:2.0;color:var(--text);text-indent:2em;}
+.classical-text p+p{margin-top:10px;}
+
+/* ============ QA ============ */
+.qa{margin:14px 0;display:flex;flex-direction:column;gap:8px;}
+.qa .q{
+  background:#eff6fc;border-left:4px solid #4a7eb5;
+  color:#1a3a5c;padding:12px 18px;border-radius:6px;font-size:20px;line-height:1.9;
+}
+.qa .a{
+  background:#fbf3e8;border-left:4px solid var(--accent);
+  color:var(--text);padding:12px 18px;border-radius:6px;font-size:20px;line-height:1.9;
+}
+.qa .q strong,.qa .q b{color:#1a3a5c;font-weight:700;}
+
+/* ============ Grid layouts ============ */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0;}
+.four-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+.col-card,.cell{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:14px 18px;font-size:19px;line-height:1.9;
+}
+.col-title{font-size:17px;color:var(--accent);font-weight:700;
+  margin-bottom:8px;letter-spacing:1px;font-family:&quot;Noto Sans TC&quot;,sans-serif;
+  padding-bottom:4px;border-bottom:1px solid var(--border-light);}
+.col-content p{font-size:19px;line-height:1.9;margin:0 0 6px;}
+.cell h5{font-size:18px;color:var(--accent);margin-bottom:6px;}
+.cell p{font-size:18px;line-height:1.9;margin:0;}
+
+.grid-4{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+
+/* ============ Flow ============ */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0;
+  padding:16px;background:var(--card);border:1px solid var(--border);
+  border-radius:10px;}
+.flow.flow-v{flex-direction:column;}
+.flow-step,.flow-box{
+  background:#fbf3e2;border:1px solid var(--border);
+  padding:14px 22px;border-radius:8px;font-size:17.5px;
+  text-align:center;flex:1;min-width:180px;
+}
+.flow-step b{color:var(--accent);}
+.flow-arrow{font-size:24px;color:var(--gold);font-weight:700;}
+
+/* ============ Domino chain ============ */
+.domino-chain{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:6px;margin:18px 0;padding:18px;background:var(--card);
+  border:1px solid var(--border);border-radius:10px;
+}
+.domino{background:#fbf3e2;border:1px solid var(--border);
+  padding:12px 16px;border-radius:8px;text-align:center;
+  font-size:16px;flex:1;min-width:130px;line-height:1.5;}
+.domino small{display:block;color:var(--text-muted);font-size:13px;margin-top:3px;}
+.chain-arrow{font-size:22px;color:var(--gold);font-weight:700;}
+
+/* ============ Spectrum ============ */
+.spectrum{display:flex;align-items:stretch;gap:0;margin:18px 0;
+  border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.sp-node{flex:1;padding:18px;text-align:center;background:var(--card);
+  font-size:15.5px;line-height:1.6;}
+.sp-node.sp-left{background:linear-gradient(to right,#f8e0d0,#fbf3e2);}
+.sp-node.sp-right{background:linear-gradient(to left,#f8e0d0,#fbf3e2);}
+.sp-mid{flex:1.2;padding:18px;
+  background:linear-gradient(135deg,var(--gold),var(--goldL));
+  color:#fff;text-align:center;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;}
+.sp-mid h5{color:#fff!important;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.35);font-size:18px;margin:0 0 4px;}
+.sp-mid small{color:rgba(255,255,255,.92)!important;font-size:13.5px;}
+.sp-node small{color:var(--text-muted);font-size:13.5px;}
+
+/* ============ Refutation grid ============ */
+.refutation-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+.ref-cell{background:var(--card);border:1px solid var(--border);
+  border-left:4px solid var(--accent-red);
+  padding:14px 18px;border-radius:8px;font-size:17.5px;line-height:1.9;}
+.ref-cell h5{color:var(--accent-red);}
+
+/* ============ Checklist ============ */
+.checklist{list-style:none;padding:0;margin:14px 0;}
+.checklist li{position:relative;padding:8px 8px 8px 28px;
+  font-size:20px;line-height:1.85;border-bottom:1px dashed var(--border-light);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:&quot;○&quot;;position:absolute;left:6px;top:8px;
+  color:var(--gold);font-size:14px;}
+
+/* ============ Back to top ============ */
+#backTop{position:fixed;right:22px;bottom:22px;z-index:130;
+  width:44px;height:44px;border-radius:50%;border:none;
+  background:var(--accent);color:#fff;font-size:22px;cursor:pointer;
+  box-shadow:0 4px 14px rgba(91,58,41,.3);
+  opacity:0;pointer-events:none;transition:opacity .3s;}
+#backTop.show{opacity:.92;pointer-events:auto;}
+#backTop:hover{opacity:1;background:var(--gold);}
+
+/* ============ Footer ============ */
+.site-footer{
+  background:#1e1a14;color:rgba(212,196,168,.7);
+  padding:46px 32px 88px;text-align:center;margin-top:28px;
+  font-size:15px;letter-spacing:2px;line-height:1.95;
+  font-family:&quot;Noto Sans TC&quot;,sans-serif;
+}
+.site-footer .ded{color:var(--gold);font-size:16px;letter-spacing:3px;
+  margin-bottom:12px;font-family:&quot;Noto Serif TC&quot;,serif;}
+.site-footer p{font-size:15px;}
+
+/* ============ Responsive ============ */
+@media (max-width:900px){
+  #sb{transform:translateX(-100%);transition:transform .3s;}
+  #sb.open{transform:translateX(0);}
+  #sbToggle{display:flex;align-items:center;justify-content:center;}
+  .main{margin-left:0;}
+  .site-hero{padding:80px 24px 60px;}
+  .site-hero h1{font-size:38px;letter-spacing:4px;}
+  .ch-head{padding:40px 24px 30px;}
+  .ch-name{font-size:26px;letter-spacing:3px;}
+  .two-col,.three-col,.four-grid,.refutation-grid,.grid-4{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  body{font-size:17px;}
+  .ch-body p,.ch-body h2{font-size:18px;}
+  .ch-body h2{font-size:22px;}
+  .toc-name{font-size:16.5px;}
+  .read-progress{padding:7px 16px;font-size:12px;}
+  .read-progress .rp-bar{width:100px;}
+}
+
+
+html,body{margin:0!important;padding:0!important;background:transparent!important;
+  min-height:0!important;height:auto!important;
+  overflow:hidden!important;
+  scrollbar-width:none!important;-ms-overflow-style:none!important;
+  -webkit-user-select:none!important;-moz-user-select:none!important;
+  -ms-user-select:none!important;user-select:none!important;
+  -webkit-touch-callout:none!important;}
+html::-webkit-scrollbar,body::-webkit-scrollbar,
+*::-webkit-scrollbar{display:none!important;width:0!important;height:0!important;}
+*{-webkit-user-select:none!important;-moz-user-select:none!important;
+  -ms-user-select:none!important;user-select:none!important;
+  -webkit-user-drag:none!important;
+  scrollbar-width:none!important;}
+body{padding:0 8px;}
+.main,main,#main{min-height:0!important;height:auto!important;
+  padding-bottom:0!important;margin-bottom:0!important;margin-left:0!important;}
+section:last-of-type,.chapter:last-of-type,.chapter:last-child,
+section.chapter:last-child,.ch-body:last-child{
+  margin-bottom:0!important;padding-bottom:0!important;}
+#sb,#sbToggle,#backTop,aside.sb{display:none!important;}
+img{-webkit-user-drag:none!important;pointer-events:none;}
+/* 統一卡片暖色化，章節頭深色化 */
+.ch-head{background:var(--headGrad,linear-gradient(135deg,#2a2218 0%,#3d3225 50%,#2a2218 100%))!important;color:#fff!important;}
+.ch-head .ch-num,.ch-head .ch-name,.ch-head .ch-sub{color:#fff!important;}
+.ch-body{background:var(--bg,#f7f3ec)!important;max-width:980px!important;margin:0 auto!important;}
+.toc-title,.toc-desc,.toc-header{text-align:center!important;}
+*{font-style:normal!important;}
+
+/* 1.2x inner boost · iframe srcdoc 內部 */
+.ch-body,.chapter,.section,article,main{font-size:20px!important;line-height:1.9!important;}
+.ch-body p,.chapter p,.section p,article p,p,li,td,th{font-size:20px!important;line-height:1.9!important;}
+h1{font-size:38px!important;}
+h2{font-size:30px!important;}
+h3{font-size:23.5px!important;}
+h4{font-size:20px!important;}
+h5{font-size:18.5px!important;}
+.verse,.gatha,blockquote,.classical-text{font-size:22px!important;line-height:2.2!important;}
+.toc-title{font-size:30px!important;}
+.toc-desc{font-size:17px!important;}
+.toc-num{font-size:18px!important;}
+.toc-name{font-size:20px!important;line-height:1.7!important;}
+.ch-num{font-size:18px!important;}
+.ch-name{font-size:32px!important;}
+.ch-sub{font-size:17px!important;}
+.card-content,.col-content,.section-content,.card-desc,.insight-content,.commentary p{font-size:20px!important;line-height:1.9!important;}
+.card-title,.col-title,.section-title,.insight-title{font-size:21.5px!important;}
+.text-label{font-size:13.5px!important;}
+.flow-box,.flow-step,.flow-chart .flow-step,.domino{font-size:17.5px!important;}
+.qa .q,.qa .a{font-size:20px!important;line-height:1.9!important;}
+.four-grid .cell,.two-col .col,.three-col .col{font-size:19px!important;}
+.grid-4 .cell{font-size:19px!important;}
+.debate .q-side,.debate .a-side{font-size:19px!important;}
+.spectrum .sp-node{font-size:15.5px!important;}
+.refutation-grid .ref-cell{font-size:17.5px!important;}
+.roadmap .rm-step{font-size:17px!important;}
+.triangle-diagram .tri-node{font-size:17px!important;}
+.checklist li{font-size:20px!important;}
+.phase-badge{font-size:14px!important;}
+/* Venn 圓 v2 */
+.venn-wrap{min-height:240px!important;gap:0!important;}
+.venn-circle{display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  width:220px!important;height:220px!important;
+  font-size:16px!important;line-height:1.55!important;
+  padding:0 22px!important;box-sizing:border-box!important;gap:6px!important;}
+.venn-circle br{display:none!important;}
+.venn-circle small{font-size:12.5px!important;display:block!important;
+  width:100%!important;text-align:center!important;line-height:1.4!important;margin:0!important;}
+.venn-a{margin-right:-50px!important;}
+.venn-b{margin-left:-50px!important;}
+/* 金底 h5 疊色防護 */
+.sp-mid,.sp-mid *{color:#fff!important;}
+.sp-mid h5{color:#fff!important;font-weight:700!important;text-shadow:0 1px 3px rgba(0,0,0,.35);}
+.sp-mid small{color:rgba(255,255,255,.92)!important;}
+</style></head><body oncontextmenu=&quot;return false&quot; oncopy=&quot;return false&quot; oncut=&quot;return false&quot; onselectstart=&quot;return false&quot; ondragstart=&quot;return false&quot;><a id=&quot;top&quot; style=&quot;position:absolute;top:0;left:0;width:1px;height:1px;overflow:hidden;&quot;></a><section class=&quot;preface&quot;><h2>編者前言</h2><p>《大智度論》第六十二卷第三品，是龍樹菩薩釋《摩訶般若波羅蜜經》「信謗品第四十一」之專章。本品的核心議題只有一個：<b>「信解般若」與「毀謗般若」這兩種看似只在一念之差的態度，何以會帶來懸絕至此的果報？</b></p><p>全品分為「經」「論」兩大段。「經」段由舍利弗、須菩提、佛三方對話展開，依序提出三個層層深入的問題：信解般若者從何處而來？般若可聞可見耶？菩薩幾時能習行深般若？接著佛即從反面闡述「不信般若」如何輾轉成「毀謗般若」，並描繪其長劫果報；舍利弗復以「五逆罪與破法相似耶」為對辯，引出佛對「肉身／法身」差別的核心開示；最後以「受身大小不答之悲」與「白淨依止」作結。</p><p>「論」段（即本網頁第二至七章）是龍樹菩薩對經文逐節的義學釋義。論主用「四勝因／三相／二諦／三毒對三道／衰濁黑性」等範疇將經文的鬆散問答整合為一個嚴密的判教架構。讀者通讀全品後將領略到：<b>般若不只是空慧的內容，更是一切大乘佛法的「法身命脈」</b>——是故毀此一念，斷生佛之種；信此一念，承無邊福。</p><p>本網頁將全品依「卷→品→章→節」四級體系重新編號：卷六十二為頂層（HTML 文件本身），信謗品為品（Hero 與 ch-num 標示），下分七章，每章再分若干節。第一章為經文全錄（八節），第二至七章為論主釋義之逐層展開。各章之間以「本章要旨」與「承先啟後」橋接，幫助讀者建立連續的閱讀地圖。</p></section><section class=&quot;toc-section&quot;><h2 class=&quot;toc-title&quot;>目 次</h2><p class=&quot;toc-desc&quot;>卷六十二 · 信謗品第四十一 · 全七章 · 經文八節 · 論主釋義二十二節</p><div class=&quot;toc-grid&quot;><a class=&quot;toc-card&quot; href=&quot;#chapter-1&quot;><span class=&quot;toc-num&quot;>1</span><span class=&quot;toc-name&quot;>第一章 · 經典原文 · 信謗品全文</span></a><a class=&quot;toc-card&quot; href=&quot;#chapter-2&quot;><span class=&quot;toc-num&quot;>2</span><span class=&quot;toc-name&quot;>第二章 · 信解般若之四勝因</span></a><a class=&quot;toc-card&quot; href=&quot;#chapter-3&quot;><span class=&quot;toc-num&quot;>3</span><span class=&quot;toc-name&quot;>第三章 · 般若不可聞見的真實義</span></a><a class=&quot;toc-card&quot; href=&quot;#chapter-4&quot;><span class=&quot;toc-num&quot;>4</span><span class=&quot;toc-name&quot;>第四章 · 二相辯證 · 行有行無的方便力</span></a><a class=&quot;toc-card&quot; href=&quot;#chapter-5&quot;><span class=&quot;toc-num&quot;>5</span><span class=&quot;toc-name&quot;>第五章 · 毀謗般若的果報層次</span></a><a class=&quot;toc-card&quot; href=&quot;#chapter-6&quot;><span class=&quot;toc-num&quot;>6</span><span class=&quot;toc-name&quot;>第六章 · 五逆與破法的根本差別</span></a><a class=&quot;toc-card&quot; href=&quot;#chapter-7&quot;><span class=&quot;toc-num&quot;>7</span><span class=&quot;toc-name&quot;>第七章 · 受身大小不答之悲與白淨明誡</span></a></div></section><section class=&quot;chapter&quot; id=&quot;chapter-1&quot;><div class=&quot;ch-head&quot;><div class=&quot;ch-num&quot;>卷六十二 · 信謗品第四十一 · 第一章</div><div class=&quot;ch-name&quot;>經典原文 · 信謗品全文</div><div class=&quot;ch-sub&quot;>經、論二段呈現　信解般若與毀謗般若的兩重果報</div></div><div class=&quot;ch-body&quot;><div class=&quot;bridge bridge-intro&quot;><div class=&quot;bridge-label&quot;>本章要旨</div><p>本章呈現《大智度論釋信謗品第四十一》之經文原典，分為「經」與「論」兩大段。「經」段是佛、舍利弗、須菩提之間關於「信解般若者從何而來」「般若可聞可見耶」「破法與五逆相似耶」等核心問答；「論」段則由龍樹菩薩逐節釋義。讀者宜先通讀經文一遍，再依後續各章分析往復對照。</p></div>
+<h2 id=&quot;ch1-s1&quot;>第一節　經文：舍利弗請問三事</h2>
+<div class=&quot;classical-text&quot;>
+<div class=&quot;text-label&quot;>經 · 啟請</div>
+<p>爾時，慧命舍利弗白佛言：「世尊！有菩薩摩訶薩，信解是般若波羅蜜者，<b>從何處終，來生是間？發阿耨多羅三藐三菩提心來為幾時？為供養幾佛？行檀波羅蜜、尸羅波羅蜜、羼提波羅蜜、毘梨耶波羅蜜、禪波羅蜜、般若波羅蜜來幾時，能隨順解深般若波羅蜜義？</b>」</p>
+</div>
+<h2 id=&quot;ch1-s2&quot;>第二節　經文：佛答四勝因</h2>
+<div class=&quot;classical-text&quot;>
+<div class=&quot;text-label&quot;>經 · 佛答</div>
+<p>佛告舍利弗：「是菩薩摩訶薩供養十方諸佛，來生是間。是菩薩發阿耨多羅三藐三菩提心來無量無邊阿僧祇百千萬億劫。是菩薩摩訶薩從初發心常行檀波羅蜜、尸羅波羅蜜、羼提波羅蜜、毘梨耶波羅蜜、禪波羅蜜、般若波羅蜜；供養無量無邊不可思議阿僧祇諸佛，來生是間。舍利弗！是菩薩摩訶薩若見、若聞般若波羅蜜，作是念：『<b>我見佛，從佛聞法</b>。』舍利弗！是菩薩摩訶薩能隨順解深般若波羅蜜義，<b>以無相、無二、無所得故</b>。」</p>
+</div>
+<h2 id=&quot;ch1-s3&quot;>第三節　經文：般若可聞可見耶？</h2>
+<div class=&quot;classical-text&quot;>
+<div class=&quot;text-label&quot;>經 · 須菩提之疑</div>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;>須菩提白佛言：「世尊！是般若波羅蜜可聞、可見耶？」</div>
+<div class=&quot;a&quot;>佛告須菩提：「是般若波羅蜜<b>無有聞者、無有見者</b>；般若波羅蜜無聞、無見，諸法鈍故。禪波羅蜜、毘梨耶波羅蜜、羼提波羅蜜、尸羅波羅蜜、檀波羅蜜無聞、無見，諸法鈍故。內空無聞、無見，諸法鈍故；乃至無法有法空無聞、無見，諸法鈍故。四念處無聞、無見，諸法鈍故；乃至八聖道分無聞、無見，諸法鈍故。佛十力乃至十八不共法無聞、無見，諸法鈍故。須菩提！佛及佛道無聞、無見，<b>諸法鈍故</b>。」</div>
+</div>
+</div>
+<h2 id=&quot;ch1-s4&quot;>第四節　經文：菩薩幾時能習深般若？</h2>
+<div class=&quot;classical-text&quot;>
+<div class=&quot;text-label&quot;>經 · 二類菩薩</div>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;>須菩提白佛言：「世尊！是菩薩幾時行佛道，能習行如是深般若波羅蜜？」</div>
+<div class=&quot;a&quot;>佛告須菩提：「<b>是中應分別說</b>。</div>
+</div>
+<p style=&quot;margin-top:14px;&quot;>須菩提！有菩薩摩訶薩<b>初發意</b>習行深般若波羅蜜、禪波羅蜜、毘梨耶波羅蜜、羼提波羅蜜、尸羅波羅蜜、檀波羅蜜，<b>以方便力故</b>，於諸法無所破壞，不見諸法無利益者；亦終不遠離行六波羅蜜，亦不遠離諸佛；從一佛世界至一佛世界，若欲以善根力供養諸佛，隨意即得；終不生母人腹中，終不離諸神通，終不生諸煩惱及聲聞、辟支佛心；從一佛世界至一佛世界，成就眾生、淨佛世界。須菩提！如是等諸菩薩摩訶薩能習行深般若波羅蜜。</p>
+<p>「須菩提！有菩薩摩訶薩<b>多見諸佛若無量百千萬億</b>，從諸佛所，行布施、持戒、忍辱、精進、一心、智慧，皆<b>以有所得故</b>。是菩薩聞說深般若波羅蜜時，便從眾中起去，不恭敬深般若波羅蜜及諸佛……」</p>
+</div>
+<h2 id=&quot;ch1-s5&quot;>第五節　經文：毀謗者的破法業與長劫果報</h2>
+<div class=&quot;classical-text&quot;>
+<div class=&quot;text-label&quot;>經 · 破法重罪</div>
+<p>……是善男子、善女人等先世聞深般若波羅蜜時棄捨去，今世聞深般若波羅蜜亦棄捨去，身心不和。是人種愚癡因緣業，種是愚癡因緣罪故，聞說深般若波羅蜜毀呰；<b>毀訾般若波羅蜜故，毀呰過去、未來、現在諸佛一切智、一切種智</b>。是人毀呰三世諸佛一切智，起破法業；因緣集故，無量百千萬億歲墮大地獄中。</p>
+<p>是破法人輩，<b>從一大地獄至一大地獄</b>，若火劫起時，至他方大地獄中生……如是遍十方……破法業因緣未盡故，還來是間大地獄中生……此間火劫起故，復至十方他世界生。<b>畜生中</b>，受破法罪業苦，如地獄中說。重罪漸薄，<b>或得人身</b>，生盲人家，生旃陀羅家，生除廁、擔死人種種下賤家；若無眼、若一眼、若眼瞎，若無舌、無耳、無手；所生處無佛、無法、無佛弟子處。何以故？種破法業，積集厚重具足故，受是果報。」</p>
+</div>
+<h2 id=&quot;ch1-s6&quot;>第六節　經文：破法與五逆相似耶？</h2>
+<div class=&quot;classical-text&quot;>
+<div class=&quot;text-label&quot;>經 · 對辯</div>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;>爾時，舍利弗白佛言：「世尊！五逆罪與破法相似耶？」</div>
+<div class=&quot;a&quot;>佛告舍利弗：「<b>不應言相似</b>。所以者何？若有人聽說是甚深般若波羅蜜時，毀呰不信，作是言：『不應學是法，是非法、非善、非佛教，諸佛不說是語。』是人<b>自毀訾般若波羅蜜，亦教他人毀訾般若波羅蜜；自壞其身，亦壞他人身；自飲毒殺身，亦飲他人毒；自失其身，亦失他人身；自不知不信、毀訾深般若波羅蜜，亦教他人令不信不知</b>。舍利弗！如是人，<b>我不聽聞其名字，何況眼見</b>！何以故？當知是人名為<b>污法人，為墮衰濁黑性</b>。如是人，若有聽其言、信用其語，亦受如是苦。舍利弗！若人破般若波羅蜜，當知是名為破法人。」</div>
+</div>
+</div>
+<h2 id=&quot;ch1-s7&quot;>第七節　經文：受身大小之問</h2>
+<div class=&quot;classical-text&quot;>
+<div class=&quot;text-label&quot;>經 · 不答之答</div>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;>舍利弗白佛言：「世尊！世尊說破法之人所受重罪，不說是人所受身體大小？」</div>
+<div class=&quot;a&quot;>佛告舍利弗：「<b>不須說是人受身大小</b>。何以故？是破法人若聞所受身大小，便當吐熱血，若死、若近死苦。是破法人聞如是身有如是重罪，是人便大愁憂，如箭入心，漸漸乾枯。作是念：『破法罪故，得如是大醜身，受如是無量苦。』以是故，佛不聽舍利弗問是人所受身體大小。」</div>
+<div class=&quot;q&quot;>舍利弗白佛言：「願佛說之，<b>為未來世作明誡</b>！令知破法業積集故，得如是大醜身，受如是大苦。」</div>
+<div class=&quot;a&quot;>佛告舍利弗：「後世人若聞是破法業積集厚重具足，受大地獄中久久無量苦，聞是久久無量苦時，足為未來世作明誡！」</div>
+</div>
+</div>
+<h2 id=&quot;ch1-s8&quot;>第八節　經文：白淨善男女作依止</h2>
+<div class=&quot;classical-text&quot;>
+<div class=&quot;text-label&quot;>經 · 結語</div>
+<p>舍利弗白佛言：「世尊！若<b>白淨善男子、善女人</b>聞是法足作依止，<b>寧失身命，終不破法</b>，自念：『我若破法，當受如是苦！』」</p>
+</div>
+<div class=&quot;note&quot; style=&quot;margin-top:30px;&quot;>
+<p>以下「論」段為龍樹菩薩釋義，分七章逐節展開，依次解明：信解般若之四勝因（第二章）、般若不可聞見的形而上義（第三章）、二相辯證的方便力（第四章）、毀謗果報的層次結構（第五章）、五逆與破法的根本差別（第六章）、受身大小不答的雙重悲心（第七章）。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;><div class=&quot;bridge-label&quot;>承先啟後</div><p>本章已闡明本主題之要旨。<b>下一章「第二章 · 信解般若之四勝因」</b>將承本章之餘脈，舍利弗一見「能信解甚深般若波羅蜜」之菩薩，即心生希有，遂以四問請佛：此人「從何處終、來生此間？發心幾時？供養幾佛？行六波羅蜜幾時？」佛之答即構成「信解般若」者必具的四個勝因——來處勝、時間勝、行業勝、福德勝。本章逐一解明四因之深意，並顯「隨順解深般若三相」（無相、無二、無所得）為其總綱。</p></div><a class=&quot;next-link&quot; href=&quot;#chapter-2&quot; style=&quot;display:inline-block;margin-top:10px;color:var(--gold);text-decoration:none;font-weight:600;letter-spacing:1.5px;font-family:'Noto Sans TC',sans-serif;font-size:17px;&quot;>前往下一章 →</a></div></section><section class=&quot;chapter&quot; id=&quot;chapter-2&quot;><div class=&quot;ch-head&quot;><div class=&quot;ch-num&quot;>卷六十二 · 信謗品第四十一 · 第二章</div><div class=&quot;ch-name&quot;>信解般若之四勝因</div><div class=&quot;ch-sub&quot;>從何處終　發心幾時　行波羅蜜　供養諸佛</div></div><div class=&quot;ch-body&quot;><div class=&quot;bridge bridge-intro&quot;><div class=&quot;bridge-label&quot;>本章要旨</div><p>舍利弗一見「能信解甚深般若波羅蜜」之菩薩，即心生希有，遂以四問請佛：此人「從何處終、來生此間？發心幾時？供養幾佛？行六波羅蜜幾時？」佛之答即構成「信解般若」者必具的四個勝因——來處勝、時間勝、行業勝、福德勝。本章逐一解明四因之深意，並顯「隨順解深般若三相」（無相、無二、無所得）為其總綱。</p></div>
+<h2 id=&quot;ch2-s1&quot;>第一節　舍利弗的希有讚嘆與三重發問</h2>
+<p>舍利弗聞般若波羅蜜<b>甚深微妙</b>，聞者尚難，何況能行！是故言：「<b>信解般若者，是為希有！</b>」是故問世尊：「若信解般若者，是人於何處終，來生是間？」</p>
+<p>舍利弗作是念：「是人應從好世界終，來生是間。是人不應新發意，不應少供養佛，不應少行六波羅蜜，<b>必是大德人，未聖而能知聖法故</b>。」是故問：「發意幾時？供養幾佛？行六波羅蜜幾時？」</p>
+<div class=&quot;insight&quot;>
+<h5>舍利弗推理的內在邏輯</h5>
+<p>舍利弗並非隨便發問，而是已先在心中假設「能信解者必是大德」，然後反問「此大德從何來？」這是聲聞智者「以果驗因」的典型思維——既見其果之希有，必推其因之深厚。佛之答正落在這四個因上：<b>來處、時間、行業、福德</b>。</p>
+</div>
+<h2 id=&quot;ch2-s2&quot;>第二節　第一勝因 · 來處勝（從十方諸佛清淨世界終）</h2>
+<p>「<b>能隨順解深般若波羅蜜義</b>」者，是菩薩於諸法不取相、不著空，行空行，和合五波羅蜜行般若波羅蜜；用大慈悲心，為一切眾生行般若波羅蜜故。</p>
+<p>「<b>十方諸佛清淨世界中終，來生是間</b>」者，<b>為度有緣眾生</b>，又與釋迦文尼佛<b>共因緣故</b>。雖有此間死、此間生者，但以從他方佛所來者貴故。</p>
+<div class=&quot;commentary&quot;>
+<h5>來處勝的雙重意義</h5>
+<p>從清淨世界來，並非單純的「血統優越」，而是顯示二事：<b>一者度生大願</b>——清淨世界既已成就，何故來此穢土？答：為度有緣眾生。<b>二者法緣相續</b>——與本師釋迦因緣甚深，往昔曾共修共學。是故般若種子早植，今生一聞即解。</p>
+</div>
+<h2 id=&quot;ch2-s3&quot;>第三節　第二勝因 · 時間勝（無量阿僧祇劫發心）</h2>
+<p><b>發心來無量阿僧祇劫，諸福德力集厚故</b>，能信解隨順深義。</p>
+<div class=&quot;metaphor&quot;>
+<h5>時間積累與信解之關係</h5>
+<p>信解之深淺與發心之久近成正比。新發意者雖有信，多偏「事」上；唯有阿僧祇劫的長期薰修，方能於「理」上不退。論主以此回應舍利弗的揣測——「是人不應新發意」確然如是。</p>
+</div>
+<h2 id=&quot;ch2-s4&quot;>第四節　第三勝因 · 行業勝（常行六波羅蜜）</h2>
+<p>有人雖<b>無量阿僧祇劫發心久</b>，<b>不行功德者</b>，是故說：「從發心來，常行六波羅蜜。」</p>
+<div class=&quot;insight&quot;>
+<h5>「久發心」不等於「能信解」</h5>
+<p>論主補一層：發心久而不修者大有人在。發心是「立志」，行波羅蜜是「實踐」。光有立志而無實踐，福德不集；福德不集則信慧不利；信慧不利則般若深義不入。是故必須四因俱全，缺一不可。</p>
+</div>
+<h2 id=&quot;ch2-s5&quot;>第五節　第四勝因 · 福德勝（供養無量諸佛）</h2>
+<p><b>常行六波羅蜜福德故，能得見、能得供養無量無邊阿僧祇佛。</b></p>
+<div class=&quot;flow flow-v&quot;>
+<div class=&quot;flow-step&quot;><b>① 來處勝</b><br/><small>十方清淨世界終，來生此間</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-step&quot;><b>② 時間勝</b><br/><small>無量阿僧祇劫發心</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-step&quot;><b>③ 行業勝</b><br/><small>常行六波羅蜜不間斷</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-step&quot;><b>④ 福德勝</b><br/><small>供養無量無邊諸佛</small></div>
+<div class=&quot;flow-arrow&quot;>↓</div>
+<div class=&quot;flow-step&quot; style=&quot;background:linear-gradient(135deg,#b8860b,#d4a84b);color:#fff;&quot;><b>能信解般若深義 · 隨順解三相</b></div>
+</div>
+<h2 id=&quot;ch2-s6&quot;>第六節　成就：隨順解深般若三相（無相 · 無二 · 無所得）</h2>
+<p>是菩薩成就上四因緣故，得<b>無量無邊福德、智慧</b>；是福德因緣故，諸<b>煩惱薄，心柔軟</b>。菩薩信、慧等諸根利，轉增得力故，深入般若波羅蜜，污厭世間事。</p>
+<p>若見般若波羅蜜經卷，<b>即時心生「如見佛」</b>；若披卷尋義，<b>即時心生「如從佛聞」</b>。信力成就、慧力成就故，隨順解深般若波羅蜜義——所謂<b>一切無相</b>故；<b>出十二入二法</b>；不二法中，<b>心無所著</b>故，名<b>無所得</b>。略說三相，是隨順解般若波羅蜜義。</p>
+<div class=&quot;grid-4&quot;>
+<div class=&quot;cell&quot;>
+<h5>① 無相</h5>
+<p>一切法無自性、無定相</p>
+</div>
+<div class=&quot;cell&quot;>
+<h5>② 無二</h5>
+<p>出十二入二法，能所不分別</p>
+</div>
+<div class=&quot;cell&quot; style=&quot;grid-column:span 2;&quot;>
+<h5>③ 無所得</h5>
+<p>於不二法中心無所著，名為「無所得」——此即《心經》「以無所得故，菩提薩埵」之根本義。</p>
+</div>
+</div>
+<div class=&quot;bridge bridge-outro&quot;><div class=&quot;bridge-label&quot;>承先啟後</div><p>本章已闡明本主題之要旨。<b>下一章「第三章 · 般若不可聞見的真實義」</b>將承本章之餘脈，佛說「見般若經卷如見佛、讀般若如從佛聞」，似乎般若是可聞可見之法；然「諸法畢竟空，天眼天耳尚不能見聞」。須菩提對此二說起疑，故問「般若可聞、可見耶？」佛順其意答：「般若波羅蜜不可得見、聞」，並以「諸法入般若中皆一相無相、如百川歸海」為其因。本章解明般若「不可見聞」的形而上根據，並導入下一章「亦見亦不見」的二相辯證。</p></div><a class=&quot;next-link&quot; href=&quot;#chapter-3&quot; style=&quot;display:inline-block;margin-top:10px;color:var(--gold);text-decoration:none;font-weight:600;letter-spacing:1.5px;font-family:'Noto Sans TC',sans-serif;font-size:17px;&quot;>前往下一章 →</a></div></section><section class=&quot;chapter&quot; id=&quot;chapter-3&quot;><div class=&quot;ch-head&quot;><div class=&quot;ch-num&quot;>卷六十二 · 信謗品第四十一 · 第三章</div><div class=&quot;ch-name&quot;>般若不可聞見的真實義</div><div class=&quot;ch-sub&quot;>畢竟空相　諸法鈍故　如百川歸海</div></div><div class=&quot;ch-body&quot;><div class=&quot;bridge bridge-intro&quot;><div class=&quot;bridge-label&quot;>本章要旨</div><p>佛說「見般若經卷如見佛、讀般若如從佛聞」，似乎般若是可聞可見之法；然「諸法畢竟空，天眼天耳尚不能見聞」。須菩提對此二說起疑，故問「般若可聞、可見耶？」佛順其意答：「般若波羅蜜不可得見、聞」，並以「諸法入般若中皆一相無相、如百川歸海」為其因。本章解明般若「不可見聞」的形而上根據，並導入下一章「亦見亦不見」的二相辯證。</p></div>
+<h2 id=&quot;ch3-s1&quot;>第一節　須菩提的二相疑情</h2>
+<p>須菩提聞說「<b>見經卷如見佛、讀經文如從佛聞</b>」，<b>如似有著</b>，是故問：「般若可見、可聞耶？」</p>
+<p>須菩提意：「以般若波羅蜜<b>畢竟空</b>，天眼、天耳猶不能見、聞，何況肉眼、肉耳！出世間慧眼亦不得見，何況世間眼！」</p>
+<div class=&quot;commentary&quot;>
+<h5>「如似有著」四字的深意</h5>
+<p>須菩提是「解空第一」的聲聞長老，最敏於辨識任何「著相」的傾向。佛說「見般若如見佛」，文字上似乎肯定了「般若有相可見」，故須菩提立刻起疑——這是聲聞學人於大乘法中最警覺的一面。</p>
+</div>
+<h2 id=&quot;ch3-s2&quot;>第二節　佛順其意答 · 般若不可得見聞</h2>
+<p>佛順其意答：「<b>般若波羅蜜不可得見、聞</b>。」</p>
+<div class=&quot;insight&quot;>
+<h5>「順其意」三字的釋義方法</h5>
+<p>論主特別點出「佛順其意答」，意即佛並非在此處肯定一個絕對的形而上命題，而是<b>隨順問者的當下機宜</b>。前說「見經卷如見佛」是順信解者之慧根，此說「不可見聞」是順須菩提之疑情——二說皆是「方便」，非有所偏廢。此義為下一章「二相辯證」的關鍵伏筆。</p>
+</div>
+<h2 id=&quot;ch3-s3&quot;>第三節　諸法入般若如百川歸海</h2>
+<p>此中說因緣：「諸法入般若波羅蜜中，皆<b>一相無相</b>，是中無分別聞者、見者及可聞、可見。」</p>
+<p><b>三界凡夫人作分別：是眼、是色，是耳、是聲；六情是利，六塵是鈍；色等諸法是鈍，慧等是利。</b>諸法入般若波羅蜜中，<b>如百川歸海，皆為一味</b>，是故說：「般若波羅蜜不可見、不可聞，以諸法鈍故。」從檀波羅蜜乃至佛道、須陀洹乃至佛，亦如是。</p>
+<div class=&quot;metaphor&quot;>
+<h5>「百川歸海一味」之喻</h5>
+<p>凡夫的世界是無數條河流——眼是眼、耳是耳、利是利、鈍是鈍，差別宛然；但這些河流一旦匯入般若大海，立刻失去各自的味道，成為「一相無相」的鹹味。「諸法鈍故」之「鈍」，不是「不利」，而是「不再有分別利鈍的特質」——大海平等收納，無一物是「利的」、無一物是「鈍的」。</p>
+</div>
+<h2 id=&quot;ch3-s4&quot;>第四節　眾生離法、法離眾生 · 雙向不可見聞</h2>
+<p>復次，<b>眾生離法，不能聞、不能見</b>；<b>法離眾生，亦不能聞、不能見</b>。</p>
+<div class=&quot;two-col&quot;>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>眾生離法</div>
+<div class=&quot;col-content&quot;>
+<p>若無「眾生」這一能聞能見之主體，則「法」自身並無所謂的可聞可見。聞見必依能聞能見者而立。</p>
+</div>
+</div>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>法離眾生</div>
+<div class=&quot;col-content&quot;>
+<p>若離開「法」這一所聞所見之客體，則「眾生」本身亦無聞見可說。能所雙亡，方顯般若實相。</p>
+</div>
+</div>
+</div>
+<div class=&quot;note&quot;>
+<p>本章從「畢竟空」「諸法鈍」「百川歸海」「能所雙亡」四個角度建立「般若不可見聞」的根據；然此義並未排除「見經卷如見佛」的另一面——這正是下一章「二相辯證」要展開的主題。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;><div class=&quot;bridge-label&quot;>承先啟後</div><p>本章已闡明本主題之要旨。<b>下一章「第四章 · 二相辯證 · 行有行無的方便力」</b>將承本章之餘脈，般若既「不可見聞」（畢竟空），又「可見可聞」（見經卷如見佛）——此二相說正是大乘菩薩行的精髓。須菩提遂問：「菩薩幾時行佛道，能習行如是深般若波羅蜜？」佛答此事不定，須分別說：有初發心即能習行者，賴方便力故；有久發意而仍不信受者，墮入毀謗之惡業。本章闡明「行有不墮三界、行無不墮斷滅」的中道方便。</p></div><a class=&quot;next-link&quot; href=&quot;#chapter-4&quot; style=&quot;display:inline-block;margin-top:10px;color:var(--gold);text-decoration:none;font-weight:600;letter-spacing:1.5px;font-family:'Noto Sans TC',sans-serif;font-size:17px;&quot;>前往下一章 →</a></div></section><section class=&quot;chapter&quot; id=&quot;chapter-4&quot;><div class=&quot;ch-head&quot;><div class=&quot;ch-num&quot;>卷六十二 · 信謗品第四十一 · 第四章</div><div class=&quot;ch-name&quot;>二相辯證 · 行有行無的方便力</div><div class=&quot;ch-sub&quot;>亦言可見可聞　亦言不可見不可聞　菩薩幾時能行此方便？</div></div><div class=&quot;ch-body&quot;><div class=&quot;bridge bridge-intro&quot;><div class=&quot;bridge-label&quot;>本章要旨</div><p>般若既「不可見聞」（畢竟空），又「可見可聞」（見經卷如見佛）——此二相說正是大乘菩薩行的精髓。須菩提遂問：「菩薩幾時行佛道，能習行如是深般若波羅蜜？」佛答此事不定，須分別說：有初發心即能習行者，賴方便力故；有久發意而仍不信受者，墮入毀謗之惡業。本章闡明「行有不墮三界、行無不墮斷滅」的中道方便。</p></div>
+<h2 id=&quot;ch4-s1&quot;>第一節　須菩提再問之意 · 兩種說法如何並存？</h2>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;><b>問</b>　上已問「菩薩發意幾時、供養幾佛，能順解深義」，今何以更問？</div>
+<div class=&quot;a&quot;><b>答</b>　上佛說「般若無聞、無見」，亦說「見般若經卷如見佛，讀般若如從佛聞」。<b>二相說是般若——亦言「可見、可聞」，亦言「不可見、不可聞」</b>。是故還問佛：「菩薩幾時行得是方便，<b>能行有、能行無，行有不墮三界、行無不墮斷滅</b>，能隨般若波羅蜜相行？」</div>
+</div>
+<div class=&quot;spectrum&quot;>
+<div class=&quot;sp-node sp-left&quot;><b>行有</b><br/><small>著相　墮三界</small></div>
+<div class=&quot;sp-mid&quot;><h5>方便力 · 二相辯證</h5><small>行有不墮三界 · 行無不墮斷滅</small></div>
+<div class=&quot;sp-node sp-right&quot;><b>行無</b><br/><small>著空　墮斷滅</small></div>
+</div>
+<h2 id=&quot;ch4-s2&quot;>第二節　佛答 · 此事不定 · 應分別說</h2>
+<p>佛答：「<b>有，此事不定，應當分別說。</b>」</p>
+<div class=&quot;insight&quot;>
+<h5>「此事不定」的方法論意義</h5>
+<p>大乘的「分別說」（vibhajya-vāda）是中道的關鍵：不立絕對的「唯有此」「唯無此」之見，而是依眾生的根器、發心的久近、行為的偏正而分別判定。佛即依此分別說兩類菩薩——一類「初發心即能習行」，一類「久發意而仍不信受」。</p>
+</div>
+<h2 id=&quot;ch4-s3&quot;>第三節　第一類 · 初發心即能習行的菩薩</h2>
+<p>或有菩薩初發心，便能<b>習行甚深六波羅蜜</b>。</p>
+<h3>一、「習行」之義</h3>
+<p>「習行」者，<b>一心信受常行</b>。──不是偶一為之，是恆常薰習。</p>
+<h3>二、「方便力」之義</h3>
+<p>「方便力故」者，<b>雖行六波羅蜜，起福德因緣，而心不著</b>。──行而不著，是般若方便的核心。</p>
+<h3>三、「諸法無所破壞」之義</h3>
+<p>「諸法無所破壞」者，是菩薩<b>信力、智慧力大故</b>，聞摩訶衍深法即時信；聞聲聞法亦信；聞外道在家、出家法亦不破壞。</p>
+<div class=&quot;commentary&quot;>
+<h5>「不破壞」≠「全盤接受」</h5>
+<p>論主立刻分疏：「於中出二種利」——
+<br/><b>一者、分別是道、非道，捨非道、行是道</b>（俗諦的善巧分別）
+<br/><b>二者、一切法入般若波羅蜜中，無是、無非，無破、無受</b>（真諦的本然平等）
+<br/>真俗二諦並用，方能既不謗他法、又不失正見。</p>
+</div>
+<h3>四、福德具足之相</h3>
+<p>「不見諸法無利益」者，即是上說於中出利者。是<b>德福具足</b>故，<b>終不遠離六波羅蜜</b>，乃至淨佛世界，略說義。</p>
+<h2 id=&quot;ch4-s4&quot;>第四節　第二類 · 久發意而仍不信受的菩薩</h2>
+<p>有菩薩雖新發意，<b>深信受是般若波羅蜜</b>。</p>
+<p>有菩薩久發意，供養千萬億諸佛，<b>用有所得行六波羅蜜</b>，<b>不信受是般若波羅蜜</b>。</p>
+<div class=&quot;refutation-grid&quot;>
+<div class=&quot;ref-cell&quot;>
+<h5>新發意而能信受</h5>
+<p>福德雖未久遠，但心無所著，立刻契入般若。</p>
+</div>
+<div class=&quot;ref-cell&quot;>
+<h5>久發意而不信受</h5>
+<p>供養雖多，皆「以有所得故」——其行為形式上是六波羅蜜，內裡仍是凡夫的我執與法執。一聞「畢竟空」之般若，反生抗拒。</p>
+</div>
+</div>
+<h2 id=&quot;ch4-s5&quot;>第五節　從不信到毀謗的因果鏈</h2>
+<p>此中佛自說因緣：是人於過去世聞深般若波羅蜜，<b>不信不受，從坐起去</b>；今佛為說，不信不受。<b>破般若波羅蜜罪業果報故</b>，說是人不信不受業因緣故，即起愚癡業因緣……</p>
+<div class=&quot;domino-chain&quot;>
+<div class=&quot;domino&quot;>過去世聞般若<br/><small>不信不受 · 從坐起去</small></div>
+<span class=&quot;chain-arrow&quot;>→</span>
+<div class=&quot;domino&quot;>今世聞般若<br/><small>不信不受 · 身心不和</small></div>
+<span class=&quot;chain-arrow&quot;>→</span>
+<div class=&quot;domino&quot;>愚癡業因緣<br/><small>疑悔惡邪</small></div>
+<span class=&quot;chain-arrow&quot;>→</span>
+<div class=&quot;domino&quot;>著心轉增<br/><small>於大眾中毀訾</small></div>
+<span class=&quot;chain-arrow&quot;>→</span>
+<div class=&quot;domino&quot; style=&quot;background:#8B2500;color:#fff;&quot;>破三世諸佛一切智<br/><small>轉身墮大地獄</small></div>
+</div>
+<div class=&quot;note&quot;>
+<p>此處須注意：<b>「不信受」並非破法的終點，而是起點</b>。一念起去之疑，輾轉感得愚癡業；愚癡業生疑悔；疑悔成執著；執著結成毀謗——五個環節層層因生，故下一章專論其果報。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;><div class=&quot;bridge-label&quot;>承先啟後</div><p>本章已闡明本主題之要旨。<b>下一章「第五章 · 毀謗般若的果報層次」</b>將承本章之餘脈，對般若波羅蜜起毀謗心，並非僅為一時口業，而是「破三世十方諸佛一切智」的根本破法業。本章依經文順序逐層拆解：先示愚癡業因緣的心理機制，再示阿鼻地獄之身心二苦，再示火劫展轉十方大地獄、轉生畜生道、最末得人身亦生下賤無耳無舌無手之家。論主並回答「為何不墮餓鬼」之問，揭示破法者主要為瞋恚、愚癡，慳貪不重故不入餓鬼。</p></div><a class=&quot;next-link&quot; href=&quot;#chapter-5&quot; style=&quot;display:inline-block;margin-top:10px;color:var(--gold);text-decoration:none;font-weight:600;letter-spacing:1.5px;font-family:'Noto Sans TC',sans-serif;font-size:17px;&quot;>前往下一章 →</a></div></section><section class=&quot;chapter&quot; id=&quot;chapter-5&quot;><div class=&quot;ch-head&quot;><div class=&quot;ch-num&quot;>卷六十二 · 信謗品第四十一 · 第五章</div><div class=&quot;ch-name&quot;>毀謗般若的果報層次</div><div class=&quot;ch-sub&quot;>從不信到毀訾　阿鼻地獄展轉十方　乃至下賤人身感官缺陷</div></div><div class=&quot;ch-body&quot;><div class=&quot;bridge bridge-intro&quot;><div class=&quot;bridge-label&quot;>本章要旨</div><p>對般若波羅蜜起毀謗心，並非僅為一時口業，而是「破三世十方諸佛一切智」的根本破法業。本章依經文順序逐層拆解：先示愚癡業因緣的心理機制，再示阿鼻地獄之身心二苦，再示火劫展轉十方大地獄、轉生畜生道、最末得人身亦生下賤無耳無舌無手之家。論主並回答「為何不墮餓鬼」之問，揭示破法者主要為瞋恚、愚癡，慳貪不重故不入餓鬼。</p></div>
+<h2 id=&quot;ch5-s1&quot;>第一節　大地獄之相 · 阿鼻無間 · 身心二苦</h2>
+<p>「<b>大地獄</b>」者，<b>阿鼻地獄</b>，無量百千萬億阿僧祇歲，受<b>憂愁、苦惱</b>。<b>憂愁是心苦，惱是身苦</b>。</p>
+<div class=&quot;two-col&quot;>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>憂愁 · 心苦</div>
+<div class=&quot;col-content&quot;>念念不忘破法之愚癡，自怨自悔，心如焚火。</div>
+</div>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>苦惱 · 身苦</div>
+<div class=&quot;col-content&quot;>受地獄器具之刀山、油鍋、磨碓、鐵丸種種損惱。</div>
+</div>
+</div>
+<h2 id=&quot;ch5-s2&quot;>第二節　展轉十方 · 火劫遷徙的時間結構</h2>
+<p>「從一大地獄至一大地獄」者，如福德因緣故，上有六欲天；罪業因緣亦如是，<b>下有八種大地獄</b>。八種大地獄各有十六小地獄，是中<b>阿鼻最大</b>。餘須彌四天下，亦如是。</p>
+<p>是<b>三千大千世界中，有百億須彌山，有百億阿鼻地獄</b>，是故說「從一阿鼻大地獄至一阿鼻大地獄」。如人從會至會；又如入正位者，從天上來受人間樂，從人中還至天上受樂。</p>
+<p>若此間火劫起，其罪未盡故，<b>轉至他處十方世界大地獄中受罪</b>；若彼間火劫起，復展轉至他方；他方火劫起，復還生此間阿鼻地獄中，展轉如前。</p>
+<div class=&quot;metaphor&quot;>
+<h5>「百億阿鼻」與火劫遷徙的宇宙觀</h5>
+<p>三千大千世界含百億須彌、百億阿鼻——破法者之罪不局限於本世界一處受罪，當本世界進入火劫毀壞時，因業力未盡，便轉至他方世界繼續受報。論主以「人從會至會」「天人交往受樂」之喻反襯：福者的天人交往是甘美往返，破法者的「地獄交往」是苦惱遷徙，<b>形式相同，本質迥異</b>。</p>
+</div>
+<h2 id=&quot;ch5-s3&quot;>第三節　畜生道 · 罪業漸薄的中間階位</h2>
+<p>是破般若波羅蜜罪小滅，<b>展轉生勤苦畜生中</b>。此間火劫起，復生他方世界畜生中，展轉受苦；彼間火劫起，還來此間，復展轉如前。</p>
+<div class=&quot;commentary&quot;>
+<h5>畜生道的過渡性</h5>
+<p>地獄罪盡後，因業力慣性，仍受「勤苦畜生」之報——畜生雖無地獄之極苦，但「勤苦」二字仍揭示其無休無歇的役使狀態。「勤苦畜生」不是寵物或閒散動物，而是耕牛、馱馬、屠役之屬，受人鞭撻、終生勞累。</p>
+</div>
+<h2 id=&quot;ch5-s4&quot;>第四節　下賤人身 · 罪業最後的人間餘報</h2>
+<p>罪轉微輕，或得人身，<b>生下賤家</b>，所謂——</p>
+<div class=&quot;grid-4&quot;>
+<div class=&quot;cell&quot;>
+<h5>① 生盲家</h5>
+<p><b>不欲見般若波羅蜜罪故</b></p>
+</div>
+<div class=&quot;cell&quot;>
+<h5>② 旃陀羅家</h5>
+<p>輕賤說法人故</p>
+</div>
+<div class=&quot;cell&quot;>
+<h5>③ 除糞家</h5>
+<p>輕賤說法人故</p>
+</div>
+<div class=&quot;cell&quot;>
+<h5>④ 擔死人家</h5>
+<p>輕賤說法人故</p>
+</div>
+</div>
+<h2 id=&quot;ch5-s5&quot;>第五節　感官缺陷 · 業果與毀謗器官的對應</h2>
+<div class=&quot;three-col&quot;>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>無舌</div>
+<div class=&quot;col-content&quot;><b>毀呰說法者故</b>──往昔以舌毀謗，今世受無舌之報。</div>
+</div>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>無耳</div>
+<div class=&quot;col-content&quot;><b>不欲聞故</b>──往昔不肯聞般若，今世受無耳之報。</div>
+</div>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>無手</div>
+<div class=&quot;col-content&quot;><b>麾手非撥故</b>──往昔以手揮撥嫌惡之相，今世受無手之報。</div>
+</div>
+</div>
+<p>此人心雖愛佛，以愚癡無智故，<b>毀滅佛母，破壞法藏</b>；破壞法藏故，<b>生無佛、法、眾處</b>。</p>
+<div class=&quot;insight&quot;>
+<h5>「毀滅佛母」之嚴重性</h5>
+<p>「般若波羅蜜」即是「諸佛之母」（一切諸佛皆由般若出生，故稱佛母）。毀謗般若即等於毀滅生佛之母——佛尚由此出生，毀此一念便阻斷自身與一切佛的法緣，是故「生無佛、法、眾處」。此非外在懲罰，乃自取的因果結局。</p>
+</div>
+<h2 id=&quot;ch5-s6&quot;>第六節　為何不墮餓鬼？ · 三毒分配的法理</h2>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;><b>問</b>　何以不說生餓鬼中？</div>
+<div class=&quot;a&quot;><b>答</b>　是破壞法者，多以二煩惱，所謂<b>瞋恚、愚癡</b>。<b>慳貪發故墮餓鬼，此中無慳故不說</b>。</div>
+</div>
+<div class=&quot;commentary&quot;>
+<h5>三毒與三惡道的對應原理</h5>
+<p>論主在此暗用「三毒對三惡道」的判教法則——
+<br/>　・<b>瞋恚 → 地獄</b>（破法者之瞋故墮阿鼻）
+<br/>　・<b>愚癡 → 畜生</b>（破法者之癡故墮畜生）
+<br/>　・<b>慳貪 → 餓鬼</b>（破法者非以慳貪為主，故不墮）
+<br/>三毒缺一即三道缺一，此即「不說生餓鬼」的法理根據。</p>
+</div>
+<div class=&quot;bridge bridge-outro&quot;><div class=&quot;bridge-label&quot;>承先啟後</div><p>本章已闡明本主題之要旨。<b>下一章「第六章 · 五逆與破法的根本差別」</b>將承本章之餘脈，舍利弗以聲聞之見發問：「五逆罪與破法罪相似耶？」佛斷然否定。本章闡明二罪「相去懸遠」的根本理由：五逆但壞肉身（出佛身血、殺阿羅漢、破和合僧），破法則壞法身（毀般若波羅蜜母）；菩薩於無邊劫中以頭目髓腦施眾生，其恩超越父母愛百千萬倍。論主並描繪「衰濁黑性」之相——破法者雖身口業善，諸法不增、邪見疑悔常擾亂心，是故菩薩「不欲聽聞其名字，何況眼見」。</p></div><a class=&quot;next-link&quot; href=&quot;#chapter-6&quot; style=&quot;display:inline-block;margin-top:10px;color:var(--gold);text-decoration:none;font-weight:600;letter-spacing:1.5px;font-family:'Noto Sans TC',sans-serif;font-size:17px;&quot;>前往下一章 →</a></div></section><section class=&quot;chapter&quot; id=&quot;chapter-6&quot;><div class=&quot;ch-head&quot;><div class=&quot;ch-num&quot;>卷六十二 · 信謗品第四十一 · 第六章</div><div class=&quot;ch-name&quot;>五逆與破法的根本差別</div><div class=&quot;ch-sub&quot;>聲聞之問　大乘之答　肉身與法身的判別</div></div><div class=&quot;ch-body&quot;><div class=&quot;bridge bridge-intro&quot;><div class=&quot;bridge-label&quot;>本章要旨</div><p>舍利弗以聲聞之見發問：「五逆罪與破法罪相似耶？」佛斷然否定。本章闡明二罪「相去懸遠」的根本理由：五逆但壞肉身（出佛身血、殺阿羅漢、破和合僧），破法則壞法身（毀般若波羅蜜母）；菩薩於無邊劫中以頭目髓腦施眾生，其恩超越父母愛百千萬倍。論主並描繪「衰濁黑性」之相——破法者雖身口業善，諸法不增、邪見疑悔常擾亂心，是故菩薩「不欲聽聞其名字，何況眼見」。</p></div>
+<h2 id=&quot;ch6-s1&quot;>第一節　舍利弗以聲聞之見發問</h2>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;><b>問</b>　舍利弗何以言「五逆罪與破法罪相似」？</div>
+<div class=&quot;a&quot;><b>答</b>　舍利弗是<b>聲聞人</b>，常聞五逆罪最重，<b>墮阿鼻地獄，一劫受苦</b>。聲聞人不悉知<b>供養般若得大果報</b>，又不知<b>謗毀般若得大罪</b>，故舉五逆，對問相似不？</div>
+</div>
+<div class=&quot;commentary&quot;>
+<h5>聲聞與大乘對「重罪」的不同認定</h5>
+<p>聲聞法中，「五逆」（殺父、殺母、殺阿羅漢、出佛身血、破和合僧）是最重之罪，墮阿鼻地獄一劫受苦。舍利弗以此為標準，故問破法是否「相似」。佛之答揭示：在大乘判教中，<b>謗毀般若的罪報遠超五逆</b>——這不是數量的擴張，而是質的差別。</p>
+</div>
+<h2 id=&quot;ch6-s2&quot;>第二節　破法者自他俱失的六重對照</h2>
+<p>答言不相似者，以<b>相去懸遠</b>故。所以者何？此人毀謗般若者——</p>
+<div class=&quot;checklist&quot;>
+<li>自失大利，亦令他失</li>
+<li>自遠離般若，亦令他遠離</li>
+<li>自破壞善根，亦破他善根</li>
+<li>自塗邪見毒，亦塗他邪見毒</li>
+<li>自失其身，亦失他身</li>
+<li>自不知故、著法愛故破，亦令他破般若波羅蜜</li>
+</div>
+<div class=&quot;insight&quot;>
+<h5>「自他俱失」的傳染性</h5>
+<p>這六重對照的每一條都是「自損 + 他損」的雙重結構——這正是破法之罪「比五逆懸遠」的關鍵。五逆是<b>個人的罪業</b>（殺一父母即一父母）；破法是<b>傳染的罪業</b>（一念之毀謗，輾轉感染聽者、讀者、後世學人）。罪業如野火，其延燒範圍不可限量。</p>
+</div>
+<h2 id=&quot;ch6-s3&quot;>第三節　般若菩薩之恩超越父母愛</h2>
+<p>如父母愛子，<b>恩極一世，又以因緣故愛</b>；是行般若波羅蜜菩薩，<b>於無邊世中，深心愛念眾生</b>。</p>
+<p>父母念子，<b>無能以一眼與者</b>；行般若波羅蜜者，<b>於無邊劫中，以頭、目、髓、腦，積過須彌，以施眾生</b>。</p>
+<div class=&quot;two-col&quot;>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>父母愛 · 世間之愛</div>
+<div class=&quot;col-content&quot;>
+<p>恩極一世（一生而已）</p>
+<p>以因緣故愛（必有此「子」之因緣方愛）</p>
+<p>不能以一眼與子（捨身只是極限案例，且不能複製）</p>
+</div>
+</div>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>般若菩薩 · 出世之愛</div>
+<div class=&quot;col-content&quot;>
+<p>於無邊世中愛念（盡未來際）</p>
+<p>普遍愛念一切眾生（不待因緣）</p>
+<p>於無邊劫以頭目髓腦施眾生，積累過須彌</p>
+</div>
+</div>
+</div>
+<div class=&quot;metaphor&quot;>
+<h5>「積過須彌」之喻</h5>
+<p>須彌山是世間最高之山。將菩薩於無邊劫中所捨之頭目髓腦堆積起來，<b>高度超過須彌</b>——這不是文學誇張，而是顯示「菩薩本願」的時間規模。毀謗如此一位菩薩所演說的般若，其罪當然超越「謗毀普通有恩者」的層級。</p>
+</div>
+<h2 id=&quot;ch6-s4&quot;>第四節　肉身與法身 · 五逆破法的根本判別</h2>
+<p><b>出佛身血、殺阿羅漢，但壞肉身，不壞法身。壞僧是離眷屬，讚五法，不壞般若。</b>是故五逆罪不得似壞般若波羅蜜。<b>般若波羅蜜能令人作佛，毀般若罪則無喻。</b></p>
+<div class=&quot;four-grid&quot;>
+<div class=&quot;cell&quot;>
+<h5>出佛身血</h5>
+<p>但壞肉身（佛身仍即時自癒）</p>
+</div>
+<div class=&quot;cell&quot;>
+<h5>殺阿羅漢</h5>
+<p>但壞肉身（阿羅漢已涅槃）</p>
+</div>
+<div class=&quot;cell&quot;>
+<h5>破和合僧</h5>
+<p>離眷屬而已，讚說五法，<b>不壞般若</b></p>
+</div>
+<div class=&quot;cell&quot;>
+<h5>毀般若</h5>
+<p style=&quot;color:var(--accent-red);&quot;><b>壞法身 · 斷生佛之種 · 罪則無喻</b></p>
+</div>
+</div>
+<h2 id=&quot;ch6-s5&quot;>第五節　不聽聞其名 · 不親附 · 不受教訓</h2>
+<p>是故破般若人，<b>我不欲聽聞其名字，何況眼見</b>！是破般若人，或先世福德因緣，<b>廣學多聞、富貴威德、巧於談語、諸魔官屬常隨逐佐助故</b>，未得阿鞞跋致菩薩見其多人供養，多有出家、在家弟子；是故若有說其名者，不聽聞之，何況親附禮拜、受其教訓！</p>
+<p>所以者何？菩薩欲增長善法，利益眾生；是人欲破法，令眾生墮大衰濁——<b>二事相違故</b>。</p>
+<div class=&quot;note&quot;>
+<p>此段尤其切要：破法者外貌往往光鮮（多聞、富貴、能言、信眾雲集），但其本質與菩薩所行「相違」。論主提醒未得阿鞞跋致（不退轉）的菩薩，不要被外相迷惑——「聽聞其名字尚不可，何況親附受教」。</p>
+</div>
+<h2 id=&quot;ch6-s6&quot;>第六節　衰濁黑性 · 破法人之相</h2>
+<p>「<b>衰濁</b>」者，如人著衰，雖好衣美食，常無色力；雖勤身作務，財產日耗。是人壞一切佛上法寶故，<b>雖身口業善，持戒、布施、讚經，善法終不增長</b>；如濁水泥，<b>不見面像，亦不中飲</b>。</p>
+<p>是人不中親近，若親近者，則喜染著。是人破法故，<b>邪見疑悔常擾亂心</b>。先所聞法，深染愛著，不解般若波羅蜜相，故言：「般若波羅蜜無所有、空、不堅固，無有罪福。」如是濁亂蔽其心故，不能得見<b>清淨實法相</b>。</p>
+<p>「<b>黑性</b>」者，<b>佛法中善法名白，不善法名黑</b>。是人常積集不善法，故成不善性。<b>若有信受其語，其罪亦同。</b></p>
+<div class=&quot;two-col&quot;>
+<div class=&quot;col-card&quot; style=&quot;border-left:4px solid #8B2500;&quot;>
+<div class=&quot;col-title&quot;>衰濁之相</div>
+<div class=&quot;col-content&quot;>
+<p>外表：好衣美食 · 勤勞作務</p>
+<p>實質：常無色力 · 財產日耗</p>
+<p>對般若：說「般若無所有、空、無罪福」</p>
+<p>譬喻：如濁水泥 · 不見面像 · 不中飲</p>
+</div>
+</div>
+<div class=&quot;col-card&quot; style=&quot;border-left:4px solid #8B2500;&quot;>
+<div class=&quot;col-title&quot;>黑性之相</div>
+<div class=&quot;col-content&quot;>
+<p>佛法以善為白，以不善為黑</p>
+<p>常積不善，成不善性</p>
+<p>邪見疑悔擾亂其心</p>
+<p>信受其語者，罪亦同等</p>
+</div>
+</div>
+</div>
+<div class=&quot;bridge bridge-outro&quot;><div class=&quot;bridge-label&quot;>承先啟後</div><p>本章已闡明本主題之要旨。<b>下一章「第七章 · 受身大小不答之悲與白淨明誡」</b>將承本章之餘脈，舍利弗復問破法者所受身體之大小，佛卻不答。論主解明佛不答的兩重悲心：一者護不信者（聞極醜身或不信而後世受重罪）、二者護信者（聞之則大愁憂、吐熱血、近死苦）。然舍利弗為未來世請說，佛遂示「白淨善男女聞此法足作依止」之結語——本品收束於「黑性／白性」對舉，回扣前章「衰濁黑性」之相，亦為下一品（覺魔事品第四十二）關於菩薩識魔的論述開出伏筆。</p></div><a class=&quot;next-link&quot; href=&quot;#chapter-7&quot; style=&quot;display:inline-block;margin-top:10px;color:var(--gold);text-decoration:none;font-weight:600;letter-spacing:1.5px;font-family:'Noto Sans TC',sans-serif;font-size:17px;&quot;>前往下一章 →</a></div></section><section class=&quot;chapter&quot; id=&quot;chapter-7&quot;><div class=&quot;ch-head&quot;><div class=&quot;ch-num&quot;>卷六十二 · 信謗品第四十一 · 第七章</div><div class=&quot;ch-name&quot;>受身大小不答之悲與白淨明誡</div><div class=&quot;ch-sub&quot;>佛不答的兩重慈悲　舍利弗為未來世請說　白淨善男女作依止</div></div><div class=&quot;ch-body&quot;><div class=&quot;bridge bridge-intro&quot;><div class=&quot;bridge-label&quot;>本章要旨</div><p>舍利弗復問破法者所受身體之大小，佛卻不答。論主解明佛不答的兩重悲心：一者護不信者（聞極醜身或不信而後世受重罪）、二者護信者（聞之則大愁憂、吐熱血、近死苦）。然舍利弗為未來世請說，佛遂示「白淨善男女聞此法足作依止」之結語——本品收束於「黑性／白性」對舉，回扣前章「衰濁黑性」之相，亦為下一品（覺魔事品第四十二）關於菩薩識魔的論述開出伏筆。</p></div>
+<h2 id=&quot;ch7-s1&quot;>第一節　舍利弗的好奇 · 為何要問身體大小？</h2>
+<div class=&quot;qa&quot;>
+<div class=&quot;q&quot;><b>問</b>　舍利弗何以問是人受身大小，而佛不答？</div>
+<div class=&quot;a&quot;><b>答</b>　舍利弗既聞受罪時節及處所，不聞其身大小，意欲聞佛說其大身。又如<b>帝釋身長十里，受樂遍滿</b>；故欲知<b>受罪身大，受苦亦多</b>。</div>
+</div>
+<div class=&quot;commentary&quot;>
+<h5>「身大則苦多」的世間量度</h5>
+<p>舍利弗以世間「天人之身」為類比——帝釋身長十里，故所受之樂遍滿其身；同理推之，破法者之身若大，則苦受之容量亦大。這是聲聞智者「以身為苦器」的邏輯——身體是苦樂的承載器，器大則容量大。</p>
+</div>
+<h2 id=&quot;ch7-s2&quot;>第二節　佛不答的兩重悲心</h2>
+<p>有<b>二因緣</b>故，佛不為說：</p>
+<div class=&quot;two-col&quot;>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>第一因 · 護「不信者」</div>
+<div class=&quot;col-content&quot;>
+<p>上已說「其在二惡道中，久受苦惱」；今復說「其身大醜惡」，<b>人或不信</b>，不信者當受久劇之苦故。</p>
+<p style=&quot;margin-top:8px;color:var(--text-muted);&quot;><small>──若於現有不信基礎上再加一條更難置信的描述，會令不信者愈加堅固，後世受報更重。</small></p>
+</div>
+</div>
+<div class=&quot;col-card&quot;>
+<div class=&quot;col-title&quot;>第二因 · 護「信者」</div>
+<div class=&quot;col-content&quot;>
+<p>若<b>信佛語，則大憂怖</b>，憂怖故風發，吐熱血死；「若死等」者，設令不死，<b>身常乾枯</b>。</p>
+<p style=&quot;margin-top:8px;color:var(--text-muted);&quot;><small>──若聞身大苦劇之相，信而生極度恐懼者，反而身心立即受損。</small></p>
+</div>
+</div>
+</div>
+<div class=&quot;insight&quot;>
+<h5>「不答之答」的中道智慧</h5>
+<p>佛不答非吝於開示，乃<b>雙重觀機</b>——對不信者，多說無益反加其罪；對信者，過說反害其身。「不說」即是「最善說」。此即佛對「十四無記」「捨置記」的精神在此特殊場合的應用。</p>
+</div>
+<h2 id=&quot;ch7-s3&quot;>第三節　舍利弗為未來世請說</h2>
+<p>舍利弗白佛：「今雖以二因緣故不說，<b>願憐愍未來世人故說</b>。」</p>
+<div class=&quot;note&quot;>
+<p>舍利弗承認佛之兩重悲心皆是針對「現前聽眾」而設；但他更為「未來世人」（不在現場、未受當下情緒衝擊）發起請求。佛因此重新開出一條中道——既不直接描繪身體大小，而以「業報長劫足為明誡」回應。</p>
+</div>
+<h2 id=&quot;ch7-s4&quot;>第四節　白淨明誡 · 黑性與白性的最後對照</h2>
+<p>佛言：「若有<b>善根白性福德人</b>，足作依止。」<b>白性者，與黑性相違</b>。<b>依止者，聞是受苦，更不敢作。</b>若不信，雖說身大亦不信；若信，聞上受苦久遠足可信。</p>
+<div class=&quot;two-col&quot;>
+<div class=&quot;col-card&quot; style=&quot;border-left:4px solid #b8860b;background:linear-gradient(135deg,#fffdf5,#f5ecd8);&quot;>
+<div class=&quot;col-title&quot; style=&quot;color:#8b5e3c;&quot;>白淨善男女 · 白性</div>
+<div class=&quot;col-content&quot;>
+<p>具善根白性福德</p>
+<p>聞此法足作依止</p>
+<p>寧失身命，終不破法</p>
+<p>自念：「我若破法，當受如是苦！」</p>
+</div>
+</div>
+<div class=&quot;col-card&quot; style=&quot;border-left:4px solid #2c2416;background:#f5ede0;&quot;>
+<div class=&quot;col-title&quot; style=&quot;color:#5a4e3a;&quot;>破法人 · 黑性</div>
+<div class=&quot;col-content&quot;>
+<p>常積不善法，成不善性</p>
+<p>邪見疑悔擾亂其心</p>
+<p>信受其語者，罪亦同等</p>
+<p>聞身大苦劇之相，仍不能信</p>
+</div>
+</div>
+</div>
+<div class=&quot;commentary&quot;>
+<h5>「白性」總結 · 全品收束</h5>
+<p>整品從<b>「能信解般若者之四勝因」</b>（第二章）起頭，經<b>「般若不可見聞」</b>（第三章）、<b>「二相方便」</b>（第四章）、<b>「破法重罪」</b>（第五章）、<b>「五逆破法之別」</b>（第六章），收於<b>「白淨依止」</b>（本章）。
+<br/><br/>這條軌跡呈現了一個完整的迴向結構：<b>能信解者是「白性」之果，毀謗者是「黑性」之果，二者皆由「初心是否信受般若」決定</b>。是故品末以舍利弗自誓「寧失身命終不破法」作結——這不是消極的恐懼，而是積極的「白性立志」。</p>
+</div>
+<h2 id=&quot;ch7-s5&quot;>第五節　承先啟後 · 接覺魔事品第四十二</h2>
+<p>本品已詳論「般若信解之希有」與「般若毀謗之罪重」二事；下一品<b>覺魔事品第四十二</b>將承本品之餘脈，說明菩薩於行般若途中所遇之「魔事」——魔正是利用菩薩的微細執著、煩惱習氣，誘使其於不知不覺中起毀謗、生疑悔、退失般若。</p>
+<p>本品「黑性／白性」的對照，正是覺魔事的根本判準：<b>能識魔者，必先具「白性依止」之心；不能識魔者，多為「黑性疑悔」所引</b>。是故信謗品為魔事品之前行，魔事品為信謗品之深化。</p>
+</div></section><script>
+(function(){
+  var blk=function(e){e.preventDefault();return false;};
+  ['contextmenu','copy','cut','selectstart','dragstart','mousedown'].forEach(function(ev){
+    document.addEventListener(ev,function(e){
+      if(ev==='mousedown' &amp;&amp; e.button!==2) return;
+      blk(e);
+    },true);
+  });
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(e.ctrlKey&amp;&amp;(k==='c'||k==='C'||k==='a'||k==='A'||k==='s'||k==='S'||k==='p'||k==='P'||k==='u'||k==='U'||k==='x'||k==='X')){blk(e);}
+    if(k==='F12')blk(e);
+    if(e.ctrlKey&amp;&amp;e.shiftKey&amp;&amp;(k==='I'||k==='J'||k==='C'||k==='K')){blk(e);}
+  },true);
+  setInterval(function(){
+    if(window.getSelection) try{window.getSelection().removeAllRanges();}catch(e){}
+  },300);
+})();
+</script><script>
+(function(){
+  if(!window.frameElement) return;
+  document.addEventListener('click',function(e){
+    var a=e.target;
+    while(a&amp;&amp;a.tagName!=='A') a=a.parentElement;
+    if(!a) return;
+    var h=a.getAttribute('href');
+    if(!h||h.charAt(0)!=='#') return;
+    e.preventDefault();
+    e.stopPropagation();
+    var id=h.substring(1);
+    var el=document.getElementById(id);
+    if(!el) return;
+    try{
+      var rect=el.getBoundingClientRect();
+      var fr=window.frameElement;
+      var frRect=fr.getBoundingClientRect();
+      var targetY=window.parent.scrollY+frRect.top+rect.top-60;
+      window.parent.scrollTo({top:targetY,behavior:'smooth'});
+    }catch(ex){}
+  },true);
+})();
+</script></body></html>"></iframe>
+    <div class="bridge bridge-outro">
+      <div class="bridge-label">承先啟後</div>
+      <p>信謗品為卷六十二的總結篇章。從讚頌（第一品）→ 名稱（第二品）→ 信受與毀謗（第三品）的三段次第，為般若教義在世間流通中可能遭遇的種種境遇，提供了完整的論證與警示。卷六十二至此，般若的莊嚴、所以名大、信謗果報三大面向皆已開示完備，為下一卷接續闡發般若波羅蜜在菩薩道修行中的具體運用奠定了理論基礎。</p>
+    </div>
+    
+  </div>
+</section>
+
+
+  <footer class="site-footer">
+    <p>本頁為《大智度論》卷六十二讀本彙整 · 內容依鳩摩羅什譯本與龍樹菩薩造論為據</p>
+    <p>大智度論 · Mahāprajñāpāramitā Śāstra</p>
+  
+<!-- ==== 作者聲明區塊 · 頁尾（迴向偈版）==== -->
+<div data-wy-notice="v2" style="margin:0;padding:26px 20px;background:#1e1a14;
+  border-top:2px solid #b8860b;text-align:center;
+  font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;
+  font-size:13px;line-height:1.9;color:#c4a76c;letter-spacing:1px;">
+  <div style="max-width:760px;margin:0 auto;">
+    本文為個人研讀彙整，歡迎轉發結緣；轉發請保留連結與作者頻道
+    <a href="https://www.youtube.com/@Chengweiwen/posts" target="_blank" rel="noopener"
+       style="color:#d4a84b;text-decoration:none;border-bottom:1px dotted #b8860b;margin:0 4px;">
+      https://www.youtube.com/@Chengweiwen/posts</a>。<br>
+    願以此功德，普及於一切；<br>我等與眾生，皆共成佛道。
+  </div>
+</div>
+</footer>
+</main>
+<button id="backTop" aria-label="回到頂部">↑</button>
+<script>
+
+/* ===== 進度條 ===== */
+var rpFill=document.getElementById('rpFill'),rpPct=document.getElementById('rpPct');
+function updateProgress(){
+  var sh=document.documentElement.scrollHeight-window.innerHeight;
+  var pct=sh>0?Math.min(100,Math.max(0,window.scrollY/sh*100)):0;
+  if(rpFill)rpFill.style.width=pct+'%';
+  if(rpPct)rpPct.textContent=Math.round(pct)+'%';
+}
+window.addEventListener('scroll',updateProgress,{passive:true});
+updateProgress();
+
+/* ===== sticky brand ===== */
+var sbBrand=document.getElementById('sbBrand');
+if(sbBrand){
+  sbBrand.addEventListener('click',function(e){
+    e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});
+  });
+}
+
+/* ===== 側欄漢堡 ===== */
+var sbToggle=document.getElementById('sbToggle'),sb=document.getElementById('sb');
+if(sbToggle){
+  sbToggle.addEventListener('click',function(){sb.classList.toggle('open');});
+}
+
+/* ===== 回頂按鈕 ===== */
+var backTop=document.getElementById('backTop');
+window.addEventListener('scroll',function(){
+  if(!backTop) return;
+  if(window.scrollY>600) backTop.classList.add('visible');
+  else backTop.classList.remove('visible');
+});
+if(backTop){
+  backTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+}
+
+/* ===== 側欄高亮 ===== */
+function updateActive(){
+  var chs=document.querySelectorAll('.chapter');
+  var top=window.innerHeight*0.35;
+  var idx=-1;
+  for(var i=0;i<chs.length;i++){
+    var r=chs[i].getBoundingClientRect();
+    if(r.top<top) idx=i;
+  }
+  document.querySelectorAll('.sb-item').forEach(function(el,i){
+    if(i===idx) el.classList.add('active'); else el.classList.remove('active');
+  });
+}
+window.addEventListener('scroll',updateActive,{passive:true});
+updateActive();
+
+/* ===== iframe 自動高度（2026/04 晚期版本，治本長空白）===== */
+function resizeFrame(f){
+  try{
+    var d=f.contentDocument||f.contentWindow.document;
+    if(!d||!d.body) return;
+    d.body.style.minHeight='0';
+    d.body.style.height='auto';
+    if(d.documentElement){
+      d.documentElement.style.minHeight='0';
+      d.documentElement.style.height='auto';
+    }
+    var h=d.body.scrollHeight;
+    if(h>100){
+      f.style.height=h+'px';
+      f.style.minHeight='0';
+    }
+  }catch(e){}
+}
+function resizeAllFrames(){
+  document.querySelectorAll('iframe.ch-frame').forEach(resizeFrame);
+  if(typeof updateProgress==='function') updateProgress();
+}
+function setupFrame(f){
+  var tries=0;
+  function tick(){tries++;resizeFrame(f);if(tries<30) setTimeout(tick,200);}
+  if(f.contentDocument && f.contentDocument.readyState==='complete') tick();
+  else f.addEventListener('load',tick);
+}
+document.querySelectorAll('iframe.ch-frame').forEach(setupFrame);
+var rzT;
+window.addEventListener('resize',function(){clearTimeout(rzT);rzT=setTimeout(resizeAllFrames,200);});
+
+/* ===== 錨點點擊防錯跳 ===== */
+document.addEventListener('click',function(e){
+  var a=e.target;while(a&&a.tagName!=='A') a=a.parentElement;
+  if(!a) return;
+  var h=a.getAttribute('href');
+  if(!h||h.charAt(0)!=='#'||h.length<2) return;
+  var id=h.substring(1);
+  var el=document.getElementById(id);
+  if(!el) return;
+  e.preventDefault();
+  resizeAllFrames();
+  setTimeout(function(){
+    resizeAllFrames();
+    var rect=el.getBoundingClientRect();
+    var y=window.scrollY+rect.top-20;
+    window.scrollTo({top:y,behavior:'smooth'});
+  },60);
+},true);
+
+/* 持續輪詢 15 秒讓字型 / 圖片 reflow 後尺寸定稿 */
+var _rt=0,_riv=setInterval(function(){_rt++;resizeAllFrames();if(_rt>50) clearInterval(_riv);},300);
+
+/* ===== 防複製（外層）===== */
+(function(){
+  var blk=function(e){e.preventDefault();return false;};
+  ['contextmenu','copy','cut','selectstart','dragstart','mousedown'].forEach(function(ev){
+    document.addEventListener(ev,function(e){
+      if(ev==='mousedown' && e.button!==2) return;
+      blk(e);
+    },true);
+  });
+  document.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(e.ctrlKey&&(k==='c'||k==='C'||k==='a'||k==='A'||k==='s'||k==='S'||k==='p'||k==='P'||k==='u'||k==='U'||k==='x'||k==='X')){blk(e);}
+    if(k==='F12')blk(e);
+    if(e.ctrlKey&&e.shiftKey&&(k==='I'||k==='J'||k==='C'||k==='K')){blk(e);}
+  },true);
+})();
+</script>
+</body>
+</html>
